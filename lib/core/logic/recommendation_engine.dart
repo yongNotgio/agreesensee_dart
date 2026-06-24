@@ -1,3 +1,4 @@
+import '../../data/market_dataset.dart';
 import '../../models/crop_declaration.dart';
 import '../../models/enums.dart';
 import '../../models/farm.dart';
@@ -74,22 +75,36 @@ class RecommendationEngine {
     required List<CropDeclaration> allDeclarations,
     Season? season,
     Map<String, double>? demandOverrides,
+    Map<String, CropCalibration>? calibration,
   }) {
     final activeSeason = season ?? Season.forMonth(DateTime.now().month);
 
-    // Normalize profitability across the catalog so the score is comparable.
-    final netPerHaByCrop = <String, double>{};
-    for (final c in CropCatalog.crops) {
-      final revenue = c.baselineYieldPerHa * c.baselinePricePerKg;
-      netPerHaByCrop[c.id] = revenue - assumedCostPerHa;
+    // Net income per hectare, preferring the data-calibrated value (price,
+    // yield, and cost-of-production from the datasets) and falling back to the
+    // bundled catalog baseline. Normalized so the profit score is comparable.
+    double netPerHaFor(CropProfile crop) {
+      final cal = calibration?[crop.id];
+      if (cal != null) return cal.projectedNetPerHa;
+      final revenue = crop.baselineYieldPerHa * crop.baselinePricePerKg;
+      return revenue - assumedCostPerHa;
     }
+
+    final netPerHaByCrop = {
+      for (final c in CropCatalog.crops) c.id: netPerHaFor(c)
+    };
     final maxNet = netPerHaByCrop.values
         .fold<double>(1, (m, v) => v > m ? v : m)
         .clamp(1, double.infinity);
 
     final recs = CropCatalog.crops.map((crop) {
-      final suitability = crop.landSuitabilityScore;
-      final seasonScore = crop.suitsSeason(activeSeason) ? 1.0 : 0.35;
+      final cal = calibration?[crop.id];
+      // Land suitability: soil-specific from the dataset when the farm's soil is
+      // known, else the generic mean, else the catalog default.
+      final suitability =
+          cal?.suitabilityForSoil(farm?.soilType) ?? crop.landSuitabilityScore;
+      final suitsSeason =
+          cal != null ? cal.suitsSeason(activeSeason) : crop.suitsSeason(activeSeason);
+      final seasonScore = suitsSeason ? 1.0 : 0.35;
 
       final saturation = SaturationEngine.forCrop(
         cropId: crop.id,

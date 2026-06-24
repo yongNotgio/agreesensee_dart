@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'app.dart';
 import 'core/cache/local_cache.dart';
 import 'core/config/app_config.dart';
+import 'data/dataset_loader.dart';
 import 'providers/core_providers.dart';
 import 'repositories/demo_seed.dart';
 
@@ -18,6 +19,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final prefs = await SharedPreferences.getInstance();
+
+  // Load and calibrate the market datasets (Objectives 1 & 2). Falls back to
+  // bundled catalog baselines if the assets cannot be read.
+  final marketDataset = await DatasetLoader.load();
 
   if (AppConfig.isDemoMode) {
     // No backend configured → seed the on-device store so every portal is
@@ -35,6 +40,7 @@ Future<void> main() async {
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
+        marketDatasetProvider.overrideWithValue(marketDataset),
       ],
       child: const AgriSenseApp(),
     ),

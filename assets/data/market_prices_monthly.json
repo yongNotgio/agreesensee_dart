@@ -1,0 +1,1730 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 41.28
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 37.92
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 35.8
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 35.88
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 41.49
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 43.12
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 47.16
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 51.45
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 50.58
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 46.93
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 41.77
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 43.99
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 43.63
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 39.7
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 37.94
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 39.46
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 42.26
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 46.11
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 49.93
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 52.06
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 51.47
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 47.73
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 44.41
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 45.49
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 45.14
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 40.44
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 37.93
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 38.92
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 43.76
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 48.6
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 53.36
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 54.72
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 53.32
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 50.6
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 46.21
+  },
+  {
+    "crop_id": "ampalaya",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 46.33
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 37.73
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 35.2
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 33.05
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 33.55
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 37.82
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 40.88
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 43.54
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 44.4
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 43.73
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 40.62
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 38.92
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 39.06
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 40.08
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 35.98
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 35.09
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 36.08
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 39.09
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 41.89
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 43.6
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 46.02
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 46.88
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 42.33
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 40.24
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 41.41
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 41.85
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 37.13
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 34.7
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 36.38
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 40.64
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 42.09
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 47.62
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 48.82
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 47.23
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 45.17
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 42.11
+  },
+  {
+    "crop_id": "eggplant",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 42.51
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 34.04
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 32.1
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 31.14
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 31.12
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 34.83
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 35.84
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 38.93
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 41.67
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 41.38
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 38.67
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 36.29
+  },
+  {
+    "crop_id": "okra",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 37.14
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 36.92
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 33.98
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 32.13
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 33.31
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 34.97
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 38.3
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 41.37
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 43.52
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 42.85
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 39.67
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 37.09
+  },
+  {
+    "crop_id": "okra",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 38.31
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 37.03
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 34.97
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 33.37
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 34.22
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 37.55
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 38.97
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 42.42
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 45.58
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 44.93
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 40.48
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 39.14
+  },
+  {
+    "crop_id": "okra",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 39.84
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 50.99
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 44.0
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 41.84
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 42.91
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 48.86
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 51.1
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 58.7
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 58.25
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 60.37
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 55.24
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 49.68
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 51.58
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 52.21
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 47.22
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 44.9
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 46.63
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 50.44
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 55.03
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 61.49
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 63.42
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 61.57
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 55.98
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 54.21
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 53.81
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 53.79
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 49.28
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 47.27
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 47.77
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 53.0
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 55.02
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 63.06
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 63.27
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 63.34
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 60.23
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 55.35
+  },
+  {
+    "crop_id": "string_beans",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 55.89
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 32.48
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 27.83
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 25.34
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 25.47
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 31.9
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 34.42
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 38.66
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 42.31
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 40.94
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 36.24
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 33.46
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 33.48
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 34.04
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 27.71
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 25.58
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 26.8
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 32.92
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 34.74
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 40.73
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 43.12
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 41.84
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 39.06
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 34.08
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 36.53
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 33.57
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 29.63
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 25.99
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 28.81
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 34.4
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 37.81
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 43.27
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 43.69
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 43.97
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 38.59
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 34.99
+  },
+  {
+    "crop_id": "tomato",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 37.2
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 22.15
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 20.35
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 20.62
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 20.72
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 22.29
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 22.58
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 23.59
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 25.04
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 24.25
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 22.72
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 22.08
+  },
+  {
+    "crop_id": "corn",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 22.76
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 22.55
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 21.23
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 20.87
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 21.44
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 21.97
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 24.05
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 24.24
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 26.28
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 25.66
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 23.53
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 22.63
+  },
+  {
+    "crop_id": "corn",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 23.72
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 24.47
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 22.63
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 21.25
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 21.67
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 22.81
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 24.24
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 26.51
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 26.29
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 25.55
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 25.33
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 23.83
+  },
+  {
+    "crop_id": "corn",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 24.87
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 23.66
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 22.2
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 21.95
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 22.47
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 24.09
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 24.34
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 26.49
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 27.21
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 27.43
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 25.09
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 24.28
+  },
+  {
+    "crop_id": "squash",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 25.02
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 25.68
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 22.84
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 22.61
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 23.48
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 24.77
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 26.4
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 28.06
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 28.77
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 28.15
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 27.1
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 25.04
+  },
+  {
+    "crop_id": "squash",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 25.75
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 25.75
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 23.72
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 22.61
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 23.7
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 26.02
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 26.68
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 29.13
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 28.89
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 28.93
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 27.06
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 26.65
+  },
+  {
+    "crop_id": "squash",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 26.9
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 1,
+    "price_per_kg": 29.8
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 2,
+    "price_per_kg": 26.16
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 3,
+    "price_per_kg": 24.99
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 4,
+    "price_per_kg": 25.93
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 5,
+    "price_per_kg": 28.57
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 6,
+    "price_per_kg": 31.75
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 7,
+    "price_per_kg": 35.92
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 8,
+    "price_per_kg": 37.33
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 9,
+    "price_per_kg": 36.21
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 10,
+    "price_per_kg": 33.96
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 11,
+    "price_per_kg": 30.36
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2023,
+    "month": 12,
+    "price_per_kg": 31.59
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 1,
+    "price_per_kg": 30.57
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 2,
+    "price_per_kg": 27.18
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 3,
+    "price_per_kg": 25.62
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 4,
+    "price_per_kg": 27.21
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 5,
+    "price_per_kg": 30.64
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 6,
+    "price_per_kg": 32.13
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 7,
+    "price_per_kg": 37.06
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 8,
+    "price_per_kg": 37.93
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 9,
+    "price_per_kg": 37.25
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 10,
+    "price_per_kg": 34.72
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 11,
+    "price_per_kg": 31.84
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2024,
+    "month": 12,
+    "price_per_kg": 32.66
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 1,
+    "price_per_kg": 32.35
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 2,
+    "price_per_kg": 28.26
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 3,
+    "price_per_kg": 25.89
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 4,
+    "price_per_kg": 28.17
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 5,
+    "price_per_kg": 31.43
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 6,
+    "price_per_kg": 35.1
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 7,
+    "price_per_kg": 37.21
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 8,
+    "price_per_kg": 40.83
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 9,
+    "price_per_kg": 38.38
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 10,
+    "price_per_kg": 35.22
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 11,
+    "price_per_kg": 33.95
+  },
+  {
+    "crop_id": "pechay",
+    "year": 2025,
+    "month": 12,
+    "price_per_kg": 35.08
+  }
+]

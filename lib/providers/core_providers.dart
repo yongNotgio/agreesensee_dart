@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../core/cache/local_cache.dart';
 import '../core/config/app_config.dart';
 import '../core/network/connectivity_service.dart';
+import '../data/market_dataset.dart';
 import '../repositories/auth_repository.dart';
 import '../repositories/entity_repositories.dart';
 
@@ -33,6 +34,22 @@ final supabaseClientProvider = Provider<SupabaseClient?>((ref) {
 
 /// True when the app is running without a configured Supabase backend.
 final isDemoModeProvider = Provider<bool>((ref) => AppConfig.isDemoMode);
+
+/// The calibrated market dataset (Objectives 1 & 2). Overridden in `main()`
+/// with the asset-loaded instance; defaults to catalog-derived fallback.
+final marketDatasetProvider = Provider<MarketDataset>(
+  (ref) => MarketDataset.fallback(),
+);
+
+/// Crop id → calibration, the parameter source for the decision engines.
+final calibrationProvider = Provider<Map<String, CropCalibration>>(
+  (ref) => ref.watch(marketDatasetProvider).calibrations,
+);
+
+/// Crop id → market demand (tons) used as the saturation denominator.
+final demandOverridesProvider = Provider<Map<String, double>>(
+  (ref) => ref.watch(marketDatasetProvider).demandOverrides,
+);
 
 final connectivityServiceProvider =
     Provider<ConnectivityService>((ref) => ConnectivityService());

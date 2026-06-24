@@ -1,0 +1,144 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "name": "Ampalaya",
+    "category": "Vegetable",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 70,
+    "yield_mean_t_ha": 12.0,
+    "yield_min_t_ha": 9.0,
+    "yield_max_t_ha": 15.0,
+    "soil_suitability": {
+      "clay_loam": 0.86,
+      "loam": 0.82,
+      "sandy_loam": 0.7
+    }
+  },
+  {
+    "crop_id": "eggplant",
+    "name": "Eggplant",
+    "category": "Vegetable",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 80,
+    "yield_mean_t_ha": 18.0,
+    "yield_min_t_ha": 14.0,
+    "yield_max_t_ha": 22.0,
+    "soil_suitability": {
+      "clay_loam": 0.88,
+      "loam": 0.9,
+      "sandy_loam": 0.78
+    }
+  },
+  {
+    "crop_id": "okra",
+    "name": "Okra",
+    "category": "Vegetable",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 55,
+    "yield_mean_t_ha": 9.0,
+    "yield_min_t_ha": 7.0,
+    "yield_max_t_ha": 11.0,
+    "soil_suitability": {
+      "clay_loam": 0.82,
+      "loam": 0.84,
+      "sandy_loam": 0.8
+    }
+  },
+  {
+    "crop_id": "string_beans",
+    "name": "String Beans",
+    "category": "Legume",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 60,
+    "yield_mean_t_ha": 8.0,
+    "yield_min_t_ha": 6.0,
+    "yield_max_t_ha": 10.0,
+    "soil_suitability": {
+      "clay_loam": 0.84,
+      "loam": 0.86,
+      "sandy_loam": 0.82
+    }
+  },
+  {
+    "crop_id": "tomato",
+    "name": "Tomato",
+    "category": "Vegetable",
+    "seasons": [
+      "dry"
+    ],
+    "growth_duration_days": 75,
+    "yield_mean_t_ha": 20.0,
+    "yield_min_t_ha": 15.0,
+    "yield_max_t_ha": 26.0,
+    "soil_suitability": {
+      "clay_loam": 0.76,
+      "loam": 0.82,
+      "sandy_loam": 0.74
+    }
+  },
+  {
+    "crop_id": "corn",
+    "name": "Sweet Corn",
+    "category": "Cereal",
+    "seasons": [
+      "wet"
+    ],
+    "growth_duration_days": 90,
+    "yield_mean_t_ha": 6.0,
+    "yield_min_t_ha": 4.5,
+    "yield_max_t_ha": 7.5,
+    "soil_suitability": {
+      "clay_loam": 0.8,
+      "loam": 0.82,
+      "sandy_loam": 0.78
+    }
+  },
+  {
+    "crop_id": "squash",
+    "name": "Squash",
+    "category": "Vegetable",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 85,
+    "yield_mean_t_ha": 15.0,
+    "yield_min_t_ha": 12.0,
+    "yield_max_t_ha": 18.0,
+    "soil_suitability": {
+      "clay_loam": 0.83,
+      "loam": 0.84,
+      "sandy_loam": 0.8
+    }
+  },
+  {
+    "crop_id": "pechay",
+    "name": "Pechay",
+    "category": "Leafy Vegetable",
+    "seasons": [
+      "dry",
+      "wet"
+    ],
+    "growth_duration_days": 35,
+    "yield_mean_t_ha": 11.0,
+    "yield_min_t_ha": 9.0,
+    "yield_max_t_ha": 12.5,
+    "soil_suitability": {
+      "clay_loam": 0.8,
+      "loam": 0.82,
+      "sandy_loam": 0.78
+    }
+  }
+]

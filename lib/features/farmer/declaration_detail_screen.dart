@@ -12,11 +12,13 @@ import '../../core/widgets/common_widgets.dart';
 import '../../core/widgets/metric_tile.dart';
 import '../../core/widgets/section_card.dart';
 import '../../core/widgets/status_chip.dart';
+import '../../data/market_dataset.dart';
 import '../../models/crop_declaration.dart';
 import '../../models/enums.dart';
 import '../../models/expense.dart';
 import '../../models/production_report.dart';
 import '../../providers/app_actions.dart';
+import '../../providers/core_providers.dart';
 import '../../providers/data_providers.dart';
 import 'declaration_form_screen.dart';
 import 'expense_sheet.dart';
@@ -406,6 +408,10 @@ class _FinancialsTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final expensesAsync =
         ref.watch(expensesForDeclarationProvider(declaration.id));
+    // Dataset-calibrated parameters for this crop (cost-of-production and the
+    // price/yield scenario bands). Falls back to a flat estimate if absent.
+    final cal = ref.watch(calibrationProvider)[declaration.cropId];
+
     return AsyncValueView(
       value: expensesAsync,
       onRetry: () =>
@@ -416,19 +422,28 @@ class _FinancialsTab extends ConsumerWidget {
           projectedPricePerKg: declaration.effectivePricePerKg,
           areaHa: declaration.areaHa,
           expenses: expenses,
-          estimatedExpensesIfEmpty: declaration.areaHa * 45000,
+          estimatedExpensesIfEmpty:
+              (cal?.totalCostPerHa ?? 45000) * declaration.areaHa,
         );
         final scenarios = ScenarioEngine.build(
           expectedYieldKg: declaration.expectedYieldKg,
           projectedPricePerKg: declaration.effectivePricePerKg,
           areaHa: declaration.areaHa,
           totalExpenses: result.totalExpenses,
+          bestPriceUplift: cal?.bestPriceUplift ?? 0.15,
+          bestYieldUplift: cal?.bestYieldUplift ?? 0.10,
+          worstPriceDrop: cal?.worstPriceDrop ?? 0.20,
+          worstYieldDrop: cal?.worstYieldDrop ?? 0.15,
         );
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
             _ForecastCard(result: result, isActual: false),
             const SizedBox(height: 12),
+            if (cal != null) ...[
+              _PriceCalibrationCard(cal: cal),
+              const SizedBox(height: 12),
+            ],
             _BreakEvenCard(result: result),
             const SizedBox(height: 12),
             _ScenarioCard(scenarios: scenarios),
@@ -578,6 +593,44 @@ class _ScenarioCard extends StatelessWidget {
                 ],
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Surfaces the dataset-derived price parameters behind the forecast, making
+/// the calibration visible to the farmer (and the thesis panel).
+class _PriceCalibrationCard extends StatelessWidget {
+  const _PriceCalibrationCard({required this.cal});
+  final CropCalibration cal;
+
+  @override
+  Widget build(BuildContext context) {
+    final volatility = cal.priceCoefficientOfVariation * 100;
+    return SectionCard(
+      title: 'Price calibration',
+      subtitle: 'Derived from 36 months of market data',
+      icon: Icons.insights,
+      child: Column(
+        children: [
+          InfoRow(
+              label: 'Baseline price (12-mo avg)',
+              value: '${Fmt.peso(cal.baselinePricePerKg)}/kg',
+              emphasize: true),
+          InfoRow(
+              label: 'Observed range (P10–P90)',
+              value: '${Fmt.peso(cal.priceP10)} – ${Fmt.peso(cal.priceP90)}'),
+          InfoRow(
+              label: 'Price volatility',
+              value: Fmt.percentValue(volatility),
+              valueColor: volatility > 15 ? AppColors.warning : AppColors.success),
+          InfoRow(
+              label: 'Cost of production',
+              value: '${Fmt.peso(cal.totalCostPerHa)}/ha'),
+          InfoRow(
+              label: 'Calibrated demand',
+              value: Fmt.tons(cal.annualDemandTons)),
         ],
       ),
     );

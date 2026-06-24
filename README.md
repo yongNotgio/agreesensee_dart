@@ -41,7 +41,9 @@ Agriculture Office of **Tubungan, Iloilo**. This repository contains the
    → *Farmer ▸ Records tab.*
 
 A full objective-by-objective trace lives in
-[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), and the complete end-to-end
+system flow (every portal, screen, function, and cross-portal data flow) is in
+[`docs/SYSTEM_FLOW.md`](docs/SYSTEM_FLOW.md).
 
 ---
 
@@ -83,8 +85,27 @@ window — making the recommendation and supply-chain logic visible immediately.
 
 ### Option B — Live Supabase backend
 
-1. Create a Supabase project and run [`supabase/schema.sql`](supabase/schema.sql)
-   in the SQL editor (tables, enums, RLS, reference-crop seed).
+1. Create a Supabase project and, in the SQL editor, run **in order**:
+   - [`supabase/schema.sql`](supabase/schema.sql) — all-portal schema: tables,
+     enums, RLS for farmer/cooperative/MAO/technician/BAW, validation audit
+     table, reference-crop seed.
+   - [`supabase/seed.sql`](supabase/seed.sql) — populates the database so it's
+     not empty: **working login accounts for every role**, 50+ farmers, a
+     realistic Ampalaya oversupply cluster, expenses, logbook, a calamity
+     report, buy-back channels, 36 months of prices, and demand baselines.
+
+   Both are idempotent and were validated end-to-end against PostgreSQL.
+
+   **Seed login accounts** (password `AgriSense123!`):
+
+   | Email | Role | Portal |
+   |-------|------|--------|
+   | `farmer@agrisense.ph` | Farmer | Mobile |
+   | `coop@agrisense.ph` | Cooperative | Mobile |
+   | `mao@agrisense.ph` | MAO admin | Web |
+   | `baw@agrisense.ph` | Barangay Agri Worker | Web |
+   | `tech@agrisense.ph` | Agri Technician | Web |
+
 2. Launch with credentials injected at build time:
 
 ```bash
@@ -146,6 +167,43 @@ All business math is isolated in `lib/core/logic/` as pure functions:
 Because they are decoupled from Supabase and Flutter, they can be exercised in
 isolation and are the same functions the manuscript's "math/logic matrices"
 describe.
+
+---
+
+## Data modelling & calibration (Objectives 1 & 2)
+
+The engines are **rule-based**, so the datasets *calibrate* their parameters
+(they are not ML training weights). Factual-but-synthetic datasets, grounded in
+real Philippine vegetable economics, live in:
+
+- [`datasets/`](datasets/) — human-readable CSVs + a full
+  [data dictionary](datasets/README.md) (for the thesis appendix)
+- [`assets/data/`](assets/data/) — JSON the app loads at runtime
+- [`tool/generate_datasets.dart`](tool/generate_datasets.dart) — deterministic
+  generator (`dart run tool/generate_datasets.dart` reproduces them exactly)
+
+| Dataset | Calibrates |
+|---------|-----------|
+| `market_prices_monthly` (36 mo × 8 crops) | baseline price, P10/P90 → **scenario** bands, volatility |
+| `production_costs` (PHP/ha by category) | break-even, default expense estimate, profit signal |
+| `crop_agronomics` (yield range, soil/seasonal suitability) | yield bands, recommendation suitability |
+| `demand_baselines` (annual tons) | **Market Saturation Index** denominator |
+
+`lib/data/market_dataset.dart` parses these into a `CropCalibration` per crop
+(mean-of-12-months price, percentile-based scenario factors, cost roll-ups,
+demand), loaded at startup by `lib/data/dataset_loader.dart` and threaded into
+the engines via Riverpod. The Financials tab shows a **Price calibration** card
+exposing the derived figures. To use real MAO figures, edit the generator or
+overwrite the JSON — no code changes needed.
+
+---
+
+## Completing the thesis — the MAO web portal
+
+The mobile app is the two field portals; the admin/validation surface is a
+**web** portal. A complete, build-ready plan (shared backend, validation state
+machine, screens, deployment, milestones) is in
+[`docs/WEB_PORTAL_GUIDE.md`](docs/WEB_PORTAL_GUIDE.md).
 
 ---
 

@@ -1,0 +1,106 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "cost_per_ha_php": {
+      "seed": 3500.0,
+      "fertilizer": 22000.0,
+      "labor": 45000.0,
+      "irrigation": 8000.0,
+      "pesticide": 12000.0,
+      "transport": 9000.0,
+      "equipment": 18000.0
+    },
+    "total_cost_per_ha_php": 117500.0
+  },
+  {
+    "crop_id": "eggplant",
+    "cost_per_ha_php": {
+      "seed": 3000.0,
+      "fertilizer": 24000.0,
+      "labor": 42000.0,
+      "irrigation": 8000.0,
+      "pesticide": 13000.0,
+      "transport": 11000.0,
+      "equipment": 9000.0
+    },
+    "total_cost_per_ha_php": 110000.0
+  },
+  {
+    "crop_id": "okra",
+    "cost_per_ha_php": {
+      "seed": 2500.0,
+      "fertilizer": 16000.0,
+      "labor": 30000.0,
+      "irrigation": 6000.0,
+      "pesticide": 7000.0,
+      "transport": 7000.0,
+      "equipment": 4000.0
+    },
+    "total_cost_per_ha_php": 72500.0
+  },
+  {
+    "crop_id": "string_beans",
+    "cost_per_ha_php": {
+      "seed": 4000.0,
+      "fertilizer": 18000.0,
+      "labor": 34000.0,
+      "irrigation": 6000.0,
+      "pesticide": 8000.0,
+      "transport": 7000.0,
+      "equipment": 12000.0
+    },
+    "total_cost_per_ha_php": 89000.0
+  },
+  {
+    "crop_id": "tomato",
+    "cost_per_ha_php": {
+      "seed": 5000.0,
+      "fertilizer": 26000.0,
+      "labor": 40000.0,
+      "irrigation": 9000.0,
+      "pesticide": 15000.0,
+      "transport": 10000.0,
+      "equipment": 8000.0
+    },
+    "total_cost_per_ha_php": 113000.0
+  },
+  {
+    "crop_id": "corn",
+    "cost_per_ha_php": {
+      "seed": 6000.0,
+      "fertilizer": 18000.0,
+      "labor": 22000.0,
+      "irrigation": 5000.0,
+      "pesticide": 5000.0,
+      "transport": 8000.0,
+      "equipment": 3000.0
+    },
+    "total_cost_per_ha_php": 67000.0
+  },
+  {
+    "crop_id": "squash",
+    "cost_per_ha_php": {
+      "seed": 3500.0,
+      "fertilizer": 18000.0,
+      "labor": 28000.0,
+      "irrigation": 6000.0,
+      "pesticide": 8000.0,
+      "transport": 10000.0,
+      "equipment": 4000.0
+    },
+    "total_cost_per_ha_php": 77500.0
+  },
+  {
+    "crop_id": "pechay",
+    "cost_per_ha_php": {
+      "seed": 2000.0,
+      "fertilizer": 14000.0,
+      "labor": 24000.0,
+      "irrigation": 5000.0,
+      "pesticide": 5000.0,
+      "transport": 7000.0,
+      "equipment": 2000.0
+    },
+    "total_cost_per_ha_php": 59000.0
+  }
+]

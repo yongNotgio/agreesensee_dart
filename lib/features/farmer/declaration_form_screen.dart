@@ -11,6 +11,7 @@ import '../../models/crop_declaration.dart';
 import '../../models/enums.dart';
 import '../../providers/app_actions.dart';
 import '../../providers/auth_controller.dart';
+import '../../providers/core_providers.dart';
 import '../../providers/data_providers.dart';
 
 /// Create or edit a crop declaration. Picking a crop auto-fills the expected
@@ -61,11 +62,20 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
       _companions.addAll(e.companionCropIds);
       _yieldEdited = true;
     } else {
-      _price.text =
-          CropCatalog.byIdOrFirst(_cropId).baselinePricePerKg.toStringAsFixed(0);
+      _price.text = _baselinePrice(_cropId).toStringAsFixed(0);
       _recomputeDerived();
     }
   }
+
+  /// Dataset-calibrated baseline price (PHP/kg), falling back to the catalog.
+  double _baselinePrice(String cropId) =>
+      ref.read(calibrationProvider)[cropId]?.baselinePricePerKg ??
+      CropCatalog.byIdOrFirst(cropId).baselinePricePerKg;
+
+  /// Dataset-calibrated mean yield (kg/ha), falling back to the catalog.
+  double _baselineYieldPerHa(String cropId) =>
+      ref.read(calibrationProvider)[cropId]?.meanYieldKgPerHa ??
+      CropCatalog.byIdOrFirst(cropId).baselineYieldPerHa;
 
   @override
   void dispose() {
@@ -77,14 +87,15 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
     super.dispose();
   }
 
-  /// Recompute harvest date and (unless edited) the baseline expected yield.
+  /// Recompute harvest date and (unless edited) the baseline expected yield
+  /// from the calibrated mean yield/ha.
   void _recomputeDerived() {
     final crop = CropCatalog.byIdOrFirst(_cropId);
     _harvestDate =
         _plantingDate.add(Duration(days: crop.growthDurationDays));
     final area = double.tryParse(_area.text.replaceAll(',', '')) ?? 0;
     if (!_yieldEdited && area > 0) {
-      _yield.text = (crop.baselineYieldPerHa * area).toStringAsFixed(0);
+      _yield.text = (_baselineYieldPerHa(_cropId) * area).toStringAsFixed(0);
     }
   }
 
@@ -164,9 +175,7 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
                 setState(() {
                   _cropId = v;
                   _companions.remove(v);
-                  _price.text = CropCatalog.byIdOrFirst(v)
-                      .baselinePricePerKg
-                      .toStringAsFixed(0);
+                  _price.text = _baselinePrice(v).toStringAsFixed(0);
                   _recomputeDerived();
                 });
               },

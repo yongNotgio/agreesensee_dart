@@ -114,11 +114,13 @@ final marketChannelsProvider =
 
 // ── Derived analytics (Objectives 1 & 3) ─────────────────────────────────────
 
-/// Market Saturation Index for every crop, sorted by risk (descending).
+/// Market Saturation Index for every crop, sorted by risk (descending). The
+/// demand denominator comes from the calibrated demand-baseline dataset.
 final saturationProvider =
     FutureProvider.autoDispose<List<SaturationResult>>((ref) async {
   final declarations = await ref.watch(allDeclarationsProvider.future);
-  return SaturationEngine.forAllCrops(declarations);
+  final demand = ref.watch(demandOverridesProvider);
+  return SaturationEngine.forAllCrops(declarations, demandOverrides: demand);
 });
 
 /// Harvest peaks (crop × ISO week) across the municipality.
@@ -135,7 +137,8 @@ final harvestSuggestionsProvider =
   return HarvestSyncEngine.suggestions(declarations);
 });
 
-/// Ranked single-crop recommendations for the signed-in farmer's context.
+/// Ranked single-crop recommendations for the signed-in farmer's context,
+/// calibrated with dataset-derived price, yield, cost, and demand.
 final recommendationsProvider =
     FutureProvider.autoDispose<List<CropRecommendation>>((ref) async {
   final farm = await ref.watch(primaryFarmProvider.future);
@@ -144,6 +147,8 @@ final recommendationsProvider =
     farm: farm,
     allDeclarations: declarations,
     season: Season.forMonth(DateTime.now().month),
+    demandOverrides: ref.watch(demandOverridesProvider),
+    calibration: ref.watch(calibrationProvider),
   );
 });
 
