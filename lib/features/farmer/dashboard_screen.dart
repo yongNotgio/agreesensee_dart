@@ -43,6 +43,8 @@ class FarmerDashboardScreen extends ConsumerWidget {
                   Text('Magandang araw,',
                       style: Theme.of(context).textTheme.bodySmall),
                   Text(profile?.fullName ?? 'Farmer',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w800)),
                 ],
@@ -122,13 +124,8 @@ class _DashboardBody extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // KPI grid.
-        GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          mainAxisSpacing: 12,
-          crossAxisSpacing: 12,
-          childAspectRatio: 1.5,
+        MetricGrid(
+          columns: 2,
           children: [
             MetricTile(
               label: 'Active crops',

@@ -19,6 +19,17 @@ class AgriSenseApp extends ConsumerWidget {
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.light,
       routerConfig: router,
+      // Clamp the OS text scale so very large accessibility fonts can't break
+      // fixed layouts (a common source of RenderFlex overflows).
+      builder: (context, child) {
+        final mq = MediaQuery.of(context);
+        return MediaQuery(
+          data: mq.copyWith(
+            textScaler: mq.textScaler.clamp(maxScaleFactor: 1.3),
+          ),
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
   }
 }

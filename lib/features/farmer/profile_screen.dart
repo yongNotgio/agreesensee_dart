@@ -71,13 +71,10 @@ class FarmerProfileScreen extends ConsumerWidget {
                   declarations.where((d) => d.status.name == 'harvested').length;
               final totalArea =
                   declarations.fold<double>(0, (s, d) => s + d.areaHa);
-              return GridView.count(
-                crossAxisCount: 3,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 1.0,
+              return MetricGrid(
+                columns: 3,
+                spacing: 10,
+                minTileWidth: 96,
                 children: [
                   MetricTile(
                       label: 'Declarations',

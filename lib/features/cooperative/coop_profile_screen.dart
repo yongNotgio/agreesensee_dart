@@ -61,13 +61,8 @@ class CoopProfileScreen extends ConsumerWidget {
           const SizedBox(height: 20),
           coopAsync.maybeWhen(
             orElse: () => const SizedBox.shrink(),
-            data: (coop) => GridView.count(
-              crossAxisCount: 2,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              childAspectRatio: 1.6,
+            data: (coop) => MetricGrid(
+              columns: 2,
               children: [
                 MetricTile(
                     label: 'Members',

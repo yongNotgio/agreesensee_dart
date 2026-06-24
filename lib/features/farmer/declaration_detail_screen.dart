@@ -472,13 +472,9 @@ class _ForecastCard extends StatelessWidget {
       icon: Icons.query_stats,
       child: Column(
         children: [
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 1.7,
+          MetricGrid(
+            columns: 2,
+            spacing: 10,
             children: [
               MetricTile(
                   label: 'Projected revenue',

@@ -2,22 +2,20 @@
 -- AgriSense — Integrated Agricultural Decision Support System (IADSS)
 -- Supabase / PostgreSQL schema (Third Normal Form) — ALL PORTALS
 --
--- Serves the three stakeholder surfaces from one data contract:
---   • Farmer mobile      • Cooperative mobile      • MAO / Admin web
+-- Authentication: custom (profiles table with plain-text password column).
+-- Supabase Auth (auth.users) is NOT used; the Flutter app queries
+-- profiles WHERE email=? AND password=? directly via the anon key.
 --
--- Every table maps 1:1 to a Dart model in `lib/models/` and a repository in
--- `lib/repositories/`. Apply in the Supabase SQL editor, then run `seed.sql`
--- to populate the database. Launch the app with:
---
---   flutter run \
---     --dart-define=SUPABASE_URL=https://<project>.supabase.co \
---     --dart-define=SUPABASE_ANON_KEY=<anon/publishable key>
+-- Row Level Security is DISABLED on all tables. Access is governed at the
+-- application layer (the anon key is used for all requests; only authorised
+-- portals are distributed). Explicit GRANTs ensure the anon role can read
+-- and write every table.
 --
 -- Idempotent: safe to re-run.
 -- =============================================================================
 
 -- Extensions ------------------------------------------------------------------
-create extension if not exists "pgcrypto";   -- gen_random_uuid(), crypt()
+create extension if not exists "pgcrypto";   -- gen_random_uuid()
 
 -- Enumerated types ------------------------------------------------------------
 do $$ begin
@@ -68,18 +66,21 @@ create table if not exists public.cooperatives (
   created_at              timestamptz not null default now()
 );
 
--- Profiles & auth (1:1 with auth.users) ---------------------------------------
+-- User accounts (replaces auth.users + profiles; password stored as plain text
+-- for thesis-project simplicity). Email is the login identifier.
 create table if not exists public.profiles (
-  id              uuid primary key references auth.users(id) on delete cascade,
+  id              uuid primary key default gen_random_uuid(),
+  email           text not null,
+  password        text not null default '',
   full_name       text not null,
   role            user_role not null default 'farmer',
-  email           text,
   contact_number  text,
   barangay        text,
   cooperative_id  uuid references public.cooperatives(id) on delete set null,
   avatar_url      text,
   created_at      timestamptz not null default now()
 );
+create unique index if not exists profiles_email_uidx on public.profiles(lower(email));
 
 -- Farm profiling (Phase 1) ----------------------------------------------------
 create table if not exists public.farms (
@@ -126,7 +127,7 @@ create table if not exists public.crop_declarations (
   expected_yield_kg      numeric not null,
   barangay               text not null,
   status                 declaration_status not null default 'pending',
-  companion_crop_ids     text[] not null default '{}', -- intercropping
+  companion_crop_ids     text[] not null default '{}',
   projected_price_per_kg numeric,
   notes                  text,
   reviewer_note          text,
@@ -258,156 +259,32 @@ create trigger decl_touch before update on public.crop_declarations
   for each row execute function public.touch_updated_at();
 
 -- =============================================================================
--- Row Level Security
--- Farmers: own rows. Cooperative/MAO/Technician/BAW: read the municipal
--- dataset. MAO/Technician/BAW: advance validation & verify calamities. MAO:
--- maintain reference/calibration data.
+-- Row Level Security — DISABLED (custom auth, thesis project)
 -- =============================================================================
+alter table public.cooperatives        disable row level security;
+alter table public.profiles            disable row level security;
+alter table public.farms               disable row level security;
+alter table public.crops               disable row level security;
+alter table public.crop_declarations   disable row level security;
+alter table public.declaration_reviews disable row level security;
+alter table public.expenses            disable row level security;
+alter table public.production_reports  disable row level security;
+alter table public.logbook_entries     disable row level security;
+alter table public.calamity_reports    disable row level security;
+alter table public.market_channels     disable row level security;
+alter table public.market_prices       disable row level security;
+alter table public.demand_baselines    disable row level security;
 
--- Helper: the signed-in user's app role. SECURITY DEFINER so it can read
--- profiles from inside policies without triggering RLS recursion. Defined here
--- (after profiles exists) so the function body validates.
-create or replace function public.auth_user_role()
-returns user_role
-language sql stable security definer set search_path = public as $$
-  select role from public.profiles where id = auth.uid()
-$$;
-
-alter table public.cooperatives        enable row level security;
-alter table public.profiles            enable row level security;
-alter table public.farms               enable row level security;
-alter table public.crops               enable row level security;
-alter table public.crop_declarations   enable row level security;
-alter table public.declaration_reviews enable row level security;
-alter table public.expenses            enable row level security;
-alter table public.production_reports  enable row level security;
-alter table public.logbook_entries     enable row level security;
-alter table public.calamity_reports    enable row level security;
-alter table public.market_channels     enable row level security;
-alter table public.market_prices       enable row level security;
-alter table public.demand_baselines    enable row level security;
-
--- Cooperatives: everyone authenticated reads; MAO manages.
-drop policy if exists coop_read on public.cooperatives;
-create policy coop_read on public.cooperatives
-  for select using (auth.role() = 'authenticated');
-drop policy if exists coop_admin on public.cooperatives;
-create policy coop_admin on public.cooperatives
-  for all using (public.auth_user_role() in ('mao','cooperative'))
-  with check (public.auth_user_role() in ('mao','cooperative'));
-
--- Profiles: self-manage; governance & cooperative can read (for names/queues).
-drop policy if exists profiles_self on public.profiles;
-create policy profiles_self on public.profiles
-  for all using (id = auth.uid()) with check (id = auth.uid());
-drop policy if exists profiles_gov_read on public.profiles;
-create policy profiles_gov_read on public.profiles
-  for select using (public.auth_user_role() in
-    ('cooperative','mao','technician','baw'));
-
--- Farms: owner full; governance read.
-drop policy if exists farms_owner on public.farms;
-create policy farms_owner on public.farms
-  for all using (owner_id = auth.uid()) with check (owner_id = auth.uid());
-drop policy if exists farms_gov_read on public.farms;
-create policy farms_gov_read on public.farms
-  for select using (public.auth_user_role() in
-    ('cooperative','mao','technician','baw'));
-
--- Declarations: farmer owns (write). Planting intentions are municipally
--- readable by any authenticated user — this is what powers the saturation
--- index, harvest synchronization, and crop recommendations across the
--- municipality (the sensitive financial data lives in private tables below).
--- Governance roles additionally advance the validation status.
-drop policy if exists decl_owner on public.crop_declarations;
-create policy decl_owner on public.crop_declarations
-  for all using (farmer_id = auth.uid()) with check (farmer_id = auth.uid());
-drop policy if exists decl_gov_read on public.crop_declarations; -- legacy name
-drop policy if exists decl_read_all on public.crop_declarations;
-create policy decl_read_all on public.crop_declarations
-  for select using (auth.role() = 'authenticated');
-drop policy if exists decl_gov_update on public.crop_declarations;
-create policy decl_gov_update on public.crop_declarations
-  for update using (public.auth_user_role() in ('mao','technician','baw'))
-  with check (public.auth_user_role() in ('mao','technician','baw'));
-
--- Validation audit: governance reads/writes; farmer reads their own decl's log.
-drop policy if exists reviews_gov on public.declaration_reviews;
-create policy reviews_gov on public.declaration_reviews
-  for all using (public.auth_user_role() in ('mao','technician','baw'))
-  with check (public.auth_user_role() in ('mao','technician','baw'));
-drop policy if exists reviews_owner_read on public.declaration_reviews;
-create policy reviews_owner_read on public.declaration_reviews
-  for select using (exists (
-    select 1 from public.crop_declarations d
-    where d.id = declaration_id and d.farmer_id = auth.uid()));
-
--- Expenses / production / logbook: farmer-private; MAO reads for roll-ups.
-drop policy if exists expenses_owner on public.expenses;
-create policy expenses_owner on public.expenses
-  for all using (farmer_id = auth.uid()) with check (farmer_id = auth.uid());
-drop policy if exists expenses_gov_read on public.expenses;
-create policy expenses_gov_read on public.expenses
-  for select using (public.auth_user_role() = 'mao');
-
-drop policy if exists prod_owner on public.production_reports;
-create policy prod_owner on public.production_reports
-  for all using (farmer_id = auth.uid()) with check (farmer_id = auth.uid());
-drop policy if exists prod_gov_read on public.production_reports;
-create policy prod_gov_read on public.production_reports
-  for select using (public.auth_user_role() in ('cooperative','mao'));
-
-drop policy if exists logbook_owner on public.logbook_entries;
-create policy logbook_owner on public.logbook_entries
-  for all using (farmer_id = auth.uid()) with check (farmer_id = auth.uid());
-
--- Calamity: farmer owns; governance reads; MAO/technician verify (update).
-drop policy if exists calamity_owner on public.calamity_reports;
-create policy calamity_owner on public.calamity_reports
-  for all using (farmer_id = auth.uid()) with check (farmer_id = auth.uid());
-drop policy if exists calamity_gov_read on public.calamity_reports;
-create policy calamity_gov_read on public.calamity_reports
-  for select using (public.auth_user_role() in ('mao','technician','baw'));
-drop policy if exists calamity_gov_update on public.calamity_reports;
-create policy calamity_gov_update on public.calamity_reports
-  for update using (public.auth_user_role() in ('mao','technician'))
-  with check (public.auth_user_role() in ('mao','technician'));
-
--- Market channels: authenticated read; cooperative members manage their own.
-drop policy if exists channels_read on public.market_channels;
-create policy channels_read on public.market_channels
-  for select using (auth.role() = 'authenticated');
-drop policy if exists channels_coop on public.market_channels;
-create policy channels_coop on public.market_channels
-  for all using (cooperative_id =
-      (select cooperative_id from public.profiles where id = auth.uid()))
-  with check (cooperative_id =
-      (select cooperative_id from public.profiles where id = auth.uid()));
-
--- Reference / calibration data: authenticated read; MAO maintains.
-drop policy if exists crops_read on public.crops;
-create policy crops_read on public.crops
-  for select using (auth.role() = 'authenticated');
-drop policy if exists crops_write on public.crops;
-create policy crops_write on public.crops
-  for all using (public.auth_user_role() = 'mao')
-  with check (public.auth_user_role() = 'mao');
-
-drop policy if exists prices_read on public.market_prices;
-create policy prices_read on public.market_prices
-  for select using (auth.role() = 'authenticated');
-drop policy if exists prices_write on public.market_prices;
-create policy prices_write on public.market_prices
-  for all using (public.auth_user_role() = 'mao')
-  with check (public.auth_user_role() = 'mao');
-
-drop policy if exists demand_read on public.demand_baselines;
-create policy demand_read on public.demand_baselines
-  for select using (auth.role() = 'authenticated');
-drop policy if exists demand_write on public.demand_baselines;
-create policy demand_write on public.demand_baselines
-  for all using (public.auth_user_role() = 'mao')
-  with check (public.auth_user_role() = 'mao');
+-- =============================================================================
+-- Grants — allow the anon (unauthenticated) role full access since RLS is off
+-- =============================================================================
+grant usage on schema public to anon, authenticated;
+grant all privileges on all tables    in schema public to anon, authenticated;
+grant all privileges on all sequences in schema public to anon, authenticated;
+alter default privileges in schema public
+  grant all on tables    to anon, authenticated;
+alter default privileges in schema public
+  grant all on sequences to anon, authenticated;
 
 -- =============================================================================
 -- Seed reference crops (mirrors lib/core/constants/app_constants.dart).

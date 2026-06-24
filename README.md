@@ -106,17 +106,31 @@ window — making the recommendation and supply-chain logic visible immediately.
    | `baw@agrisense.ph` | Barangay Agri Worker | Web |
    | `tech@agrisense.ph` | Agri Technician | Web |
 
-2. Launch with credentials injected at build time:
+2. Provide credentials. Two options (dart-define wins if both are present):
 
-```bash
-flutter run \
-  --dart-define=SUPABASE_URL=https://<project>.supabase.co \
-  --dart-define=SUPABASE_ANON_KEY=<anon/publishable key>
-```
+   **A — `.env` file (simplest):** copy `.env.example` to `.env` and fill in:
+
+   ```env
+   SUPABASE_URL=https://<project>.supabase.co
+   SUPABASE_ANON_KEY=<anon/publishable key>
+   ```
+
+   then just `flutter run`. The `.env` is gitignored and bundled as an asset;
+   the anon key is safe in clients (RLS protects the data).
+
+   **B — `--dart-define` (CI / release):**
+
+   ```bash
+   flutter run \
+     --dart-define=SUPABASE_URL=https://<project>.supabase.co \
+     --dart-define=SUPABASE_ANON_KEY=<anon/publishable key>
+   ```
 
 The same repository surface (`lib/repositories/`) now targets Supabase; reads
 mirror into the offline cache, and writes are optimistic so the app keeps
-working through connectivity drops.
+working through connectivity drops. If credentials are missing **or Supabase
+init fails**, the app degrades gracefully to seeded demo mode instead of
+crashing.
 
 ---
 
