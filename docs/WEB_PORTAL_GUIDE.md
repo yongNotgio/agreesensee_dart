@@ -31,27 +31,30 @@ Mapped to the manuscript's Level-1 DFD (Process 2.0 Consolidate & Store, Process
 
 ---
 
-## 2. Choose the stack
+## 2. The stack — Flutter Web, reusing this repository
 
-### ✅ Recommended — **Flutter Web, reusing this repository**
+The web portal is built with **Flutter** too, as **Flutter Web in this same
+codebase**. There is no second framework, no second backend, no reimplemented
+business logic — the three portals are one Flutter app with role-gated shells:
 
-The single strongest choice for a thesis: **one codebase, one data contract,
-one set of engines**, evaluated as one system.
+- Reuse `models/`, `repositories/`, `providers/`, `core/logic/`, `data/`, and
+  the shared widgets/charts **verbatim** — the saturation, financial, scenario,
+  harvest-sync, and recommendation engines run unchanged on the web.
+- Add one `lib/features/admin/` module + role routing (§5); nothing else
+  changes.
+- Build the same project with `flutter build web` and deploy it; the MAO
+  administrator opens it in a browser while farmers and cooperatives use the
+  Android/iOS builds of the identical codebase.
 
-- Reuse `models/`, `repositories/`, `core/logic/`, `data/` **verbatim**.
-- Add an `admin` feature module + role routing; nothing else changes.
-- Deploy the same project to web hosting; the mobile and web clients are the
-  same Flutter app with role-gated shells.
+**Why one Flutter codebase is the right call for the thesis:** a single data
+contract and a single set of decision engines evaluated as one system — no risk
+of the web and mobile clients computing the saturation index or ROI differently,
+and one ISO/IEC 25010 evaluation covers the whole IADSS.
 
-### Alternative — **Next.js / React + `@supabase/supabase-js`**
-
-More "web-native" (SSR, SEO, rich admin component libraries) but you
-**reimplement** the models and the saturation/financial/harvest engines in
-TypeScript. Only pick this if a web-only team is building it in parallel. If you
-do, port the formulas in [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) §2 exactly so
-both clients agree.
-
-The rest of this guide assumes the **Flutter Web reuse** path.
+> Flutter Web renders the admin UI well for a data-dense dashboard. Use the
+> **CanvasKit** renderer (`flutter build web --web-renderer canvaskit`) for crisp
+> `fl_chart` output and consistent layout, and the responsive patterns in §6
+> (`NavigationRail`, `DataTable`, master-detail) to make it feel desktop-native.
 
 ---
 

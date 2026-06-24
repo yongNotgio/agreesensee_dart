@@ -201,9 +201,10 @@ overwrite the JSON — no code changes needed.
 ## Completing the thesis — the MAO web portal
 
 The mobile app is the two field portals; the admin/validation surface is a
-**web** portal. A complete, build-ready plan (shared backend, validation state
-machine, screens, deployment, milestones) is in
-[`docs/WEB_PORTAL_GUIDE.md`](docs/WEB_PORTAL_GUIDE.md).
+**Flutter Web** portal built from *this same codebase* (one data contract, one
+set of decision engines — no second framework). A complete, build-ready plan
+(shared backend, validation state machine, screens, deployment, milestones) is
+in [`docs/WEB_PORTAL_GUIDE.md`](docs/WEB_PORTAL_GUIDE.md).
 
 ---
 
