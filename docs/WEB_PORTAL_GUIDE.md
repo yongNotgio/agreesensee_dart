@@ -66,14 +66,11 @@ PostgreSQL), so there is **no separate migration to run**. Specifically it
 already includes:
 
 - The **`declaration_reviews`** audit table (who advanced a declaration, when,
-  why) + its RLS.
-- **Governance update policies** so `mao`/`technician`/`baw` can advance the
-  validation chain (`decl_gov_update`) and verify calamities
-  (`calamity_gov_update`).
-- **Reference/calibration write policies** so the MAO can maintain `crops`,
-  `market_prices`, and `demand_baselines` (`crops_write`, `prices_write`,
-  `demand_write`).
-- The role helper **`public.auth_user_role()`** used by every policy.
+  why).
+- **Custom auth:** `profiles` table with plain-text `password` column (thesis
+  project, no JWT overhead). All tables have RLS **disabled** — access control
+  is at the application layer.
+- All reference data tables: `crops`, `market_prices`, `demand_baselines`.
 
 Apply `schema.sql` then `seed.sql` (which creates a working `mao@agrisense.ph`
 account, password `AgriSense123!`) and you can sign straight into the web

@@ -53,10 +53,12 @@ system flow (every portal, screen, function, and cross-portal data flow) is in
   low-to-mid-tier devices.
 - **Riverpod** for state management.
 - **go_router** for role-based routing.
-- **Supabase** (`supabase_flutter`) — Auth, PostgreSQL, realtime, RLS.
+- **Supabase** (`supabase_flutter`) — PostgreSQL, realtime. **Custom auth**:
+  plain-text password column in `profiles` table (thesis project, no JWT overhead).
 - **fl_chart** — financial breakdowns, scenario bars, supply line charts.
 - **Offline-first** caching layer (`shared_preferences` + a typed
-  `CollectionStore`), with a Supabase write-through mirror.
+  `CollectionStore`), with a Supabase write-through mirror. Session persists
+  in SharedPreferences so cold boots stay authenticated.
 
 ---
 
@@ -87,14 +89,18 @@ window — making the recommendation and supply-chain logic visible immediately.
 
 1. Create a Supabase project and, in the SQL editor, run **in order**:
    - [`supabase/schema.sql`](supabase/schema.sql) — all-portal schema: tables,
-     enums, RLS for farmer/cooperative/MAO/technician/BAW, validation audit
-     table, reference-crop seed.
-   - [`supabase/seed.sql`](supabase/seed.sql) — populates the database so it's
-     not empty: **working login accounts for every role**, 50+ farmers, a
-     realistic Ampalaya oversupply cluster, expenses, logbook, a calamity
-     report, buy-back channels, 36 months of prices, and demand baselines.
+     enums, custom auth via plain-text `password` column in `profiles`, RLS
+     disabled (thesis project), reference-crop seed.
+   - [`supabase/migrate_to_custom_auth.sql`](supabase/migrate_to_custom_auth.sql)
+     — **if you have an existing database**, this migrates from Supabase Auth to
+     custom auth: adds `password` column, removes `auth.users` FK, disables RLS.
+     (Safe to re-run; idempotent.)
+   - [`supabase/seed.sql`](supabase/seed.sql) — populates: **working login
+     accounts for every role**, 50+ farmers, a realistic Ampalaya oversupply
+     cluster, expenses, logbook, a calamity report, buy-back channels, 36
+     months of prices, and demand baselines.
 
-   Both are idempotent and were validated end-to-end against PostgreSQL.
+   All are idempotent and were validated end-to-end against PostgreSQL.
 
    **Seed login accounts** (password `AgriSense123!`):
 
@@ -115,8 +121,9 @@ window — making the recommendation and supply-chain logic visible immediately.
    SUPABASE_ANON_KEY=<anon/publishable key>
    ```
 
-   then just `flutter run`. The `.env` is gitignored and bundled as an asset;
-   the anon key is safe in clients (RLS protects the data).
+   then just `flutter run`. The `.env` is gitignored and bundled as an asset.
+   The anon key is safe in clients; all data access is row-filtered at the
+   application layer, and passwords are plain text (thesis project only).
 
    **B — `--dart-define` (CI / release):**
 
@@ -126,11 +133,12 @@ window — making the recommendation and supply-chain logic visible immediately.
      --dart-define=SUPABASE_ANON_KEY=<anon/publishable key>
    ```
 
-The same repository surface (`lib/repositories/`) now targets Supabase; reads
-mirror into the offline cache, and writes are optimistic so the app keeps
-working through connectivity drops. If credentials are missing **or Supabase
-init fails**, the app degrades gracefully to seeded demo mode instead of
-crashing.
+The app uses **custom table-level authentication** (email + plain-text password
+in the `profiles` table). Session id persists in SharedPreferences so the user
+stays logged in across cold boots. Reads/writes mirror into the offline cache
+and are optimistic, so the app keeps working through connectivity drops. If
+credentials are missing **or Supabase init fails**, the app degrades gracefully
+to seeded demo mode instead of crashing.
 
 ---
 

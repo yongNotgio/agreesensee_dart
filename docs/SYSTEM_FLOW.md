@@ -6,7 +6,7 @@ between them through the shared Supabase backend and the decision engines.
 
 - **Mobile (this repo):** Farmer portal + Cooperative portal
 - **Web (planned — see [`WEB_PORTAL_GUIDE.md`](WEB_PORTAL_GUIDE.md)):** MAO / Admin portal
-- **Backend:** Supabase (Auth, PostgreSQL, RLS, Realtime, Storage)
+- **Backend:** Supabase PostgreSQL + Realtime. **Custom auth** (plain-text password in `profiles` table, thesis project). RLS disabled (app-layer auth).
 - **Brains:** pure decision engines in [`lib/core/logic/`](../lib/core/logic),
   calibrated by datasets in [`assets/data/`](../assets/data)
 
@@ -25,8 +25,9 @@ between them through the shared Supabase backend and the decision engines.
    └────────────┘                ▼   ▼  surplus      └──────────────────┘
                           ┌───────────────────┐             ▲
                           │     SUPABASE       │             │ reads municipal
-                          │  Postgres + Auth   │◀────────────┘ dataset
-                          │  RLS + Realtime    │
+                          │  PostgreSQL        │◀────────────┘ dataset
+                          │  Realtime          │
+                          │  (custom auth)     │
                           └───────────────────┘
                                 ▲     ▲
             validates, governs  │     │  maintains reference / calibration data
