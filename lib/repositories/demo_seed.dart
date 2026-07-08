@@ -23,7 +23,7 @@ import '../models/profile.dart';
 class DemoSeed {
   const DemoSeed._();
 
-  static const String seededFlag = 'demo_seeded_v1';
+  static const String seededFlag = 'demo_seeded_v2';
   static const String coopId = 'coop-tubungan-vegetable';
   static const String juanId = 'demo-farmer-juan';
   static const String mariaId = 'demo-coop-maria';
@@ -40,7 +40,7 @@ class DemoSeed {
     final cooperative = Cooperative(
       id: coopId,
       name: 'Tubungan Vegetable Growers Association',
-      barangay: 'Poblacion',
+      barangay: 'Zone I (Poblacion)',
       contactPerson: 'Maria Santos',
       contactNumber: '0917 555 0142',
       memberCount: 48,
@@ -66,7 +66,7 @@ class DemoSeed {
         role: UserRole.cooperative,
         email: 'coop@agrisense.ph',
         contactNumber: '0917 555 0142',
-        barangay: 'Poblacion',
+        barangay: 'Zone I (Poblacion)',
         cooperativeId: coopId,
         createdAt: daysAgo(400),
       ),
@@ -140,7 +140,7 @@ class DemoSeed {
         plantingDate: daysAgo(38 - i),
         expectedHarvestDate: congestionWeek.add(Duration(days: i % 3)),
         expectedYieldKg: 9000 + (i * 800),
-        barangay: i.isEven ? 'Bading' : 'Igpaho',
+        barangay: i.isEven ? 'Badiang' : 'Igpaho',
         status: DeclarationStatus.approved,
         projectedPricePerKg: 44,
         createdAt: daysAgo(50 - i),

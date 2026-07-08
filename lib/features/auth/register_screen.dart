@@ -8,8 +8,8 @@ import '../../core/utils/validators.dart';
 import '../../core/widgets/form_fields.dart';
 import '../../models/enums.dart';
 import '../../providers/auth_controller.dart';
+import '../../providers/core_providers.dart';
 import '../../repositories/auth_repository.dart';
-import '../../repositories/demo_seed.dart';
 
 /// New-account registration. The mobile portals are for Farmers and
 /// Cooperatives, so only those two roles are selectable here.
@@ -44,6 +44,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     if (!_formKey.currentState!.validate()) return;
     setState(() => _submitting = true);
     try {
+      // Attach new members to the pilot cooperative when one exists. Resolving
+      // it at runtime keeps this valid in live mode (a real cooperative UUID)
+      // and demo mode (the seeded association) alike; if none exists yet the
+      // account is created unlinked and a coordinator can assign it later.
+      final coops = await ref.read(cooperativeRepositoryProvider).fetchAll();
+      final cooperativeId = coops.isNotEmpty ? coops.first.id : null;
       await ref.read(authControllerProvider.notifier).signUp(
             email: _email.text.trim(),
             password: _password.text,
@@ -51,8 +57,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             role: _role,
             contactNumber: _contact.text.trim(),
             barangay: _barangay,
-            // New farmers/coops join the pilot association by default.
-            cooperativeId: DemoSeed.coopId,
+            cooperativeId: cooperativeId,
           );
     } on AuthFailure catch (e) {
       _showError(e.message);
