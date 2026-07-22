@@ -1,0 +1,164 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "variety": "Galaxy",
+    "maturity_days": 70,
+    "notes": "Hybrid; uniform long green fruit, market standard"
+  },
+  {
+    "crop_id": "ampalaya",
+    "variety": "Mayon",
+    "maturity_days": 67,
+    "notes": "Early maturing hybrid, good for tight windows"
+  },
+  {
+    "crop_id": "ampalaya",
+    "variety": "Jade Star A",
+    "maturity_days": 72,
+    "notes": "Vigorous vine, heavier fruit set"
+  },
+  {
+    "crop_id": "ampalaya",
+    "variety": "Sta. Rita",
+    "maturity_days": 75,
+    "notes": "Open-pollinated; seed can be saved"
+  },
+  {
+    "crop_id": "eggplant",
+    "variety": "Casino",
+    "maturity_days": 80,
+    "notes": "Hybrid; long purple, strong local demand"
+  },
+  {
+    "crop_id": "eggplant",
+    "variety": "Fortuner",
+    "maturity_days": 76,
+    "notes": "Early, tolerant to bacterial wilt"
+  },
+  {
+    "crop_id": "eggplant",
+    "variety": "Long Purple",
+    "maturity_days": 86,
+    "notes": "Open-pollinated, lower seed cost"
+  },
+  {
+    "crop_id": "eggplant",
+    "variety": "Calibre",
+    "maturity_days": 83,
+    "notes": "Firm fruit, holds well in transport"
+  },
+  {
+    "crop_id": "okra",
+    "variety": "Smooth Green",
+    "maturity_days": 55,
+    "notes": "Spineless, standard fresh-market pick"
+  },
+  {
+    "crop_id": "okra",
+    "variety": "Green Star",
+    "maturity_days": 53,
+    "notes": "Early and uniform"
+  },
+  {
+    "crop_id": "okra",
+    "variety": "Lady Finger",
+    "maturity_days": 59,
+    "notes": "Slender pod, preferred by some traders"
+  },
+  {
+    "crop_id": "string_beans",
+    "variety": "Sandigan",
+    "maturity_days": 60,
+    "notes": "Long pod, reliable under wet conditions"
+  },
+  {
+    "crop_id": "string_beans",
+    "variety": "Uni-6",
+    "maturity_days": 57,
+    "notes": "Early, concentrated set"
+  },
+  {
+    "crop_id": "string_beans",
+    "variety": "Batangas White",
+    "maturity_days": 65,
+    "notes": "Open-pollinated, pale pod"
+  },
+  {
+    "crop_id": "tomato",
+    "variety": "Diamante Max",
+    "maturity_days": 75,
+    "notes": "Heat tolerant, firm fruit"
+  },
+  {
+    "crop_id": "tomato",
+    "variety": "Apollo Improved",
+    "maturity_days": 70,
+    "notes": "Early determinate, concentrated harvest"
+  },
+  {
+    "crop_id": "tomato",
+    "variety": "Marilag",
+    "maturity_days": 78,
+    "notes": "Bacterial-wilt tolerant, good for lowland"
+  },
+  {
+    "crop_id": "tomato",
+    "variety": "Rosalinda",
+    "maturity_days": 79,
+    "notes": "Processing type, thicker flesh"
+  },
+  {
+    "crop_id": "corn",
+    "variety": "Sweet Grande",
+    "maturity_days": 90,
+    "notes": "Hybrid sweet corn, high sugar"
+  },
+  {
+    "crop_id": "corn",
+    "variety": "Mestizo",
+    "maturity_days": 95,
+    "notes": "Widely available hybrid"
+  },
+  {
+    "crop_id": "corn",
+    "variety": "IPB Var 6",
+    "maturity_days": 86,
+    "notes": "Open-pollinated, seed can be saved"
+  },
+  {
+    "crop_id": "squash",
+    "variety": "Suprema",
+    "maturity_days": 85,
+    "notes": "Hybrid; thick orange flesh"
+  },
+  {
+    "crop_id": "squash",
+    "variety": "Rizalina",
+    "maturity_days": 89,
+    "notes": "Open-pollinated, long shelf life"
+  },
+  {
+    "crop_id": "squash",
+    "variety": "Sunshine",
+    "maturity_days": 82,
+    "notes": "Early, smaller fruit"
+  },
+  {
+    "crop_id": "pechay",
+    "variety": "Black Behi",
+    "maturity_days": 35,
+    "notes": "Standard market pechay"
+  },
+  {
+    "crop_id": "pechay",
+    "variety": "Native Pechay",
+    "maturity_days": 38,
+    "notes": "Open-pollinated, hardy"
+  },
+  {
+    "crop_id": "pechay",
+    "variety": "Snow White",
+    "maturity_days": 33,
+    "notes": "Early, white petiole"
+  }
+]

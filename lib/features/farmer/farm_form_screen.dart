@@ -20,7 +20,6 @@ class FarmFormScreen extends ConsumerStatefulWidget {
 
 class _FarmFormScreenState extends ConsumerState<FarmFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _name = TextEditingController();
   final _area = TextEditingController();
   final _soil = TextEditingController();
   final _activities = TextEditingController();
@@ -36,7 +35,6 @@ class _FarmFormScreenState extends ConsumerState<FarmFormScreen> {
     super.initState();
     final e = widget.existing;
     if (e != null) {
-      _name.text = e.name;
       _area.text = e.totalAreaHa.toString();
       _soil.text = e.soilType ?? '';
       _activities.text = e.previousActivities ?? '';
@@ -49,7 +47,6 @@ class _FarmFormScreenState extends ConsumerState<FarmFormScreen> {
 
   @override
   void dispose() {
-    _name.dispose();
     _area.dispose();
     _soil.dispose();
     _activities.dispose();
@@ -70,7 +67,6 @@ class _FarmFormScreenState extends ConsumerState<FarmFormScreen> {
     final farm = Farm(
       id: base?.id ?? IdGen.uuid(),
       ownerId: profile.id,
-      name: _name.text.trim(),
       barangay: _barangay!,
       totalAreaHa: double.parse(_area.text.replaceAll(',', '')),
       soilType: _soil.text.trim().isEmpty ? null : _soil.text.trim(),
@@ -95,14 +91,6 @@ class _FarmFormScreenState extends ConsumerState<FarmFormScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            AppTextField(
-              label: 'Farm name',
-              controller: _name,
-              prefixIcon: Icons.home_work_outlined,
-              hint: 'e.g. Dela Cruz Family Farm',
-              validator: (v) => Validators.required(v, field: 'Farm name'),
-            ),
-            const SizedBox(height: 14),
             AppDropdown<String>(
               label: 'Barangay',
               value: _barangay,

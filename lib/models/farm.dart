@@ -3,13 +3,15 @@ import 'package:equatable/equatable.dart';
 import '../core/utils/parsing.dart';
 import 'enums.dart';
 
-/// A farmer's farm/parcel profile (Supabase `farms` table). Created in
-/// Phase 1 (Farmer Registration & Farm Profiling).
+/// A farmer's farm/parcel profile (Supabase `farms` table).
+///
+/// The parcel has no user-supplied name — a farmer identifies their land by
+/// where it is and how big it is, so the display [label] is derived from the
+/// barangay and area instead of asking for a label nobody uses.
 class Farm extends Equatable {
   const Farm({
     required this.id,
     required this.ownerId,
-    required this.name,
     required this.barangay,
     required this.totalAreaHa,
     this.latitude,
@@ -23,7 +25,6 @@ class Farm extends Equatable {
 
   final String id;
   final String ownerId;
-  final String name;
   final String barangay;
   final double totalAreaHa;
   final double? latitude;
@@ -39,7 +40,6 @@ class Farm extends Equatable {
   factory Farm.fromMap(Map<String, dynamic> map) => Farm(
         id: asString(map['id']),
         ownerId: asString(map['owner_id']),
-        name: asString(map['name'], 'My Farm'),
         barangay: asString(map['barangay']),
         totalAreaHa: asDouble(map['total_area_ha']),
         latitude: asDoubleOrNull(map['latitude']),
@@ -54,7 +54,6 @@ class Farm extends Equatable {
   Map<String, dynamic> toMap() => {
         'id': id,
         'owner_id': ownerId,
-        'name': name,
         'barangay': barangay,
         'total_area_ha': totalAreaHa,
         'latitude': latitude,
@@ -67,7 +66,6 @@ class Farm extends Equatable {
       };
 
   Farm copyWith({
-    String? name,
     String? barangay,
     double? totalAreaHa,
     double? latitude,
@@ -80,7 +78,6 @@ class Farm extends Equatable {
       Farm(
         id: id,
         ownerId: ownerId,
-        name: name ?? this.name,
         barangay: barangay ?? this.barangay,
         totalAreaHa: totalAreaHa ?? this.totalAreaHa,
         latitude: latitude ?? this.latitude,
@@ -92,11 +89,15 @@ class Farm extends Equatable {
         createdAt: createdAt,
       );
 
+  /// Derived display label — "Brgy. Male • 1.5 ha".
+  String get label =>
+      'Brgy. $barangay • ${totalAreaHa.toStringAsFixed(totalAreaHa % 1 == 0 ? 0 : 2)} ha';
+
   bool get hasGeo => latitude != null && longitude != null;
 
   @override
   List<Object?> get props =>
-      [id, ownerId, name, barangay, totalAreaHa, soilType, previousCrops];
+      [id, ownerId, barangay, totalAreaHa, soilType, previousCrops];
 }
 
 /// Convenience extension to surface the active season at a point in time.

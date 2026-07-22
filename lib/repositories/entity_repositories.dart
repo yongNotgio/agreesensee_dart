@@ -1,10 +1,13 @@
 import '../core/cache/local_cache.dart';
+import '../models/barangay_assignment.dart';
 import '../models/calamity_report.dart';
 import '../models/cooperative.dart';
 import '../models/crop_declaration.dart';
+import '../models/demand_signal.dart';
 import '../models/expense.dart';
 import '../models/farm.dart';
 import '../models/logbook_entry.dart';
+import '../models/planned_activity.dart';
 import '../models/production_report.dart';
 import 'synced_repository.dart';
 
@@ -175,4 +178,85 @@ class MarketChannelRepository extends SyncedRepository<MarketChannel> {
 
   Future<List<MarketChannel>> forCooperative(String cooperativeId) =>
       fetchAll(column: 'cooperative_id', equals: cooperativeId);
+}
+
+/// Scheduled crop-calendar operations (`planned_activities` table).
+class PlannedActivityRepository extends SyncedRepository<PlannedActivity> {
+  PlannedActivityRepository({required super.client, required LocalCache cache})
+      : super(
+          table: 'planned_activities',
+          store: CollectionStore<PlannedActivity>(
+            cache: cache,
+            key: 'planned_activities',
+            toMap: (a) => a.toMap(),
+            fromMap: PlannedActivity.fromMap,
+            idOf: (a) => a.id,
+          ),
+        );
+
+  Future<List<PlannedActivity>> forFarmer(String farmerId) =>
+      fetchAll(column: 'farmer_id', equals: farmerId, orderBy: 'scheduled_on');
+
+  Future<List<PlannedActivity>> forDeclaration(String declarationId) => fetchAll(
+      column: 'declaration_id',
+      equals: declarationId,
+      orderBy: 'scheduled_on');
+
+  /// Persist a freshly-generated plan in one pass.
+  Future<void> saveAll(List<PlannedActivity> activities) async {
+    for (final a in activities) {
+      await save(a);
+    }
+  }
+
+  Future<void> removeForDeclaration(String declarationId) async {
+    final existing = await forDeclaration(declarationId);
+    for (final a in existing) {
+      await remove(a.id);
+    }
+  }
+}
+
+/// Demand cooperatives declare against crops (`demand_signals` table) — the
+/// numerator-side correction that makes the saturation denominator verifiable.
+class DemandSignalRepository extends SyncedRepository<DemandSignal> {
+  DemandSignalRepository({required super.client, required LocalCache cache})
+      : super(
+          table: 'demand_signals',
+          store: CollectionStore<DemandSignal>(
+            cache: cache,
+            key: 'demand_signals',
+            toMap: (d) => d.toMap(),
+            fromMap: DemandSignal.fromMap,
+            idOf: (d) => d.id,
+          ),
+        );
+
+  Future<List<DemandSignal>> forCooperative(String cooperativeId) => fetchAll(
+      column: 'cooperative_id',
+      equals: cooperativeId,
+      orderBy: 'period_start');
+
+  /// Every cooperative's signals — the municipal demand picture.
+  Future<List<DemandSignal>> all() => fetchAll(orderBy: 'period_start');
+}
+
+/// Technician / BAW assignments per barangay (`barangay_assignments` table).
+class BarangayAssignmentRepository
+    extends SyncedRepository<BarangayAssignment> {
+  BarangayAssignmentRepository(
+      {required super.client, required LocalCache cache})
+      : super(
+          table: 'barangay_assignments',
+          store: CollectionStore<BarangayAssignment>(
+            cache: cache,
+            key: 'barangay_assignments',
+            toMap: (a) => a.toMap(),
+            fromMap: BarangayAssignment.fromMap,
+            idOf: (a) => a.id,
+          ),
+        );
+
+  Future<List<BarangayAssignment>> forBarangay(String barangay) =>
+      fetchAll(column: 'barangay', equals: barangay);
 }

@@ -5,6 +5,7 @@ import '../../core/widgets/common_widgets.dart';
 import '../../providers/core_providers.dart';
 import 'coop_dashboard_screen.dart';
 import 'coop_profile_screen.dart';
+import 'demand_entry_screen.dart';
 import 'supply_projection_screen.dart';
 import 'surplus_screen.dart';
 
@@ -24,6 +25,7 @@ class _CoopShellState extends ConsumerState<CoopShell> {
   static const _tabs = <Widget>[
     CoopDashboardScreen(),
     SupplyProjectionScreen(),
+    DemandEntryScreen(),
     SurplusScreen(),
     CoopProfileScreen(),
   ];
@@ -55,6 +57,10 @@ class _CoopShellState extends ConsumerState<CoopShell> {
               icon: Icon(Icons.stacked_line_chart_outlined),
               selectedIcon: Icon(Icons.stacked_line_chart),
               label: 'Supply'),
+          NavigationDestination(
+              icon: Icon(Icons.inventory_2_outlined),
+              selectedIcon: Icon(Icons.inventory_2),
+              label: 'Demand'),
           NavigationDestination(
               icon: Icon(Icons.storefront_outlined),
               selectedIcon: Icon(Icons.storefront),

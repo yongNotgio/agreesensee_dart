@@ -27,35 +27,174 @@ enum UserRole {
       );
 }
 
-/// Lifecycle of a crop declaration as it moves through the validation chain
-/// (BAW → Technician → MAO) described in the workflow.
+/// Lifecycle of a crop declaration.
+///
+/// A declaration is a **record of intent, not an application**. The MAO has no
+/// authority to approve or deny what a farmer plants on their own land, so the
+/// former BAW → Technician → MAO approval chain was removed: AgriSense advises
+/// before planting and records afterwards. Legacy approval states still parse
+/// (see [fromWire]) so rows written under the old model keep working.
 enum DeclarationStatus {
-  draft('draft', 'Draft', Icons.edit_note),
-  pending('pending', 'Pending Validation', Icons.hourglass_top),
-  bawApproved('baw_approved', 'BAW Approved', Icons.verified_user),
-  technicianVerified(
-      'technician_verified', 'Technician Verified', Icons.fact_check),
-  approved('approved', 'MAO Approved', Icons.check_circle),
-  correctionRequested(
-      'correction_requested', 'Correction Requested', Icons.report_problem),
-  rejected('rejected', 'Rejected', Icons.cancel),
-  harvested('harvested', 'Harvested', Icons.agriculture);
+  active('active', 'Growing', Icons.eco),
+  harvested('harvested', 'Harvested', Icons.agriculture),
+  cancelled('cancelled', 'Cancelled', Icons.cancel);
 
   const DeclarationStatus(this.wire, this.label, this.icon);
   final String wire;
   final String label;
   final IconData icon;
 
-  static DeclarationStatus fromWire(String? value) =>
-      DeclarationStatus.values.firstWhere(
+  /// Retired approval-chain values, mapped onto the surviving states so
+  /// previously-persisted declarations still load.
+  static const Map<String, DeclarationStatus> _legacy = {
+    'draft': DeclarationStatus.active,
+    'pending': DeclarationStatus.active,
+    'baw_approved': DeclarationStatus.active,
+    'technician_verified': DeclarationStatus.active,
+    'approved': DeclarationStatus.active,
+    'correction_requested': DeclarationStatus.active,
+    'rejected': DeclarationStatus.cancelled,
+  };
+
+  static DeclarationStatus fromWire(String? value) {
+    for (final s in DeclarationStatus.values) {
+      if (s.wire == value) return s;
+    }
+    return _legacy[value] ?? DeclarationStatus.active;
+  }
+
+  /// Counts toward projected supply — i.e. still standing in the field.
+  bool get isActive => this == DeclarationStatus.active;
+}
+
+/// Land-suitability banding for a crop in a given barangay.
+///
+/// Bands are expressed on the **yield index**: observed yield as a share of the
+/// crop's attainable yield in the pilot area. Thresholds follow the adviser's
+/// brief (50 % / 70 % / 80 %) and are named constants so a single edit re-bands
+/// the whole app if the definition changes.
+enum SuitabilityBand {
+  marginal('marginal', 'Marginally Suitable'),
+  moderate('moderate', 'Moderately Suitable'),
+  suitable('suitable', 'Suitable'),
+  verySuitable('very_suitable', 'Very Suitable');
+
+  const SuitabilityBand(this.wire, this.label);
+  final String wire;
+  final String label;
+
+  static const double moderateFloor = 0.50;
+  static const double suitableFloor = 0.70;
+  static const double verySuitableFloor = 0.80;
+
+  static SuitabilityBand forIndex(double index) {
+    if (index >= verySuitableFloor) return SuitabilityBand.verySuitable;
+    if (index >= suitableFloor) return SuitabilityBand.suitable;
+    if (index >= moderateFloor) return SuitabilityBand.moderate;
+    return SuitabilityBand.marginal;
+  }
+
+  static SuitabilityBand fromWire(String? value) =>
+      SuitabilityBand.values.firstWhere(
+        (b) => b.wire == value,
+        orElse: () => SuitabilityBand.moderate,
+      );
+}
+
+/// Where the demand figure behind a Market Saturation Index came from. Shown in
+/// the UI so the number is defensible rather than anonymous.
+enum DemandSource {
+  cooperative('cooperative', 'Declared by cooperatives'),
+  baseline('baseline', 'Municipal monthly baseline'),
+  catalog('catalog', 'Catalog fallback');
+
+  const DemandSource(this.wire, this.label);
+  final String wire;
+  final String label;
+}
+
+/// Lifecycle of a system-scheduled farm operation on the crop calendar.
+enum PlannedActivityStatus {
+  pending('pending', 'Scheduled'),
+  done('done', 'Done'),
+  skipped('skipped', 'Skipped');
+
+  const PlannedActivityStatus(this.wire, this.label);
+  final String wire;
+  final String label;
+
+  static PlannedActivityStatus fromWire(String? value) =>
+      PlannedActivityStatus.values.firstWhere(
         (s) => s.wire == value,
-        orElse: () => DeclarationStatus.pending,
+        orElse: () => PlannedActivityStatus.pending,
+      );
+}
+
+/// Buyer categories a cooperative declares demand against.
+enum BuyerType {
+  bagsakan('bagsakan', 'Bagsakan / Trading Post'),
+  institutional('institutional', 'Institutional Buyer'),
+  processor('processor', 'Processor / Agri-business'),
+  trader('trader', 'Trader / Consolidator'),
+  retail('retail', 'Public Market / Retail');
+
+  const BuyerType(this.wire, this.label);
+  final String wire;
+  final String label;
+
+  static BuyerType fromWire(String? value) => BuyerType.values.firstWhere(
+        (b) => b.wire == value,
+        orElse: () => BuyerType.bagsakan,
+      );
+}
+
+/// Where a harvest was actually sold. Captured on the production report so the
+/// MAO web portal can trace supply that never reached the bagsakan — the
+/// "diin nagkadto ang supply" question.
+enum SalesChannel {
+  bagsakan('bagsakan', 'Bagsakan / Trading Post'),
+  cooperative('cooperative', 'Cooperative Buy-back'),
+  trader('trader', 'Trader / Consolidator'),
+  directMarket('direct_market', 'Direct to Market / Consumer'),
+  neighbouringMunicipality(
+      'neighbouring_municipality', 'Buyer from Another Municipality'),
+  ownConsumption('own_consumption', 'Own Consumption / Not Sold'),
+  other('other', 'Other');
+
+  const SalesChannel(this.wire, this.label);
+  final String wire;
+  final String label;
+
+  static SalesChannel fromWire(String? value) => SalesChannel.values.firstWhere(
+        (c) => c.wire == value,
+        orElse: () => SalesChannel.other,
       );
 
-  bool get isActive =>
-      this != DeclarationStatus.rejected &&
-      this != DeclarationStatus.harvested &&
-      this != DeclarationStatus.draft;
+  /// Channels that move produce out of the municipality's monitored supply.
+  bool get leavesMunicipality =>
+      this == SalesChannel.neighbouringMunicipality ||
+      this == SalesChannel.trader;
+}
+
+/// Residency / identity verification state of an account. Farmers register with
+/// an RSBSA number and barangay; a cooperative officer or technician confirms
+/// them against the MAO roster.
+enum AccountVerification {
+  unverified('unverified', 'Unverified', Icons.gpp_maybe),
+  pending('pending', 'Pending Verification', Icons.hourglass_top),
+  verified('verified', 'Verified Resident', Icons.verified),
+  rejected('rejected', 'Verification Rejected', Icons.gpp_bad);
+
+  const AccountVerification(this.wire, this.label, this.icon);
+  final String wire;
+  final String label;
+  final IconData icon;
+
+  static AccountVerification fromWire(String? value) =>
+      AccountVerification.values.firstWhere(
+        (v) => v.wire == value,
+        orElse: () => AccountVerification.unverified,
+      );
 }
 
 /// Market Saturation Index banding (Phase 5 of the workflow).
@@ -163,6 +302,21 @@ enum ActivityType {
         (a) => a.wire == value,
         orElse: () => ActivityType.other,
       );
+
+  /// The expense category a cost incurred by this activity naturally falls
+  /// under. Pre-selects the category when a farmer attaches a cost to a logged
+  /// activity, so the usual case is "type the amount and save".
+  ExpenseCategory get defaultExpenseCategory => switch (this) {
+        ActivityType.landPrep => ExpenseCategory.labor,
+        ActivityType.planting => ExpenseCategory.seed,
+        ActivityType.fertilizing => ExpenseCategory.fertilizer,
+        ActivityType.irrigation => ExpenseCategory.irrigation,
+        ActivityType.weeding => ExpenseCategory.labor,
+        ActivityType.pestControl => ExpenseCategory.pesticide,
+        ActivityType.scouting => ExpenseCategory.other,
+        ActivityType.harvesting => ExpenseCategory.labor,
+        ActivityType.other => ExpenseCategory.other,
+      };
 }
 
 /// The two growing seasons used by the recommendation engine for seasonal

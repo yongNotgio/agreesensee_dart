@@ -9,9 +9,11 @@ import '../../core/utils/formatters.dart';
 import '../../core/widgets/async_value_view.dart';
 import '../../core/widgets/charts.dart';
 import '../../core/widgets/common_widgets.dart';
+import '../../core/widgets/heatmap_grid.dart';
 import '../../core/widgets/section_card.dart';
 import '../../core/widgets/status_chip.dart';
 import '../../models/crop_declaration.dart';
+import '../../models/enums.dart';
 import '../../providers/data_providers.dart';
 
 /// Forward-looking supply projection (Objective 3): a weekly harvest-volume
@@ -43,13 +45,19 @@ class _SupplyProjectionScreenState
             final projection = HarvestSyncEngine.projectionForCrop(
                 declarations, _cropId,
                 weeks: 12);
+            // Demand comes from the resolved figure (cooperative-declared
+            // where available, else the monthly baseline) so this screen
+            // and the farmer's warnings never disagree.
             final saturation =
-                SaturationEngine.forAllCrops(declarations);
-            final selected = saturation.firstWhere(
-              (s) => s.cropId == _cropId,
-              orElse: () => SaturationEngine.forCrop(
-                  cropId: _cropId, declarations: declarations),
-            );
+                ref.watch(saturationProvider).valueOrNull ?? const [];
+            final selected = saturation.isEmpty
+                ? SaturationEngine.forCrop(
+                    cropId: _cropId, declarations: declarations)
+                : saturation.firstWhere(
+                    (s) => s.cropId == _cropId,
+                    orElse: () => SaturationEngine.forCrop(
+                        cropId: _cropId, declarations: declarations),
+                  );
             // Convert the demand (annual-ish baseline) into a weekly reference
             // line proportional to the chart horizon for visual comparison.
             final weeklyDemandRef = selected.demandTons / 12;
@@ -90,6 +98,10 @@ class _SupplyProjectionScreenState
                 _SaturationDetailCard(result: selected),
                 const SizedBox(height: 12),
                 _SaturationTable(results: saturation),
+                const SizedBox(height: 12),
+                const _MonthlyHeatmap(),
+                const SizedBox(height: 12),
+                const _BarangayHeatmap(),
               ],
             );
           },
@@ -186,46 +198,248 @@ class _SaturationDetailCard extends StatelessWidget {
   }
 }
 
-class _SaturationTable extends StatelessWidget {
+/// Colour for a saturation band — shared by the table and both heat maps.
+Color _saturationColor(SaturationLevel level) => switch (level) {
+      SaturationLevel.low => AppColors.riskLow,
+      SaturationLevel.moderate => AppColors.riskModerate,
+      SaturationLevel.high => AppColors.riskHigh,
+    };
+
+/// The full saturation picture as a real table.
+///
+/// This used to be a row list showing only a crop name, a tonnage, and a
+/// coloured chip — the index itself, the demand it was divided by, and where
+/// that demand came from were all invisible, which made the number impossible
+/// to check. All of it is now on screen, sortable.
+class _SaturationTable extends StatefulWidget {
   const _SaturationTable({required this.results});
   final List<SaturationResult> results;
 
   @override
+  State<_SaturationTable> createState() => _SaturationTableState();
+}
+
+class _SaturationTableState extends State<_SaturationTable> {
+  int _sortColumn = 3; // index
+  bool _ascending = false;
+
+  @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final rows = [...widget.results];
+    rows.sort((a, b) {
+      final cmp = switch (_sortColumn) {
+        0 => a.cropName.compareTo(b.cropName),
+        1 => a.expectedSupplyTons.compareTo(b.expectedSupplyTons),
+        2 => a.demandTons.compareTo(b.demandTons),
+        4 => a.contributingDeclarations.compareTo(b.contributingDeclarations),
+        _ => a.index.compareTo(b.index),
+      };
+      return _ascending ? cmp : -cmp;
+    });
+
+    void onSort(int column, bool ascending) => setState(() {
+          _sortColumn = column;
+          _ascending = ascending;
+        });
+
     return SectionCard(
       title: 'All crops — saturation overview',
+      subtitle: 'Supply ÷ demand, by crop',
       icon: Icons.table_rows,
-      child: Column(
-        children: [
-          for (final r in results)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Text(r.cropName,
-                        style: const TextStyle(fontWeight: FontWeight.w600)),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Text(Fmt.tons(r.expectedSupplyTons),
-                        textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.bodySmall),
-                  ),
-                  const SizedBox(width: 8),
-                  SizedBox(
-                    width: 92,
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: StatusChip.saturation(r.level, dense: true),
+      padding: const EdgeInsets.fromLTRB(16, 16, 8, 16),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: DataTable(
+          sortColumnIndex: _sortColumn,
+          sortAscending: _ascending,
+          headingRowHeight: 40,
+          dataRowMinHeight: 42,
+          dataRowMaxHeight: 52,
+          columnSpacing: 22,
+          columns: [
+            DataColumn(label: const Text('Crop'), onSort: onSort),
+            DataColumn(
+                label: const Text('Supply'), numeric: true, onSort: onSort),
+            DataColumn(
+                label: const Text('Demand'), numeric: true, onSort: onSort),
+            DataColumn(
+                label: const Text('Index'), numeric: true, onSort: onSort),
+            DataColumn(
+                label: const Text('Farms'), numeric: true, onSort: onSort),
+            const DataColumn(label: Text('Risk')),
+          ],
+          rows: [
+            for (final r in rows)
+              DataRow(cells: [
+                DataCell(Text(r.cropName,
+                    style: const TextStyle(fontWeight: FontWeight.w600))),
+                DataCell(Text(Fmt.tons(r.expectedSupplyTons))),
+                DataCell(
+                  Tooltip(
+                    message: r.demand.provenance,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(Fmt.tons(r.demandTons)),
+                        const SizedBox(width: 4),
+                        Icon(
+                          r.demandSource == DemandSource.cooperative
+                              ? Icons.verified_user
+                              : Icons.public,
+                          size: 12,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-        ],
+                ),
+                DataCell(Text(
+                  r.index.toStringAsFixed(2),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      color: _saturationColor(r.level)),
+                )),
+                DataCell(Text('${r.contributingDeclarations}')),
+                DataCell(StatusChip.saturation(r.level, dense: true)),
+              ]),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+/// Crop × month saturation — where a glut is building, and when.
+///
+/// A single index for "right now" hides the shape of the problem: five farmers
+/// harvesting in the same week is a very different situation from the same
+/// tonnage spread over a quarter.
+class _MonthlyHeatmap extends ConsumerWidget {
+  const _MonthlyHeatmap();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final matrixAsync = ref.watch(saturationMatrixProvider);
+
+    return matrixAsync.maybeWhen(
+      orElse: () => const SizedBox.shrink(),
+      data: (matrix) {
+        if (matrix.isEmpty) return const SizedBox.shrink();
+        return SectionCard(
+          title: 'Saturation by month',
+          subtitle: 'Projected supply ÷ demand over the next 12 months',
+          icon: Icons.calendar_view_month,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeatmapGrid(
+                rowLabels: [
+                  for (final id in matrix.cropIds) CropCatalog.nameFor(id)
+                ],
+                columnLabels: [
+                  for (final m in matrix.months) Fmt.monthShort(m)
+                ],
+                cellWidth: 50,
+                cellBuilder: (r, c) {
+                  final cell =
+                      matrix.at(matrix.cropIds[r], matrix.months[c]);
+                  if (cell == null) return null;
+                  return HeatmapCell(
+                    value: cell.index,
+                    color: cell.supplyTons <= 0
+                        ? Colors.blueGrey
+                        : _saturationColor(cell.level),
+                    label: cell.supplyTons <= 0
+                        ? '—'
+                        : cell.index.toStringAsFixed(1),
+                    tooltip: '${CropCatalog.nameFor(cell.cropId)} '
+                        '${Fmt.monthShort(DateTime(cell.year, cell.month))}: '
+                        '${Fmt.tons(cell.supplyTons)} supply vs '
+                        '${Fmt.tons(cell.demandTons)} demand',
+                  );
+                },
+              ),
+              const SizedBox(height: 12),
+              HeatmapLegend(entries: [
+                for (final l in SaturationLevel.values)
+                  (label: l.label, color: _saturationColor(l)),
+                (label: 'No supply', color: Colors.blueGrey),
+              ]),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Crop × barangay planted volume — where planting is concentrated.
+///
+/// The barangay was recorded on every declaration and never analysed. This is
+/// the first view that answers "who is planting what, where".
+class _BarangayHeatmap extends ConsumerWidget {
+  const _BarangayHeatmap();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final supplyAsync = ref.watch(supplyByBarangayProvider);
+
+    return supplyAsync.maybeWhen(
+      orElse: () => const SizedBox.shrink(),
+      data: (byBarangay) {
+        if (byBarangay.isEmpty) return const SizedBox.shrink();
+
+        final barangays = byBarangay.keys.toList()..sort();
+        final cropIds = CropCatalog.crops.map((c) => c.id).toList();
+
+        // Scale colour intensity against the single heaviest concentration.
+        var peak = 0.0;
+        for (final row in byBarangay.values) {
+          for (final v in row.values) {
+            if (v > peak) peak = v;
+          }
+        }
+
+        return SectionCard(
+          title: 'Planting concentration',
+          subtitle: 'Expected supply (tons) by barangay',
+          icon: Icons.map_outlined,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeatmapGrid(
+                rowLabels: barangays,
+                columnLabels: [
+                  for (final id in cropIds) CropCatalog.nameFor(id)
+                ],
+                cellBuilder: (r, c) {
+                  final tons = byBarangay[barangays[r]]?[cropIds[c]] ?? 0;
+                  if (tons <= 0) return null;
+                  final share = peak <= 0 ? 0.0 : tons / peak;
+                  return HeatmapCell(
+                    value: tons,
+                    color: share > 0.66
+                        ? AppColors.riskHigh
+                        : share > 0.33
+                            ? AppColors.riskModerate
+                            : AppColors.riskLow,
+                    label: Fmt.number(tons),
+                    tooltip: '${CropCatalog.nameFor(cropIds[c])} in '
+                        '${barangays[r]}: ${Fmt.tons(tons)} expected',
+                  );
+                },
+              ),
+              const SizedBox(height: 12),
+              HeatmapLegend(entries: [
+                (label: 'Light', color: AppColors.riskLow),
+                (label: 'Moderate', color: AppColors.riskModerate),
+                (label: 'Heavy', color: AppColors.riskHigh),
+              ]),
+            ],
+          ),
+        );
+      },
     );
   }
 }

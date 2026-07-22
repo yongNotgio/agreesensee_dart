@@ -1,0 +1,36 @@
+crop_id,stage,label,day_from,day_to
+ampalaya,establishment,Sowing & emergence,0,7
+ampalaya,vegetative,Vegetative growth,8,40
+ampalaya,reproductive,Flowering & fruit set,41,70
+ampalaya,harvest,Harvest window,70,115
+eggplant,nursery,Seedling / nursery,-28,-1
+eggplant,establishment,Transplanting,0,7
+eggplant,vegetative,Vegetative growth,8,45
+eggplant,reproductive,Flowering & fruit set,46,80
+eggplant,harvest,Harvest window,80,140
+okra,establishment,Sowing & emergence,0,7
+okra,vegetative,Vegetative growth,8,35
+okra,reproductive,Flowering & fruit set,36,55
+okra,harvest,Harvest window,55,100
+string_beans,establishment,Sowing & emergence,0,7
+string_beans,vegetative,Vegetative growth,8,35
+string_beans,reproductive,Flowering & fruit set,36,60
+string_beans,harvest,Harvest window,60,90
+tomato,nursery,Seedling / nursery,-24,-1
+tomato,establishment,Transplanting,0,7
+tomato,vegetative,Vegetative growth,8,45
+tomato,reproductive,Flowering & fruit set,46,75
+tomato,harvest,Harvest window,75,110
+corn,establishment,Sowing & emergence,0,7
+corn,vegetative,Vegetative growth,8,55
+corn,reproductive,Flowering & fruit set,56,90
+corn,harvest,Harvest window,90,100
+squash,establishment,Sowing & emergence,0,7
+squash,vegetative,Vegetative growth,8,50
+squash,reproductive,Flowering & fruit set,51,85
+squash,harvest,Harvest window,85,115
+pechay,nursery,Seedling / nursery,-14,-1
+pechay,establishment,Transplanting,0,7
+pechay,vegetative,Vegetative growth,8,25
+pechay,reproductive,Flowering & fruit set,26,35
+pechay,harvest,Harvest window,35,42

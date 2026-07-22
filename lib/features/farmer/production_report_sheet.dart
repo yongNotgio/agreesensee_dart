@@ -39,8 +39,10 @@ class _ProductionReportSheetState
   late final TextEditingController _yield;
   late final TextEditingController _price;
   final _loss = TextEditingController(text: '0');
+  final _buyer = TextEditingController();
   final _notes = TextEditingController();
   DateTime _date = DateTime.now();
+  SalesChannel _channel = SalesChannel.bagsakan;
   bool _saving = false;
 
   @override
@@ -58,6 +60,7 @@ class _ProductionReportSheetState
     _yield.dispose();
     _price.dispose();
     _loss.dispose();
+    _buyer.dispose();
     _notes.dispose();
     super.dispose();
   }
@@ -74,6 +77,8 @@ class _ProductionReportSheetState
       actualPricePerKg: double.parse(_price.text.replaceAll(',', '')),
       harvestedOn: _date,
       lossKg: double.tryParse(_loss.text.replaceAll(',', '')) ?? 0,
+      soldToChannel: _channel,
+      buyerName: _buyer.text.trim().isEmpty ? null : _buyer.text.trim(),
       notes: _notes.text.trim().isEmpty ? null : _notes.text.trim(),
       createdAt: DateTime.now(),
     );
@@ -137,6 +142,30 @@ class _ProductionReportSheetState
               onChanged: (d) => setState(() => _date = d),
             ),
             const SizedBox(height: 12),
+
+            // Where the harvest went. Without this the municipality can see
+            // what was planted but not where the supply ended up — the gap
+            // behind "ay diin nagkadto ang supply?".
+            AppDropdown<SalesChannel>(
+              label: 'Where did you sell it?',
+              value: _channel,
+              prefixIcon: Icons.local_shipping_outlined,
+              items: SalesChannel.values,
+              itemLabel: (c) => c.label,
+              onChanged: (c) => setState(() => _channel = c ?? _channel),
+            ),
+            const SizedBox(height: 12),
+            AppTextField(
+              label: 'Buyer name (optional)',
+              controller: _buyer,
+              prefixIcon: Icons.person_outline,
+              hint: 'Trader, cooperative, or business name',
+            ),
+            if (_channel.leavesMunicipality) ...[
+              const SizedBox(height: 8),
+              const _LeakageNotice(),
+            ],
+            const SizedBox(height: 12),
             AppTextField(
               label: 'Notes (optional)',
               controller: _notes,
@@ -156,6 +185,40 @@ class _ProductionReportSheetState
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Shown when produce leaves the municipality's monitored supply chain, so the
+/// farmer understands why the app asks and that the answer is not a judgement.
+class _LeakageNotice extends StatelessWidget {
+  const _LeakageNotice();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.route_outlined,
+              size: 16, color: theme.colorScheme.onSurfaceVariant),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              'Recording this helps the municipality understand why local '
+              'supply sometimes falls short even in a good harvest. Selling '
+              'outside Tubungan is your decision — this is only tracking.',
+              style: theme.textTheme.labelSmall,
+            ),
+          ),
+        ],
       ),
     );
   }

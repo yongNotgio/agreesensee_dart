@@ -1,0 +1,3458 @@
+[
+  {
+    "barangay": "Adgao",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.723,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.841,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.817,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.786,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.733,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.734,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.769,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Adgao",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.752,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.739,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.882,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.756,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.801,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.774,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.787,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.804,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ago",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.793,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.728,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.872,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.814,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.781,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.721,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.779,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.75,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ambarihon",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.778,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.771,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.869,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.81,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.812,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.742,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.737,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ayubo",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.745,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.73,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.843,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.748,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.803,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.758,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.72,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.811,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bacan",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.783,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.514,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.615,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.634,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.675,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.542,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.611,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.648,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bagunanay",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.621,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.785,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.891,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.767,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.805,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.774,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.76,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Badiang",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.772,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.541,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.629,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.64,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.653,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.557,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.591,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.605,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Balicua",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.593,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.851,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.914,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.858,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.831,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.785,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.772,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.841,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bantayanan",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.799,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.871,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.958,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.848,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.882,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.765,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.846,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.861,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone I (Poblacion)",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.801,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.905,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.923,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.849,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.845,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.714,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.796,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.829,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone II (Poblacion)",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.799,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.904,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.928,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.811,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.902,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.718,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.796,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.875,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Zone III (Poblacion)",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.818,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.494,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.616,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.639,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.676,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.55,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.603,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.614,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Batga",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.619,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.75,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.851,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.746,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.804,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.749,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.745,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.764,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bato",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.769,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.749,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.84,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.805,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.774,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.766,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.738,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.798,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bikil",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.788,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.511,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.608,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.657,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.624,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.563,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.632,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.637,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Boloc",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.616,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.759,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.869,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.795,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.77,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.776,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.73,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.781,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Bondoc",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.749,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.536,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.596,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.651,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.644,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.576,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.581,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.643,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Borong",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.637,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.751,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.903,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.765,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.834,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.776,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.786,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.808,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Buenavista",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.748,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.873,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.897,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.866,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.879,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.757,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.771,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.832,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Cadabdab",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.827,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.89,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.963,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.796,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.876,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.779,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.8,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.885,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Daga-ay",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.769,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.782,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.898,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.812,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.795,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.744,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.756,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.758,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Desposorio",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.738,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.505,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.599,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.603,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.628,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.54,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.626,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.615,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Norte",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.595,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.503,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.604,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.613,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.667,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.567,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.636,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.641,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igdampog Sur",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.584,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.864,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.929,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.861,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.906,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.745,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.847,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.878,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igpaho",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.793,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.863,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.96,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.821,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.848,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.764,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.846,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.868,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Igtuble",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.823,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.757,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.841,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.784,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.765,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.751,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.799,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Ingay",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.767,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.862,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.774,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.796,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.741,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.772,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.753,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Isauan",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.773,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.922,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.904,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.834,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.888,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.717,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.82,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.844,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jolason",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.794,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.886,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.946,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.805,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.901,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.753,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.789,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.813,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Jona",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.769,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.724,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.854,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.754,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.843,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.727,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.783,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.795,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "La-ag",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.761,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.933,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.931,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.804,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.881,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.766,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.834,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.87,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Norte",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.815,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.738,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.896,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.796,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.826,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.765,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.727,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.765,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Lanag Sur",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.739,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.91,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.955,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.841,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.848,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.743,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.774,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.891,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Male",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.821,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.747,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.818,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.778,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.789,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.732,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.745,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.798,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Mayang",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.787,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.869,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.766,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.816,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.749,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.777,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.775,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Molina",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.758,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.795,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.832,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.814,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.778,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.747,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.73,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.792,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Morcillas",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.788,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.909,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.955,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.852,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.852,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.768,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.778,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.89,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Nagba",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.8,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.527,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.632,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.632,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.622,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.548,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.609,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.651,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Navillan",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.611,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.506,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.618,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.645,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.648,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.575,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.632,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.604,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Pinamacalan",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.582,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.754,
+    "observations": 23,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.889,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.813,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.832,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.773,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.792,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.802,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "San Jose",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.791,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.525,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.61,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.632,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.672,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.541,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.621,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.601,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Sibucauan",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.601,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.927,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.886,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.85,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.851,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.741,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.773,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.835,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Singon",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.845,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "ampalaya",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.512,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "eggplant",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.622,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "okra",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.622,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "string_beans",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.679,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "tomato",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.566,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "corn",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.608,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "squash",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.649,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tabat",
+    "crop_id": "pechay",
+    "terrain": "upland",
+    "dominant_soil": "sandy_loam",
+    "yield_index": 0.636,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.778,
+    "observations": 13,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.862,
+    "observations": 16,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.785,
+    "observations": 17,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.817,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.743,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.722,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.759,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Tagpu-an",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.786,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.743,
+    "observations": 22,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.893,
+    "observations": 24,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.774,
+    "observations": 21,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.825,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.753,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.792,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.775,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Talento",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.72,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "ampalaya",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.729,
+    "observations": 10,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "eggplant",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.872,
+    "observations": 20,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "okra",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.753,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "string_beans",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.84,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "tomato",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.728,
+    "observations": 18,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "corn",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.77,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "squash",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.772,
+    "observations": 11,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Teniente Benito",
+    "crop_id": "pechay",
+    "terrain": "midland",
+    "dominant_soil": "loam",
+    "yield_index": 0.761,
+    "observations": 14,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "ampalaya",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.936,
+    "observations": 6,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "eggplant",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.879,
+    "observations": 12,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "okra",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.864,
+    "observations": 9,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "string_beans",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.879,
+    "observations": 15,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "tomato",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.773,
+    "observations": 19,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "corn",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.791,
+    "observations": 7,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "squash",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.828,
+    "observations": 8,
+    "source_year": 2025
+  },
+  {
+    "barangay": "Victoria",
+    "crop_id": "pechay",
+    "terrain": "lowland",
+    "dominant_soil": "clay_loam",
+    "yield_index": 0.809,
+    "observations": 11,
+    "source_year": 2025
+  }
+]

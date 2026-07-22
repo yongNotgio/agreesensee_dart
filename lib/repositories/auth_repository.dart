@@ -106,31 +106,56 @@ class AuthRepository {
     return profile;
   }
 
-  /// Register a new farmer account + profile row.
+  /// Register a new account + profile row.
+  ///
+  /// Farmers register with an RSBSA number and barangay and land in
+  /// [AccountVerification.pending] — residency is confirmed against the MAO
+  /// roster by a cooperative officer or technician, not asserted by the person
+  /// signing up. Accounts without an RSBSA number stay `unverified`.
   Future<Profile> signUp({
     required String email,
     required String password,
-    required String fullName,
+    required String firstName,
+    required String lastName,
     required UserRole role,
+    String? middleName,
+    String? username,
     String? contactNumber,
     String? barangay,
     String? cooperativeId,
+    String? rsbsaNumber,
   }) async {
+    final normalizedEmail = email.trim().toLowerCase();
+    final handle = username?.trim().toLowerCase();
+    final verification = (rsbsaNumber ?? '').trim().isEmpty
+        ? AccountVerification.unverified
+        : AccountVerification.pending;
+
     if (isDemo) {
       final profiles = _localProfiles();
-      if (profiles.any(
-          (p) => (p['email'] as String?)?.toLowerCase() == email.toLowerCase())) {
+      if (profiles.any((p) =>
+          (p['email'] as String?)?.toLowerCase() == normalizedEmail)) {
         throw const AuthFailure('An account with that email already exists.');
+      }
+      if (handle != null &&
+          profiles.any(
+              (p) => (p['username'] as String?)?.toLowerCase() == handle)) {
+        throw const AuthFailure('That username is already taken.');
       }
       final id = 'demo-${DateTime.now().millisecondsSinceEpoch}';
       final profile = Profile(
         id: id,
-        fullName: fullName,
+        firstName: firstName,
+        lastName: lastName,
+        middleName: middleName,
+        username: handle,
         role: role,
-        email: email,
+        email: normalizedEmail,
         contactNumber: contactNumber,
         barangay: barangay,
         cooperativeId: cooperativeId,
+        rsbsaNumber: rsbsaNumber,
+        verification: verification,
         createdAt: DateTime.now(),
       );
       profiles.add(profile.toMap());
@@ -143,21 +168,36 @@ class AuthRepository {
     final existing = await client!
         .from('profiles')
         .select('id')
-        .eq('email', email.trim().toLowerCase())
+        .eq('email', normalizedEmail)
         .maybeSingle();
     if (existing != null) {
       throw const AuthFailure('An account with that email already exists.');
     }
+    if (handle != null) {
+      final taken = await client!
+          .from('profiles')
+          .select('id')
+          .eq('username', handle)
+          .maybeSingle();
+      if (taken != null) {
+        throw const AuthFailure('That username is already taken.');
+      }
+    }
 
     // Insert; let the DB generate the UUID via DEFAULT gen_random_uuid().
     final inserted = await client!.from('profiles').insert({
-      'email': email.trim().toLowerCase(),
+      'email': normalizedEmail,
       'password': password,
-      'full_name': fullName,
+      'first_name': firstName,
+      'last_name': lastName,
+      'middle_name': middleName,
+      'username': handle,
       'role': role.wire,
       'contact_number': contactNumber,
       'barangay': barangay,
       'cooperative_id': cooperativeId,
+      'rsbsa_number': rsbsaNumber,
+      'verification': verification.wire,
       'created_at': DateTime.now().toIso8601String(),
     }).select().single();
 

@@ -23,42 +23,55 @@ insert into public.cooperatives
   (id, name, barangay, contact_person, contact_number, member_count, buy_back_capacity_tons, created_at)
 values
   ('c0000000-0000-4000-8000-000000000001',
-   'Tubungan Vegetable Growers Association', 'Poblacion',
+   'Tubungan Vegetable Growers Association', 'Zone I (Poblacion)',
    'Maria Santos', '0917 555 0142', 58, 120, now() - interval '400 days')
 on conflict (id) do nothing;
 
 -- 2) Named login accounts (plain text password) --------------------------------
 insert into public.profiles
-  (id, email, password, full_name, role, barangay, cooperative_id, contact_number, created_at)
+  (id, email, password, first_name, middle_name, last_name, username, role,
+   barangay, cooperative_id, contact_number, rsbsa_number, verification,
+   verified_at, created_at)
 values
   ('a0000000-0000-4000-8000-000000000001',
-   'mao@agrisense.ph', 'AgriSense123!', 'Engr. Roberto Aquino',
-   'mao', 'Poblacion', null,
-   '0917 555 0001', now() - interval '400 days'),
+   'mao@agrisense.ph', 'AgriSense123!', 'Roberto', null, 'Aquino',
+   'roberto.aquino', 'mao', 'Zone I (Poblacion)', null,
+   '0917 555 0001', null, 'verified',
+   now() - interval '400 days', now() - interval '400 days'),
 
   ('a0000000-0000-4000-8000-000000000002',
-   'baw@agrisense.ph', 'AgriSense123!', 'Lourdes Gabon',
-   'baw', 'Igpaho', null,
-   '0918 555 0002', now() - interval '400 days'),
+   'baw@agrisense.ph', 'AgriSense123!', 'Lourdes', null, 'Gabon',
+   'lourdes.gabon', 'baw', 'Igpaho', null,
+   '0918 555 0002', null, 'verified',
+   now() - interval '400 days', now() - interval '400 days'),
 
   ('a0000000-0000-4000-8000-000000000003',
-   'tech@agrisense.ph', 'AgriSense123!', 'Engr. Felix Donado',
-   'technician', 'Poblacion', null,
-   '0917 555 0003', now() - interval '400 days'),
+   'tech@agrisense.ph', 'AgriSense123!', 'Felix', null, 'Donado',
+   'felix.donado', 'technician', 'Zone I (Poblacion)', null,
+   '0917 555 0003', null, 'verified',
+   now() - interval '400 days', now() - interval '400 days'),
 
   ('a0000000-0000-4000-8000-000000000004',
-   'coop@agrisense.ph', 'AgriSense123!', 'Maria Santos',
-   'cooperative', 'Poblacion', 'c0000000-0000-4000-8000-000000000001',
-   '0917 555 0142', now() - interval '400 days'),
+   'coop@agrisense.ph', 'AgriSense123!', 'Maria', 'Luisa', 'Santos',
+   'maria.santos', 'cooperative', 'Zone I (Poblacion)',
+   'c0000000-0000-4000-8000-000000000001',
+   '0917 555 0142', null, 'verified',
+   now() - interval '400 days', now() - interval '400 days'),
 
   ('a0000000-0000-4000-8000-000000000005',
-   'farmer@agrisense.ph', 'AgriSense123!', 'Juan Dela Cruz',
-   'farmer', 'Igpaho', 'c0000000-0000-4000-8000-000000000001',
-   '0918 555 0005', now() - interval '120 days')
+   'farmer@agrisense.ph', 'AgriSense123!', 'Juan', 'Ramos', 'Dela Cruz',
+   'juan.delacruz', 'farmer', 'Igpaho',
+   'c0000000-0000-4000-8000-000000000001',
+   '0918 555 0005', '06-30-79-001-000123', 'verified',
+   now() - interval '118 days', now() - interval '120 days')
 on conflict (id) do update
-  set full_name      = excluded.full_name,
+  set first_name     = excluded.first_name,
+      last_name      = excluded.last_name,
+      username       = excluded.username,
       role           = excluded.role,
       cooperative_id = excluded.cooperative_id,
+      rsbsa_number   = excluded.rsbsa_number,
+      verification   = excluded.verification,
       password       = excluded.password;
 
 -- 3) Juan's farm (Phase 1) -----------------------------------------------------
@@ -74,7 +87,7 @@ values
    now() - interval '120 days')
 on conflict (id) do nothing;
 
--- 4) Juan's declarations (current approved + pending + last-season harvested) ---
+-- 4) Juan's declarations (two standing + one harvested last season) -------------
 insert into public.crop_declarations
   (id, farmer_id, farm_id, crop_id, variety, area_ha, planting_date,
    expected_harvest_date, expected_yield_kg, barangay, status,
@@ -83,13 +96,13 @@ values
   ('a3000000-0000-4000-8000-000000000001',
    'a0000000-0000-4000-8000-000000000005', 'a2000000-0000-4000-8000-000000000005',
    'ampalaya', 'Galaxy', 1.0, current_date - 45, current_date + 25, 12000, 'Igpaho',
-   'approved', '{}', 45, 'First declaration of the dry season.',
+   'active', '{}', 45, 'First declaration of the dry season.',
    now() - interval '45 days', now()),
 
   ('a3000000-0000-4000-8000-000000000002',
    'a0000000-0000-4000-8000-000000000005', 'a2000000-0000-4000-8000-000000000005',
    'eggplant', 'Casino', 0.5, current_date - 10, current_date + 70, 9000, 'Igpaho',
-   'pending', '{string_beans}', 40, null,
+   'active', '{string_beans}', 40, null,
    now() - interval '10 days', now()),
 
   ('a3000000-0000-4000-8000-000000000003',
@@ -148,14 +161,9 @@ values
    'Strong winds from TS "Crising" lodged trellises on the lower plot.')
 on conflict (id) do nothing;
 
--- 9) Validation audit trail for Juan's approved ampalaya (web portal) ----------
-insert into public.declaration_reviews
-  (id, declaration_id, reviewer_id, reviewer_role, from_status, to_status, note, created_at)
-values
-  ('4e100000-0000-4000-8000-000000000001','a3000000-0000-4000-8000-000000000001','a0000000-0000-4000-8000-000000000002','baw','pending','baw_approved','Farm photos and area verified.',now() - interval '30 days'),
-  ('4e100000-0000-4000-8000-000000000002','a3000000-0000-4000-8000-000000000001','a0000000-0000-4000-8000-000000000003','technician','baw_approved','technician_verified','Yield estimate realistic for the location.',now() - interval '25 days'),
-  ('4e100000-0000-4000-8000-000000000003','a3000000-0000-4000-8000-000000000001','a0000000-0000-4000-8000-000000000001','mao','technician_verified','approved','Approved for municipal records.',now() - interval '20 days')
-on conflict (id) do nothing;
+-- 9) (retired) Validation audit trail ------------------------------------------
+-- The BAW -> Technician -> MAO validation chain was retired, so no review
+-- rows are seeded. public.declaration_reviews is kept only for history.
 
 -- 10) Cooperative buy-back / alternative market channels (Objective 3) ----------
 insert into public.market_channels
@@ -173,7 +181,7 @@ declare
   coop   uuid := 'c0000000-0000-4000-8000-000000000001';
   fnames text[] := array['Jose','Maria','Antonio','Rosa','Pedro','Ana','Mario','Linda','Carlos','Elena','Ramon','Teresa','Andres','Carmen','Felipe','Lucia'];
   lnames text[] := array['Reyes','Santos','Cruz','Bautista','Garcia','Ramos','Mendoza','Flores','Villanueva','Castro','Aquino','Gabon','Donado','Salcedo'];
-  brgys  text[] := array['Igpaho','Bading','Bagunanay','Bondoc','Buenavista','Cabunga','Igcabugao','Igtuble','Molina','Morubuan','Poblacion','Tabat','Talenton','Teniente Loling'];
+  brgys  text[] := array['Igpaho','Badiang','Bagunanay','Bondoc','Buenavista','Cadabdab','Igdampog Sur','Igtuble','Molina','Morcillas','Zone I (Poblacion)','Tabat','Talento','Teniente Benito'];
   i      int;
   uid    uuid;
   fid    uuid;
@@ -181,7 +189,6 @@ declare
   ar     numeric;
   st     declaration_status;
   hv     date;
-  fname  text;
   brgy   text;
   growth int;
   byield numeric;
@@ -190,21 +197,23 @@ begin
   for i in 1..50 loop
     uid   := ('b1000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
     fid   := ('b2000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
-    fname := fnames[1 + (i % array_length(fnames,1))] || ' ' ||
-             lnames[1 + (i % array_length(lnames,1))];
     brgy  := brgys[1 + (i % array_length(brgys,1))];
 
     insert into public.profiles
-      (id, email, password, full_name, role, barangay, cooperative_id, created_at)
+      (id, email, password, first_name, last_name, username, role,
+       barangay, cooperative_id, verification, created_at)
     values
-      (uid, 'bg'||i||'@agrisense.local', 'AgriSense123!', fname,
-       'farmer', brgy, coop, now())
+      (uid, 'bg'||i||'@agrisense.local', 'AgriSense123!',
+       fnames[1 + (i % array_length(fnames,1))],
+       lnames[1 + (i % array_length(lnames,1))],
+       'farmer'||i,
+       'farmer', brgy, coop, 'verified', now())
     on conflict (id) do nothing;
 
     insert into public.farms
-      (id, owner_id, name, barangay, total_area_ha, soil_type, created_at)
+      (id, owner_id, barangay, total_area_ha, soil_type, created_at)
     values
-      (fid, uid, fname || ' Farm', brgy, 1.5, 'Clay loam', now())
+      (fid, uid, brgy, 1.5, 'Clay loam', now())
     on conflict (id) do nothing;
 
     if i <= 42 then
@@ -217,8 +226,9 @@ begin
       hv     := current_date + 30 + (i % 20);
     end if;
 
-    st := case when i % 9 = 0 then 'pending'::declaration_status
-               else 'approved'::declaration_status end;
+    -- Declarations are records, not applications: every standing crop is
+    -- simply active.
+    st := 'active'::declaration_status;
 
     select growth_duration_days, baseline_yield_per_ha, baseline_price_per_kg
       into growth, byield, bprice from public.crops where id = cropid;
@@ -272,6 +282,77 @@ set member_count = (
   where p.cooperative_id = c.id and p.role = 'farmer'
 )
 where c.id = 'c0000000-0000-4000-8000-000000000001';
+
+
+-- 15) Cooperative demand commitments (saturation denominator) -------------------
+-- Demand declared by a cooperative takes precedence over the municipal monthly
+-- baseline, so the oversupply warnings farmers see rest on a figure someone is
+-- accountable for rather than a hardcoded constant.
+insert into public.demand_signals
+  (id, cooperative_id, crop_id, period_start, period_end, demand_tons,
+   buyer_type, price_per_kg, buyer_name, notes, created_at)
+values
+  ('d1000000-0000-4000-8000-000000000001',
+   'c0000000-0000-4000-8000-000000000001', 'ampalaya',
+   current_date - 15, current_date + 45, 34, 'bagsakan', 40,
+   'Tubungan Bagsakan', 'Weekly consolidation every Tuesday and Friday.', now()),
+  ('d1000000-0000-4000-8000-000000000002',
+   'c0000000-0000-4000-8000-000000000001', 'eggplant',
+   current_date - 10, current_date + 50, 52, 'institutional', 44,
+   'DepEd school feeding programme', null, now()),
+  ('d1000000-0000-4000-8000-000000000003',
+   'c0000000-0000-4000-8000-000000000001', 'pechay',
+   current_date - 5, current_date + 25, 18, 'retail', 35,
+   'Iloilo City retailers', null, now())
+on conflict (id) do nothing;
+
+-- 16) Barangay technician coverage ---------------------------------------------
+-- With no approval chain, the technician is an advisory contact rather than a
+-- gatekeeper; the farmer dashboard shows who covers their barangay.
+insert into public.barangay_assignments
+  (id, barangay, technician_id, role, technician_name, contact_number, assigned_at)
+values
+  ('d2000000-0000-4000-8000-000000000001', 'Igpaho',
+   'a0000000-0000-4000-8000-000000000003', 'technician',
+   'Engr. Felix Donado', '0917 555 0003', now() - interval '200 days'),
+  ('d2000000-0000-4000-8000-000000000002', 'Zone I (Poblacion)',
+   'a0000000-0000-4000-8000-000000000003', 'technician',
+   'Engr. Felix Donado', '0917 555 0003', now() - interval '200 days'),
+  ('d2000000-0000-4000-8000-000000000003', 'Igpaho',
+   'a0000000-0000-4000-8000-000000000002', 'baw',
+   'Lourdes Gabon', '0918 555 0002', now() - interval '200 days')
+on conflict (barangay, technician_id) do nothing;
+
+-- 17) Crop calendar for Juan's standing ampalaya --------------------------------
+-- The crop's agronomic protocol expanded against its real planting date. The
+-- app regenerates this whenever a declaration is saved; seeding a slice of it
+-- means the calendar and the "needs doing now" card are populated on first run.
+insert into public.planned_activities
+  (id, declaration_id, farmer_id, activity, title, scheduled_on,
+   days_after_planting, suggested_input, suggested_qty_per_ha, unit, status,
+   completed_on, created_at)
+select
+  ('d3000000-0000-4000-8000-' || lpad(v.n::text, 12, '0'))::uuid,
+  'a3000000-0000-4000-8000-000000000001',
+  'a0000000-0000-4000-8000-000000000005',
+  v.activity::activity_type, v.title,
+  current_date + v.offset_days, v.dap, v.input, v.qty, v.unit,
+  v.status::planned_activity_status,
+  case when v.status = 'done' then current_date + v.offset_days end,
+  now()
+from (values
+  (1, 'land_prep',   'Plow and first harrow',        -54, -14, null,  null, null, 'done'),
+  (2, 'fertilizing', 'Apply basal fertilizer',       -40,   0,
+      'Complete 14-14-14 + compost', 4.0, 'bags', 'done'),
+  (3, 'weeding',     'First weeding / off-barring',  -26,  14, null,  null, null, 'done'),
+  (4, 'pest_control','Scheduled protective spray',    -3,  37,
+      'Cypermethrin / fungicide rotation', 0.5, 'L', 'pending'),
+  (5, 'irrigation',  'Irrigate',                       1,  41, null,  null, null, 'pending'),
+  (6, 'fertilizing', 'Flowering-stage fertilizer',     4,  44,
+      'Urea 46-0-0', 1.0, 'bags', 'pending'),
+  (7, 'harvesting',  'Harvest - pick 1',              12,  70, null,  null, null, 'pending')
+) as v(n, activity, title, offset_days, dap, input, qty, unit, status)
+on conflict (id) do nothing;
 
 -- =============================================================================
 -- Done. Sign in with:

@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../core/cache/local_cache.dart';
 import '../core/config/app_config.dart';
 import '../core/network/connectivity_service.dart';
+import '../data/agronomy_dataset.dart';
 import '../data/market_dataset.dart';
 import '../repositories/auth_repository.dart';
 import '../repositories/entity_repositories.dart';
@@ -46,9 +47,10 @@ final calibrationProvider = Provider<Map<String, CropCalibration>>(
   (ref) => ref.watch(marketDatasetProvider).calibrations,
 );
 
-/// Crop id → market demand (tons) used as the saturation denominator.
-final demandOverridesProvider = Provider<Map<String, double>>(
-  (ref) => ref.watch(marketDatasetProvider).demandOverrides,
+/// Varieties, growth stages, the activity protocol, and the barangay
+/// suitability map. Overridden in `main()` with the asset-loaded instance.
+final agronomyDatasetProvider = Provider<AgronomyDataset>(
+  (ref) => AgronomyDataset.empty,
 );
 
 final connectivityServiceProvider =
@@ -121,6 +123,28 @@ final cooperativeRepositoryProvider = Provider<CooperativeRepository>(
 
 final marketChannelRepositoryProvider = Provider<MarketChannelRepository>(
   (ref) => MarketChannelRepository(
+    client: ref.watch(supabaseClientProvider),
+    cache: ref.watch(localCacheProvider),
+  ),
+);
+
+final plannedActivityRepositoryProvider = Provider<PlannedActivityRepository>(
+  (ref) => PlannedActivityRepository(
+    client: ref.watch(supabaseClientProvider),
+    cache: ref.watch(localCacheProvider),
+  ),
+);
+
+final demandSignalRepositoryProvider = Provider<DemandSignalRepository>(
+  (ref) => DemandSignalRepository(
+    client: ref.watch(supabaseClientProvider),
+    cache: ref.watch(localCacheProvider),
+  ),
+);
+
+final barangayAssignmentRepositoryProvider =
+    Provider<BarangayAssignmentRepository>(
+  (ref) => BarangayAssignmentRepository(
     client: ref.watch(supabaseClientProvider),
     cache: ref.watch(localCacheProvider),
   ),

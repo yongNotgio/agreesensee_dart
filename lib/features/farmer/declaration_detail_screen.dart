@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/logic/crop_calendar_engine.dart';
 import '../../core/logic/financial_engine.dart';
 import '../../core/logic/saturation_engine.dart';
-import '../../core/logic/scenario_engine.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/formatters.dart';
 import '../../core/widgets/async_value_view.dart';
@@ -25,9 +25,15 @@ import 'expense_sheet.dart';
 import 'production_report_sheet.dart';
 
 /// Full detail of a crop declaration with three tabs:
-///   • Overview   — declaration data, validation status, market saturation
-///   • Financials — projection (ROI, break-even), expenses, scenario analysis
+///   • Overview   — declaration data, growth-cycle progress, market saturation
+///   • Financials — the expense ledger and realised ROI
 ///   • Harvest    — post-harvest production report and realized P&L
+///
+/// The Financials tab no longer opens with a speculative pre-planting forecast.
+/// Projecting profit from numbers a farmer had to guess dressed up guesswork as
+/// analysis; the ROI shown here is computed from costs actually logged and, once
+/// harvested, revenue actually received. The forward-looking figures now live
+/// where they are actionable — in the risk panel *before* the crop is declared.
 class DeclarationDetailScreen extends ConsumerWidget {
   const DeclarationDetailScreen({super.key, required this.declarationId});
   final String declarationId;
@@ -193,14 +199,7 @@ class _OverviewTab extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 12),
-        if (declaration.reviewerNote != null)
-          SectionCard(
-            title: 'Validator note',
-            icon: Icons.rate_review_outlined,
-            child: Text(declaration.reviewerNote!),
-          ),
-        if (declaration.reviewerNote != null) const SizedBox(height: 12),
-        _ValidationTimeline(status: declaration.status),
+        _CycleProgress(declaration: declaration),
         const SizedBox(height: 12),
         saturationAsync.maybeWhen(
           orElse: () => const SizedBox.shrink(),
@@ -219,130 +218,123 @@ class _OverviewTab extends ConsumerWidget {
 }
 
 /// Visual stepper of the BAW → Technician → MAO validation chain.
-class _ValidationTimeline extends StatelessWidget {
-  const _ValidationTimeline({required this.status});
-  final DeclarationStatus status;
-
-  static const _steps = [
-    (DeclarationStatus.pending, 'Submitted', Icons.send),
-    (DeclarationStatus.bawApproved, 'BAW Validation', Icons.verified_user),
-    (
-      DeclarationStatus.technicianVerified,
-      'Technician Review',
-      Icons.fact_check
-    ),
-    (DeclarationStatus.approved, 'MAO Approval', Icons.account_balance),
-  ];
-
-  int get _reachedIndex {
-    switch (status) {
-      case DeclarationStatus.draft:
-      case DeclarationStatus.pending:
-      case DeclarationStatus.correctionRequested:
-        return 0;
-      case DeclarationStatus.bawApproved:
-        return 1;
-      case DeclarationStatus.technicianVerified:
-        return 2;
-      case DeclarationStatus.approved:
-      case DeclarationStatus.harvested:
-        return 3;
-      case DeclarationStatus.rejected:
-        return -1;
-    }
-  }
+/// Where this planting is in its growth cycle, plus how much of the scheduled
+/// work has been done. This replaces the old BAW → Technician → MAO validation
+/// stepper: nobody approves a declaration any more, so the useful progress to
+/// show is the crop's own, not a queue position.
+class _CycleProgress extends ConsumerWidget {
+  const _CycleProgress({required this.declaration});
+  final CropDeclaration declaration;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    if (status == DeclarationStatus.rejected) {
-      return SectionCard(
-        title: 'Validation',
-        icon: Icons.cancel,
-        child: Row(children: [
-          const Icon(Icons.cancel, color: AppColors.danger),
-          const SizedBox(width: 8),
-          Expanded(
-              child: Text('This declaration was rejected. Edit and resubmit.',
-                  style: theme.textTheme.bodyMedium)),
-        ]),
-      );
-    }
-    final reached = _reachedIndex;
+    final agronomy = ref.watch(agronomyDatasetProvider);
+    final stages = CropCalendarEngine.stages(
+        declaration: declaration, agronomy: agronomy);
+    final current = CropCalendarEngine.currentStage(
+        declaration: declaration, agronomy: agronomy);
+    final plannedAsync =
+        ref.watch(plannedForDeclarationProvider(declaration.id));
+
     return SectionCard(
-      title: 'Validation progress',
+      title: 'Growth cycle',
       icon: Icons.timeline,
-      child: Column(
-        children: [
-          for (var i = 0; i < _steps.length; i++)
-            _TimelineRow(
-              label: _steps[i].$2,
-              icon: _steps[i].$3,
-              done: i <= reached,
-              current: i == reached &&
-                  status != DeclarationStatus.approved &&
-                  status != DeclarationStatus.harvested,
-              isLast: i == _steps.length - 1,
+      trailing: current == null
+          ? null
+          : StatusChip(
+              label: current.label,
+              color: AppColors.primary,
+              dense: true,
             ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (stages.isEmpty)
+            Text('No growth-stage data bundled for this crop.',
+                style: theme.textTheme.bodySmall)
+          else
+            for (final s in stages)
+              _StageRow(
+                stage: s,
+                isCurrent: current != null && current.stage == s.stage,
+              ),
+          plannedAsync.maybeWhen(
+            orElse: () => const SizedBox.shrink(),
+            data: (activities) {
+              if (activities.isEmpty) return const SizedBox.shrink();
+              final done = activities
+                  .where((a) => a.status == PlannedActivityStatus.done)
+                  .length;
+              final overdue =
+                  activities.where((a) => a.isOverdue()).length;
+              return Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RatioBar(
+                      value: done / activities.length,
+                      color: AppColors.success,
+                      height: 8,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '$done of ${activities.length} scheduled activities done'
+                      '${overdue > 0 ? ' • $overdue overdue' : ''}',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-class _TimelineRow extends StatelessWidget {
-  const _TimelineRow({
-    required this.label,
-    required this.icon,
-    required this.done,
-    required this.current,
-    required this.isLast,
-  });
-  final String label;
-  final IconData icon;
-  final bool done;
-  final bool current;
-  final bool isLast;
+class _StageRow extends StatelessWidget {
+  const _StageRow({required this.stage, required this.isCurrent});
+  final CycleStage stage;
+  final bool isCurrent;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final color =
-        done ? AppColors.success : theme.colorScheme.outlineVariant;
-    return IntrinsicHeight(
+    final past = stage.endsOn.isBefore(DateTime.now());
+    final color = isCurrent
+        ? AppColors.primary
+        : past
+            ? AppColors.success
+            : theme.colorScheme.outlineVariant;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              Container(
-                width: 32,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: done
-                      ? AppColors.success.withValues(alpha: 0.15)
-                      : theme.colorScheme.surfaceContainerHighest,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: color, width: 2),
-                ),
-                child: Icon(done ? Icons.check : icon, size: 16, color: color),
-              ),
-              if (!isLast)
-                Expanded(
-                  child: Container(width: 2, color: color),
-                ),
-            ],
+          Container(
+            width: 9,
+            height: 9,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           ),
-          const SizedBox(width: 12),
-          Padding(
-            padding: const EdgeInsets.only(top: 6, bottom: 14),
+          const SizedBox(width: 10),
+          Expanded(
             child: Text(
-              label,
+              stage.label,
               style: TextStyle(
-                fontWeight: current ? FontWeight.w800 : FontWeight.w500,
-                color: current ? AppColors.primary : theme.colorScheme.onSurface,
+                fontSize: 13,
+                fontWeight: isCurrent ? FontWeight.w800 : FontWeight.w500,
+                color: isCurrent ? AppColors.primary : null,
               ),
             ),
+          ),
+          Text(
+            '${Fmt.dateShort(stage.startsOn)} – ${Fmt.dateShort(stage.endsOn)}',
+            style: theme.textTheme.labelSmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
           ),
         ],
       ),
@@ -408,8 +400,6 @@ class _FinancialsTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final expensesAsync =
         ref.watch(expensesForDeclarationProvider(declaration.id));
-    // Dataset-calibrated parameters for this crop (cost-of-production and the
-    // price/yield scenario bands). Falls back to a flat estimate if absent.
     final cal = ref.watch(calibrationProvider)[declaration.cropId];
 
     return AsyncValueView(
@@ -417,41 +407,135 @@ class _FinancialsTab extends ConsumerWidget {
       onRetry: () =>
           ref.invalidate(expensesForDeclarationProvider(declaration.id)),
       data: (expenses) {
-        final result = FinancialEngine.projection(
-          expectedYieldKg: declaration.expectedYieldKg,
-          projectedPricePerKg: declaration.effectivePricePerKg,
-          areaHa: declaration.areaHa,
-          expenses: expenses,
-          estimatedExpensesIfEmpty:
-              (cal?.totalCostPerHa ?? 45000) * declaration.areaHa,
-        );
-        final scenarios = ScenarioEngine.build(
-          expectedYieldKg: declaration.expectedYieldKg,
-          projectedPricePerKg: declaration.effectivePricePerKg,
-          areaHa: declaration.areaHa,
-          totalExpenses: result.totalExpenses,
-          bestPriceUplift: cal?.bestPriceUplift ?? 0.15,
-          bestYieldUplift: cal?.bestYieldUplift ?? 0.10,
-          worstPriceDrop: cal?.worstPriceDrop ?? 0.20,
-          worstYieldDrop: cal?.worstYieldDrop ?? 0.15,
-        );
+        final spent = FinancialEngine.totalOf(expenses);
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _ForecastCard(result: result, isActual: false),
+            _CostToDateCard(
+              declaration: declaration,
+              spent: spent,
+              expectedCost: (cal?.totalCostPerHa ?? 45000) * declaration.areaHa,
+              expenseCount: expenses.length,
+            ),
             const SizedBox(height: 12),
             if (cal != null) ...[
               _PriceCalibrationCard(cal: cal),
               const SizedBox(height: 12),
             ],
-            _BreakEvenCard(result: result),
-            const SizedBox(height: 12),
-            _ScenarioCard(scenarios: scenarios),
-            const SizedBox(height: 12),
             _ExpensesCard(declaration: declaration, expenses: expenses),
+            const SizedBox(height: 12),
+            const _RealisedNotice(),
           ],
         );
       },
+    );
+  }
+}
+
+/// Money actually spent so far, against the surveyed cost of production for a
+/// parcel this size — a real running total, not a forecast.
+class _CostToDateCard extends StatelessWidget {
+  const _CostToDateCard({
+    required this.declaration,
+    required this.spent,
+    required this.expectedCost,
+    required this.expenseCount,
+  });
+
+  final CropDeclaration declaration;
+  final double spent;
+  final double expectedCost;
+  final int expenseCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final ratio = expectedCost <= 0 ? 0.0 : (spent / expectedCost).clamp(0, 1.5);
+    final over = spent > expectedCost;
+
+    return SectionCard(
+      title: 'Cost to date',
+      subtitle: 'Recorded spending on this planting',
+      icon: Icons.account_balance_wallet_outlined,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: MetricTile(
+                  label: 'Spent so far',
+                  value: Fmt.peso(spent),
+                  icon: Icons.payments,
+                  color: AppColors.primary,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: MetricTile(
+                  label: 'Typical for ${Fmt.area(declaration.areaHa)}',
+                  value: Fmt.pesoCompact(expectedCost),
+                  icon: Icons.straighten,
+                  color: AppColors.info,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          RatioBar(
+            value: ratio.toDouble().clamp(0.0, 1.0),
+            color: over ? AppColors.warning : AppColors.success,
+            height: 10,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            expenseCount == 0
+                ? 'No costs recorded yet. Log a farm activity and add its cost '
+                    'in the same entry — it posts here automatically.'
+                : over
+                    ? '$expenseCount entries. Spending is above the surveyed '
+                        'cost of production for this area.'
+                    : '$expenseCount entries recorded '
+                        '(${Fmt.percent(ratio.toDouble())} of typical cost).',
+            style: theme.textTheme.bodySmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Explains where profitability now appears, so its absence here does not read
+/// as something missing.
+class _RealisedNotice extends StatelessWidget {
+  const _RealisedNotice();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.info_outline,
+              size: 18, color: theme.colorScheme.onSurfaceVariant),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              'Profit and ROI appear on the Harvest tab once you record the '
+              'actual yield and selling price. Before planting, the outlook '
+              'for a crop is shown on the declaration form.',
+              style: theme.textTheme.bodySmall,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -549,46 +633,6 @@ class _BreakEvenCard extends StatelessWidget {
             '${Fmt.weightKg((result.yieldKg - result.breakEvenYieldKg).clamp(0, double.infinity))}.',
             style: Theme.of(context).textTheme.bodySmall,
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ScenarioCard extends StatelessWidget {
-  const _ScenarioCard({required this.scenarios});
-  final List<Scenario> scenarios;
-
-  @override
-  Widget build(BuildContext context) {
-    return SectionCard(
-      title: 'Risk & scenario analysis',
-      subtitle: 'Net income under price/yield shocks',
-      icon: Icons.show_chart,
-      child: Column(
-        children: [
-          ScenarioBarChart(scenarios: scenarios),
-          const SizedBox(height: 12),
-          for (final s in scenarios)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      '${s.kind.label} (price ×${s.priceFactor.toStringAsFixed(2)}, yield ×${s.yieldFactor.toStringAsFixed(2)})',
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                  ),
-                  Text(Fmt.peso(s.netIncome),
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: s.netIncome >= 0
-                              ? AppColors.success
-                              : AppColors.danger)),
-                ],
-              ),
-            ),
         ],
       ),
     );
@@ -771,11 +815,20 @@ class _HarvestTab extends ConsumerWidget {
                         InfoRow(
                             label: 'Recorded loss',
                             value: Fmt.weightKg(report.lossKg)),
+                      InfoRow(
+                          label: 'Sold to',
+                          value: report.soldToChannel.label),
+                      if (report.buyerName != null)
+                        InfoRow(label: 'Buyer', value: report.buyerName!),
                     ],
                   ),
                 ),
                 const SizedBox(height: 12),
                 _ForecastCard(result: realized, isActual: true),
+                const SizedBox(height: 12),
+                // Break-even is meaningful here, against real numbers, rather
+                // than against a pre-planting guess.
+                _BreakEvenCard(result: realized),
                 const SizedBox(height: 12),
                 _PlanVsActual(declaration: declaration, report: report),
               ],

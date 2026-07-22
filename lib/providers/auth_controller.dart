@@ -57,22 +57,30 @@ class AuthController extends Notifier<AuthState> {
   Future<void> signUp({
     required String email,
     required String password,
-    required String fullName,
+    required String firstName,
+    required String lastName,
     required UserRole role,
+    String? middleName,
+    String? username,
     String? contactNumber,
     String? barangay,
     String? cooperativeId,
+    String? rsbsaNumber,
   }) async {
     state = state.copyWith(isLoading: true);
     try {
       final profile = await _repo.signUp(
         email: email,
         password: password,
-        fullName: fullName,
+        firstName: firstName,
+        lastName: lastName,
+        middleName: middleName,
+        username: username,
         role: role,
         contactNumber: contactNumber,
         barangay: barangay,
         cooperativeId: cooperativeId,
+        rsbsaNumber: rsbsaNumber,
       );
       state = AuthState(profile: profile, isLoading: false);
     } finally {

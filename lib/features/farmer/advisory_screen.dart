@@ -11,6 +11,7 @@ import '../../core/widgets/section_card.dart';
 import '../../core/widgets/status_chip.dart';
 import '../../models/enums.dart';
 import '../../providers/data_providers.dart';
+import 'suitability_screen.dart';
 
 /// Farmer advisory: crop recommendations (single + intercropping) and harvest
 /// synchronization alerts. Implements study Objective 1.
@@ -20,18 +21,24 @@ class AdvisoryScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Advisory'),
-          bottom: const TabBar(tabs: [
-            Tab(text: 'Recommendations'),
-            Tab(text: 'Harvest Sync'),
-          ]),
+          bottom: const TabBar(
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
+            tabs: [
+              Tab(text: 'Recommendations'),
+              Tab(text: 'Land Suitability'),
+              Tab(text: 'Harvest Sync'),
+            ],
+          ),
         ),
         body: TabBarView(
           children: [
             _RecommendationsTab(),
+            const SuitabilityScreen(),
             _HarvestSyncTab(),
           ],
         ),

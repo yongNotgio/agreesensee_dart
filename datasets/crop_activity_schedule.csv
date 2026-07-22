@@ -1,0 +1,318 @@
+crop_id,days_after_planting,activity_type,title,typical_input,typical_qty_per_ha,unit
+ampalaya,-14,land_prep,Plow and first harrow,,0.0,
+ampalaya,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+ampalaya,0,fertilizing,Apply basal fertilizer,Complete 14-14-14 + compost,4.0,bags
+ampalaya,0,planting,Direct sow in field,Certified seed,0.0,
+ampalaya,7,irrigation,Irrigate,,0.0,
+ampalaya,10,scouting,Field scouting for pests and disease,,0.0,
+ampalaya,14,irrigation,Irrigate,,0.0,
+ampalaya,14,weeding,First weeding / off-barring,,0.0,
+ampalaya,14,fertilizing,First side-dress,Urea 46-0-0,2.0,bags
+ampalaya,14,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,21,irrigation,Irrigate,,0.0,
+ampalaya,24,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,24,scouting,Field scouting for pests and disease,,0.0,
+ampalaya,28,irrigation,Irrigate,,0.0,
+ampalaya,30,weeding,Second weeding / hilling-up,,0.0,
+ampalaya,30,fertilizing,Second side-dress,Urea 46-0-0,2.0,bags
+ampalaya,34,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,35,irrigation,Irrigate,,0.0,
+ampalaya,38,scouting,Field scouting for pests and disease,,0.0,
+ampalaya,41,fertilizing,Flowering-stage fertilizer,Urea 46-0-0,1.0,bags
+ampalaya,42,irrigation,Irrigate,,0.0,
+ampalaya,44,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,49,irrigation,Irrigate,,0.0,
+ampalaya,52,scouting,Field scouting for pests and disease,,0.0,
+ampalaya,54,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,56,irrigation,Irrigate,,0.0,
+ampalaya,63,irrigation,Irrigate,,0.0,
+ampalaya,64,pest_control,Scheduled protective spray,Cypermethrin / fungicide rotation,0.5,L
+ampalaya,66,scouting,Field scouting for pests and disease,,0.0,
+ampalaya,70,irrigation,Irrigate,,0.0,
+ampalaya,70,harvesting,Harvest — pick 1,,0.0,
+ampalaya,77,irrigation,Irrigate,,0.0,
+ampalaya,77,harvesting,Harvest — pick 2,,0.0,
+ampalaya,84,irrigation,Irrigate,,0.0,
+ampalaya,84,harvesting,Harvest — pick 3,,0.0,
+ampalaya,91,irrigation,Irrigate,,0.0,
+ampalaya,91,harvesting,Harvest — pick 4,,0.0,
+ampalaya,98,irrigation,Irrigate,,0.0,
+ampalaya,98,harvesting,Harvest — pick 5,,0.0,
+ampalaya,105,harvesting,Harvest — pick 6,,0.0,
+ampalaya,105,irrigation,Irrigate,,0.0,
+ampalaya,112,irrigation,Irrigate,,0.0,
+ampalaya,112,harvesting,Harvest — pick 7,,0.0,
+corn,-14,land_prep,Plow and first harrow,,0.0,
+corn,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+corn,0,planting,Direct sow in field,Certified seed,0.0,
+corn,0,fertilizing,Apply basal fertilizer,Complete 14-14-14,4.0,bags
+corn,10,scouting,Field scouting for pests and disease,,0.0,
+corn,10,irrigation,Irrigate,,0.0,
+corn,14,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,19,fertilizing,First side-dress,Urea 46-0-0,2.0,bags
+corn,19,weeding,First weeding / off-barring,,0.0,
+corn,20,irrigation,Irrigate,,0.0,
+corn,24,scouting,Field scouting for pests and disease,,0.0,
+corn,28,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,30,irrigation,Irrigate,,0.0,
+corn,38,scouting,Field scouting for pests and disease,,0.0,
+corn,40,irrigation,Irrigate,,0.0,
+corn,41,fertilizing,Second side-dress,Urea 46-0-0,2.0,bags
+corn,41,weeding,Second weeding / hilling-up,,0.0,
+corn,42,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,50,irrigation,Irrigate,,0.0,
+corn,52,scouting,Field scouting for pests and disease,,0.0,
+corn,56,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,56,fertilizing,Flowering-stage fertilizer,Urea 46-0-0,1.0,bags
+corn,60,irrigation,Irrigate,,0.0,
+corn,66,scouting,Field scouting for pests and disease,,0.0,
+corn,70,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,70,irrigation,Irrigate,,0.0,
+corn,80,scouting,Field scouting for pests and disease,,0.0,
+corn,80,irrigation,Irrigate,,0.0,
+corn,84,pest_control,Scheduled protective spray,Corn borer / fall armyworm control,0.5,L
+corn,90,harvesting,Harvest,,0.0,
+corn,90,irrigation,Irrigate,,0.0,
+corn,100,irrigation,Irrigate,,0.0,
+eggplant,-28,planting,Sow seeds in seedbed,Certified seed,1.0,packet
+eggplant,-21,pest_control,Drench seedbed against damping-off,Fungicide drench,0.25,L
+eggplant,-14,land_prep,Plow and first harrow,,0.0,
+eggplant,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+eggplant,-5,planting,Harden seedlings before transplanting,,0.0,
+eggplant,0,planting,Transplant seedlings to field,Hardened seedlings,0.0,
+eggplant,0,fertilizing,Apply basal fertilizer,Complete 14-14-14 + compost,4.0,bags
+eggplant,7,irrigation,Irrigate,,0.0,
+eggplant,10,scouting,Field scouting for pests and disease,,0.0,
+eggplant,14,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,14,irrigation,Irrigate,,0.0,
+eggplant,16,weeding,First weeding / off-barring,,0.0,
+eggplant,16,fertilizing,First side-dress,Urea 46-0-0,2.0,bags
+eggplant,21,irrigation,Irrigate,,0.0,
+eggplant,24,scouting,Field scouting for pests and disease,,0.0,
+eggplant,24,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,28,irrigation,Irrigate,,0.0,
+eggplant,34,weeding,Second weeding / hilling-up,,0.0,
+eggplant,34,fertilizing,Second side-dress,Urea 46-0-0,2.0,bags
+eggplant,34,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,35,irrigation,Irrigate,,0.0,
+eggplant,38,scouting,Field scouting for pests and disease,,0.0,
+eggplant,42,irrigation,Irrigate,,0.0,
+eggplant,44,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,46,fertilizing,Flowering-stage fertilizer,Urea 46-0-0,1.0,bags
+eggplant,49,irrigation,Irrigate,,0.0,
+eggplant,52,scouting,Field scouting for pests and disease,,0.0,
+eggplant,54,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,56,irrigation,Irrigate,,0.0,
+eggplant,63,irrigation,Irrigate,,0.0,
+eggplant,64,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,66,scouting,Field scouting for pests and disease,,0.0,
+eggplant,70,irrigation,Irrigate,,0.0,
+eggplant,74,pest_control,Scheduled protective spray,Fruit-and-shoot borer control,0.5,L
+eggplant,77,irrigation,Irrigate,,0.0,
+eggplant,80,harvesting,Harvest — pick 1,,0.0,
+eggplant,84,irrigation,Irrigate,,0.0,
+eggplant,87,harvesting,Harvest — pick 2,,0.0,
+eggplant,91,irrigation,Irrigate,,0.0,
+eggplant,94,harvesting,Harvest — pick 3,,0.0,
+eggplant,98,irrigation,Irrigate,,0.0,
+eggplant,101,harvesting,Harvest — pick 4,,0.0,
+eggplant,105,irrigation,Irrigate,,0.0,
+eggplant,108,harvesting,Harvest — pick 5,,0.0,
+eggplant,112,irrigation,Irrigate,,0.0,
+eggplant,115,harvesting,Harvest — pick 6,,0.0,
+eggplant,119,irrigation,Irrigate,,0.0,
+eggplant,122,harvesting,Harvest — pick 7,,0.0,
+eggplant,126,irrigation,Irrigate,,0.0,
+eggplant,129,harvesting,Harvest — pick 8,,0.0,
+eggplant,133,irrigation,Irrigate,,0.0,
+eggplant,136,harvesting,Harvest — pick 9,,0.0,
+eggplant,140,irrigation,Irrigate,,0.0,
+okra,-14,land_prep,Plow and first harrow,,0.0,
+okra,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+okra,0,fertilizing,Apply basal fertilizer,Complete 14-14-14,4.0,bags
+okra,0,planting,Direct sow in field,Certified seed,0.0,
+okra,7,irrigation,Irrigate,,0.0,
+okra,10,scouting,Field scouting for pests and disease,,0.0,
+okra,12,weeding,First weeding / off-barring,,0.0,
+okra,12,fertilizing,First side-dress,Urea 46-0-0,2.0,bags
+okra,14,pest_control,Scheduled protective spray,Aphid / leafhopper control,0.5,L
+okra,14,irrigation,Irrigate,,0.0,
+okra,21,irrigation,Irrigate,,0.0,
+okra,24,scouting,Field scouting for pests and disease,,0.0,
+okra,26,pest_control,Scheduled protective spray,Aphid / leafhopper control,0.5,L
+okra,26,fertilizing,Second side-dress,Urea 46-0-0,2.0,bags
+okra,26,weeding,Second weeding / hilling-up,,0.0,
+okra,28,irrigation,Irrigate,,0.0,
+okra,35,irrigation,Irrigate,,0.0,
+okra,36,fertilizing,Flowering-stage fertilizer,Urea 46-0-0,1.0,bags
+okra,38,pest_control,Scheduled protective spray,Aphid / leafhopper control,0.5,L
+okra,38,scouting,Field scouting for pests and disease,,0.0,
+okra,42,irrigation,Irrigate,,0.0,
+okra,49,irrigation,Irrigate,,0.0,
+okra,50,pest_control,Scheduled protective spray,Aphid / leafhopper control,0.5,L
+okra,52,scouting,Field scouting for pests and disease,,0.0,
+okra,55,harvesting,Harvest — pick 1,,0.0,
+okra,56,irrigation,Irrigate,,0.0,
+okra,62,harvesting,Harvest — pick 2,,0.0,
+okra,63,irrigation,Irrigate,,0.0,
+okra,69,harvesting,Harvest — pick 3,,0.0,
+okra,70,irrigation,Irrigate,,0.0,
+okra,76,harvesting,Harvest — pick 4,,0.0,
+okra,77,irrigation,Irrigate,,0.0,
+okra,83,harvesting,Harvest — pick 5,,0.0,
+okra,84,irrigation,Irrigate,,0.0,
+okra,90,harvesting,Harvest — pick 6,,0.0,
+okra,91,irrigation,Irrigate,,0.0,
+okra,97,harvesting,Harvest — pick 7,,0.0,
+okra,98,irrigation,Irrigate,,0.0,
+pechay,-14,land_prep,Plow and first harrow,,0.0,
+pechay,-14,planting,Sow seeds in seedbed,Certified seed,1.0,packet
+pechay,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+pechay,-7,pest_control,Drench seedbed against damping-off,Fungicide drench,0.25,L
+pechay,-5,planting,Harden seedlings before transplanting,,0.0,
+pechay,0,planting,Transplant seedlings to field,Hardened seedlings,0.0,
+pechay,0,fertilizing,Apply basal fertilizer,Compost + Complete 14-14-14,4.0,bags
+pechay,4,irrigation,Irrigate,,0.0,
+pechay,8,irrigation,Irrigate,,0.0,
+pechay,9,weeding,First weeding / off-barring,,0.0,
+pechay,9,fertilizing,First side-dress,Urea 46-0-0 (light),2.0,bags
+pechay,10,scouting,Field scouting for pests and disease,,0.0,
+pechay,12,irrigation,Irrigate,,0.0,
+pechay,14,pest_control,Scheduled protective spray,Diamondback moth control,0.5,L
+pechay,16,irrigation,Irrigate,,0.0,
+pechay,19,fertilizing,Second side-dress,Urea 46-0-0 (light),2.0,bags
+pechay,19,weeding,Second weeding / hilling-up,,0.0,
+pechay,20,irrigation,Irrigate,,0.0,
+pechay,24,scouting,Field scouting for pests and disease,,0.0,
+pechay,24,irrigation,Irrigate,,0.0,
+pechay,24,pest_control,Scheduled protective spray,Diamondback moth control,0.5,L
+pechay,26,fertilizing,Flowering-stage fertilizer,Urea 46-0-0 (light),1.0,bags
+pechay,28,irrigation,Irrigate,,0.0,
+pechay,32,irrigation,Irrigate,,0.0,
+pechay,34,pest_control,Scheduled protective spray,Diamondback moth control,0.5,L
+pechay,35,harvesting,Harvest,,0.0,
+pechay,36,irrigation,Irrigate,,0.0,
+pechay,40,irrigation,Irrigate,,0.0,
+squash,-14,land_prep,Plow and first harrow,,0.0,
+squash,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+squash,0,fertilizing,Apply basal fertilizer,Complete 14-14-14 + compost,4.0,bags
+squash,0,planting,Direct sow in field,Certified seed,0.0,
+squash,8,irrigation,Irrigate,,0.0,
+squash,10,scouting,Field scouting for pests and disease,,0.0,
+squash,14,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,16,irrigation,Irrigate,,0.0,
+squash,18,fertilizing,First side-dress,Urea 46-0-0,2.0,bags
+squash,18,weeding,First weeding / off-barring,,0.0,
+squash,24,scouting,Field scouting for pests and disease,,0.0,
+squash,24,irrigation,Irrigate,,0.0,
+squash,26,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,32,irrigation,Irrigate,,0.0,
+squash,38,fertilizing,Second side-dress,Urea 46-0-0,2.0,bags
+squash,38,weeding,Second weeding / hilling-up,,0.0,
+squash,38,scouting,Field scouting for pests and disease,,0.0,
+squash,38,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,40,irrigation,Irrigate,,0.0,
+squash,48,irrigation,Irrigate,,0.0,
+squash,50,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,51,fertilizing,Flowering-stage fertilizer,Urea 46-0-0,1.0,bags
+squash,52,scouting,Field scouting for pests and disease,,0.0,
+squash,56,irrigation,Irrigate,,0.0,
+squash,62,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,64,irrigation,Irrigate,,0.0,
+squash,66,scouting,Field scouting for pests and disease,,0.0,
+squash,72,irrigation,Irrigate,,0.0,
+squash,74,pest_control,Scheduled protective spray,Fruit fly / powdery mildew control,0.5,L
+squash,80,irrigation,Irrigate,,0.0,
+squash,80,scouting,Field scouting for pests and disease,,0.0,
+squash,85,harvesting,Harvest — pick 1,,0.0,
+squash,88,irrigation,Irrigate,,0.0,
+squash,92,harvesting,Harvest — pick 2,,0.0,
+squash,96,irrigation,Irrigate,,0.0,
+squash,99,harvesting,Harvest — pick 3,,0.0,
+squash,104,irrigation,Irrigate,,0.0,
+squash,106,harvesting,Harvest — pick 4,,0.0,
+squash,112,irrigation,Irrigate,,0.0,
+squash,113,harvesting,Harvest — pick 5,,0.0,
+string_beans,-14,land_prep,Plow and first harrow,,0.0,
+string_beans,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+string_beans,0,fertilizing,Apply basal fertilizer,Complete 14-14-14 (low N — legume fixes nitrogen),4.0,bags
+string_beans,0,planting,Direct sow in field,Certified seed,0.0,
+string_beans,7,irrigation,Irrigate,,0.0,
+string_beans,10,scouting,Field scouting for pests and disease,,0.0,
+string_beans,12,weeding,First weeding / off-barring,,0.0,
+string_beans,12,fertilizing,First side-dress,Potassium 0-0-60,2.0,bags
+string_beans,14,irrigation,Irrigate,,0.0,
+string_beans,14,pest_control,Scheduled protective spray,Pod borer control,0.5,L
+string_beans,21,irrigation,Irrigate,,0.0,
+string_beans,24,scouting,Field scouting for pests and disease,,0.0,
+string_beans,26,pest_control,Scheduled protective spray,Pod borer control,0.5,L
+string_beans,26,fertilizing,Second side-dress,Potassium 0-0-60,2.0,bags
+string_beans,26,weeding,Second weeding / hilling-up,,0.0,
+string_beans,28,irrigation,Irrigate,,0.0,
+string_beans,35,irrigation,Irrigate,,0.0,
+string_beans,36,fertilizing,Flowering-stage fertilizer,Potassium 0-0-60,1.0,bags
+string_beans,38,scouting,Field scouting for pests and disease,,0.0,
+string_beans,38,pest_control,Scheduled protective spray,Pod borer control,0.5,L
+string_beans,42,irrigation,Irrigate,,0.0,
+string_beans,49,irrigation,Irrigate,,0.0,
+string_beans,50,pest_control,Scheduled protective spray,Pod borer control,0.5,L
+string_beans,52,scouting,Field scouting for pests and disease,,0.0,
+string_beans,56,irrigation,Irrigate,,0.0,
+string_beans,60,harvesting,Harvest — pick 1,,0.0,
+string_beans,63,irrigation,Irrigate,,0.0,
+string_beans,67,harvesting,Harvest — pick 2,,0.0,
+string_beans,70,irrigation,Irrigate,,0.0,
+string_beans,74,harvesting,Harvest — pick 3,,0.0,
+string_beans,77,irrigation,Irrigate,,0.0,
+string_beans,81,harvesting,Harvest — pick 4,,0.0,
+string_beans,84,irrigation,Irrigate,,0.0,
+string_beans,88,harvesting,Harvest — pick 5,,0.0,
+tomato,-24,planting,Sow seeds in seedbed,Certified seed,1.0,packet
+tomato,-17,pest_control,Drench seedbed against damping-off,Fungicide drench,0.25,L
+tomato,-14,land_prep,Plow and first harrow,,0.0,
+tomato,-7,land_prep,"Final harrow, form beds and furrows",,0.0,
+tomato,-5,planting,Harden seedlings before transplanting,,0.0,
+tomato,0,planting,Transplant seedlings to field,Hardened seedlings,0.0,
+tomato,0,fertilizing,Apply basal fertilizer,Complete 14-14-14 + compost,4.0,bags
+tomato,6,irrigation,Irrigate,,0.0,
+tomato,10,scouting,Field scouting for pests and disease,,0.0,
+tomato,12,irrigation,Irrigate,,0.0,
+tomato,14,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,16,fertilizing,First side-dress,Urea 46-0-0 + calcium nitrate,2.0,bags
+tomato,16,weeding,First weeding / off-barring,,0.0,
+tomato,18,irrigation,Irrigate,,0.0,
+tomato,22,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,24,scouting,Field scouting for pests and disease,,0.0,
+tomato,24,irrigation,Irrigate,,0.0,
+tomato,30,irrigation,Irrigate,,0.0,
+tomato,30,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,34,fertilizing,Second side-dress,Urea 46-0-0 + calcium nitrate,2.0,bags
+tomato,34,weeding,Second weeding / hilling-up,,0.0,
+tomato,36,irrigation,Irrigate,,0.0,
+tomato,38,scouting,Field scouting for pests and disease,,0.0,
+tomato,38,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,42,irrigation,Irrigate,,0.0,
+tomato,46,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,46,fertilizing,Flowering-stage fertilizer,Urea 46-0-0 + calcium nitrate,1.0,bags
+tomato,48,irrigation,Irrigate,,0.0,
+tomato,52,scouting,Field scouting for pests and disease,,0.0,
+tomato,54,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,54,irrigation,Irrigate,,0.0,
+tomato,60,irrigation,Irrigate,,0.0,
+tomato,62,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,66,irrigation,Irrigate,,0.0,
+tomato,66,scouting,Field scouting for pests and disease,,0.0,
+tomato,70,pest_control,Scheduled protective spray,Late blight / fruitworm rotation,0.5,L
+tomato,72,irrigation,Irrigate,,0.0,
+tomato,75,harvesting,Harvest — pick 1,,0.0,
+tomato,78,irrigation,Irrigate,,0.0,
+tomato,82,harvesting,Harvest — pick 2,,0.0,
+tomato,84,irrigation,Irrigate,,0.0,
+tomato,89,harvesting,Harvest — pick 3,,0.0,
+tomato,90,irrigation,Irrigate,,0.0,
+tomato,96,irrigation,Irrigate,,0.0,
+tomato,96,harvesting,Harvest — pick 4,,0.0,
+tomato,102,irrigation,Irrigate,,0.0,
+tomato,103,harvesting,Harvest — pick 5,,0.0,
+tomato,108,irrigation,Irrigate,,0.0,
+tomato,110,harvesting,Harvest — pick 6,,0.0,

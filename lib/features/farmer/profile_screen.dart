@@ -192,8 +192,7 @@ class _FarmCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          InfoRow(label: 'Name', value: farm!.name),
-          InfoRow(label: 'Barangay', value: farm!.barangay),
+          InfoRow(label: 'Location', value: 'Brgy. ${farm!.barangay}'),
           InfoRow(label: 'Total area', value: Fmt.area(farm!.totalAreaHa)),
           if (farm!.soilType != null)
             InfoRow(label: 'Soil type', value: farm!.soilType!),

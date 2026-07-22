@@ -35,6 +35,7 @@ class CropCalibration {
     required this.costByCategory,
     required this.totalCostPerHa,
     required this.annualDemandTons,
+    required this.monthlyDemandTons,
     required this.soilSuitability,
     required this.recentPrices,
   });
@@ -71,6 +72,11 @@ class CropCalibration {
   /// Municipal annual market demand (tons) — saturation denominator.
   final double annualDemandTons;
 
+  /// Municipal demand by calendar month (12 entries, index 0 = January).
+  /// Saturation is a seasonal question: the same tonnage is a glut in the March
+  /// harvest peak and a shortfall in the August lean months.
+  final List<double> monthlyDemandTons;
+
   /// Land suitability (0..1) by soil type.
   final Map<String, double> soilSuitability;
 
@@ -97,6 +103,13 @@ class CropCalibration {
       meanYieldKgPerHa * baselinePricePerKg - totalCostPerHa;
 
   double get projectedDemandTons => annualDemandTons;
+
+  /// Demand for a calendar [month] (1–12), falling back to an even split of the
+  /// annual figure when no monthly series is available.
+  double demandForMonth(int month) {
+    if (monthlyDemandTons.length != 12) return annualDemandTons / 12;
+    return monthlyDemandTons[(month - 1).clamp(0, 11)];
+  }
 }
 
 /// The fully-parsed and calibrated market dataset, keyed by crop id.
@@ -211,6 +224,7 @@ class MarketDataset {
         annualDemandTons: demandById[cropId] == null
             ? 0
             : asDouble(demandById[cropId]!['annual_demand_tons']),
+        monthlyDemandTons: _monthlyDemand(demandById[cropId]),
         soilSuitability: soil,
         recentPrices: recent,
       );
@@ -245,11 +259,25 @@ class MarketDataset {
         costByCategory: const {'Estimated input cost': 45000},
         totalCostPerHa: 45000,
         annualDemandTons: c.projectedDemandTons,
+        monthlyDemandTons:
+            List.filled(12, c.projectedDemandTons / 12, growable: false),
         soilSuitability: {'loam': c.landSuitabilityScore},
         recentPrices: [c.baselinePricePerKg],
       );
     }
     return MarketDataset(map);
+  }
+
+  /// Twelve monthly demand figures from a demand row, falling back to an even
+  /// split of the annual total when the row predates the monthly series.
+  static List<double> _monthlyDemand(Map<String, dynamic>? row) {
+    if (row == null) return List.filled(12, 0, growable: false);
+    final raw = row['monthly_demand_tons'];
+    if (raw is List && raw.length == 12) {
+      return raw.map(asDouble).toList(growable: false);
+    }
+    final annual = asDouble(row['annual_demand_tons']);
+    return List.filled(12, annual / 12, growable: false);
   }
 
   static double _mean(List<double> xs) =>

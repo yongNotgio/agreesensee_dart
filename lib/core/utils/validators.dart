@@ -21,6 +21,41 @@ class Validators {
     return null;
   }
 
+  /// Confirm-password check — [value] must equal [original].
+  static String? matches(String? value, String original,
+      {String field = 'Passwords'}) {
+    if (value == null || value.isEmpty) return 'Please re-enter your password';
+    if (value != original) return '$field do not match';
+    return null;
+  }
+
+  /// A username handle: 4–20 characters, letters/digits/dot/underscore, and it
+  /// must start with a letter.
+  static String? username(String? value) {
+    if (value == null || value.trim().isEmpty) return 'Username is required';
+    final v = value.trim();
+    if (v.length < 4 || v.length > 20) return 'Use 4 to 20 characters';
+    if (!RegExp(r'^[A-Za-z][A-Za-z0-9._]*$').hasMatch(v)) {
+      return 'Start with a letter; letters, numbers, . and _ only';
+    }
+    return null;
+  }
+
+  /// RSBSA registry number — the national farmer registry ID used to confirm a
+  /// farmer really is a Tubungan resident. Format varies across issuances, so
+  /// this checks shape (digits and dashes, 8–20 characters) rather than a rigid
+  /// mask that would reject valid cards.
+  static String? rsbsa(String? value, {bool optional = false}) {
+    if (value == null || value.trim().isEmpty) {
+      return optional ? null : 'RSBSA number is required';
+    }
+    final v = value.trim();
+    if (!RegExp(r'^[0-9\-]{8,20}$').hasMatch(v)) {
+      return 'Enter the number as printed on your RSBSA card';
+    }
+    return null;
+  }
+
   static String? phone(String? value) {
     if (value == null || value.trim().isEmpty) return 'Contact number is required';
     final digits = value.replaceAll(RegExp(r'\D'), '');

@@ -14,6 +14,7 @@ class Expense extends Equatable {
     required this.description,
     required this.amount,
     required this.incurredOn,
+    this.logbookEntryId,
     this.createdAt,
   });
 
@@ -24,7 +25,16 @@ class Expense extends Equatable {
   final String description;
   final double amount;
   final DateTime incurredOn;
+
+  /// The logbook entry that incurred this cost, when it was captured alongside
+  /// a farm activity rather than entered standalone. Costs almost always come
+  /// from doing something in the field, so this is the common case.
+  final String? logbookEntryId;
+
   final DateTime? createdAt;
+
+  /// True when this cost was recorded as part of logging a farm activity.
+  bool get fromActivity => logbookEntryId != null;
 
   factory Expense.fromMap(Map<String, dynamic> map) => Expense(
         id: asString(map['id']),
@@ -34,6 +44,7 @@ class Expense extends Equatable {
         description: asString(map['description']),
         amount: asDouble(map['amount']),
         incurredOn: asDateOr(map['incurred_on'], DateTime.now()),
+        logbookEntryId: asStringOrNull(map['logbook_entry_id']),
         createdAt: asDate(map['created_at']),
       );
 
@@ -45,6 +56,7 @@ class Expense extends Equatable {
         'description': description,
         'amount': amount,
         'incurred_on': dateToWire(incurredOn),
+        'logbook_entry_id': logbookEntryId,
         'created_at': dateToWire(createdAt),
       };
 
@@ -53,6 +65,7 @@ class Expense extends Equatable {
     String? description,
     double? amount,
     DateTime? incurredOn,
+    String? logbookEntryId,
   }) =>
       Expense(
         id: id,
@@ -62,10 +75,18 @@ class Expense extends Equatable {
         description: description ?? this.description,
         amount: amount ?? this.amount,
         incurredOn: incurredOn ?? this.incurredOn,
+        logbookEntryId: logbookEntryId ?? this.logbookEntryId,
         createdAt: createdAt,
       );
 
   @override
-  List<Object?> get props =>
-      [id, declarationId, category, description, amount, incurredOn];
+  List<Object?> get props => [
+        id,
+        declarationId,
+        category,
+        description,
+        amount,
+        incurredOn,
+        logbookEntryId,
+      ];
 }

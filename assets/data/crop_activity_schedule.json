@@ -1,0 +1,2855 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14 + compost",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Direct sow in field",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 7,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 14,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 14,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 14,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 21,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 24,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 28,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 30,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 30,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 34,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 35,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 41,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 42,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 44,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 49,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 54,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 56,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 63,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 64,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Cypermethrin / fungicide rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 66,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 70,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 70,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 77,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 77,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 84,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 84,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 91,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 91,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 98,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 98,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 105,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 6",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 105,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 112,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "ampalaya",
+    "days_after_planting": 112,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 7",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Direct sow in field",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 10,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 19,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 19,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 20,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 28,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 30,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 40,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 41,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 41,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 42,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 50,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 56,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 56,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 60,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 66,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 70,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 70,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 80,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 80,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 84,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Corn borer / fall armyworm control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 90,
+    "activity_type": "harvesting",
+    "title": "Harvest",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 90,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "corn",
+    "days_after_planting": 100,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": -28,
+    "activity_type": "planting",
+    "title": "Sow seeds in seedbed",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 1.0,
+    "unit": "packet"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": -21,
+    "activity_type": "pest_control",
+    "title": "Drench seedbed against damping-off",
+    "typical_input": "Fungicide drench",
+    "typical_qty_per_ha": 0.25,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": -5,
+    "activity_type": "planting",
+    "title": "Harden seedlings before transplanting",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Transplant seedlings to field",
+    "typical_input": "Hardened seedlings",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14 + compost",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 7,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 14,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 16,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 16,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 21,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 24,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 28,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 34,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 34,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 34,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 35,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 42,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 44,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 46,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 49,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 54,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 56,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 63,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 64,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 66,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 70,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 74,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit-and-shoot borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 77,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 80,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 84,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 87,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 91,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 94,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 98,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 101,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 105,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 108,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 112,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 115,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 6",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 119,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 122,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 7",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 126,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 129,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 8",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 133,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 136,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 9",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "eggplant",
+    "days_after_planting": 140,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Direct sow in field",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 7,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 12,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 12,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Aphid / leafhopper control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 14,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 21,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 26,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Aphid / leafhopper control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 26,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 26,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 28,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 35,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 36,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 38,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Aphid / leafhopper control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 42,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 49,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 50,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Aphid / leafhopper control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 55,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 56,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 62,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 63,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 69,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 70,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 76,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 77,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 83,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 84,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 90,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 6",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 91,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 97,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 7",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "okra",
+    "days_after_planting": 98,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": -14,
+    "activity_type": "planting",
+    "title": "Sow seeds in seedbed",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 1.0,
+    "unit": "packet"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": -7,
+    "activity_type": "pest_control",
+    "title": "Drench seedbed against damping-off",
+    "typical_input": "Fungicide drench",
+    "typical_qty_per_ha": 0.25,
+    "unit": "L"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": -5,
+    "activity_type": "planting",
+    "title": "Harden seedlings before transplanting",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Transplant seedlings to field",
+    "typical_input": "Hardened seedlings",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Compost + Complete 14-14-14",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 4,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 8,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 9,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 9,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0 (light)",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 12,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Diamondback moth control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 16,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 19,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0 (light)",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 19,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 20,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 24,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 24,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Diamondback moth control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 26,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0 (light)",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 28,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 32,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 34,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Diamondback moth control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 35,
+    "activity_type": "harvesting",
+    "title": "Harvest",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 36,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "pechay",
+    "days_after_planting": 40,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14 + compost",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Direct sow in field",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 8,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 16,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 18,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 18,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 24,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 26,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 32,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 38,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 38,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 38,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 40,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 48,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 50,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 51,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 56,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 62,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 64,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 66,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 72,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 74,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Fruit fly / powdery mildew control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 80,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 80,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 85,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 88,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 92,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 96,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 99,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 104,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 106,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 112,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "squash",
+    "days_after_planting": 113,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14 (low N — legume fixes nitrogen)",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Direct sow in field",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 7,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 12,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 12,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Potassium 0-0-60",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 14,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Pod borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 21,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 26,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Pod borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 26,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Potassium 0-0-60",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 26,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 28,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 35,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 36,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Potassium 0-0-60",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 38,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Pod borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 42,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 49,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 50,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Pod borer control",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 56,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 60,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 63,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 67,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 70,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 74,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 77,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 81,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 84,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "string_beans",
+    "days_after_planting": 88,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": -24,
+    "activity_type": "planting",
+    "title": "Sow seeds in seedbed",
+    "typical_input": "Certified seed",
+    "typical_qty_per_ha": 1.0,
+    "unit": "packet"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": -17,
+    "activity_type": "pest_control",
+    "title": "Drench seedbed against damping-off",
+    "typical_input": "Fungicide drench",
+    "typical_qty_per_ha": 0.25,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": -14,
+    "activity_type": "land_prep",
+    "title": "Plow and first harrow",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": -7,
+    "activity_type": "land_prep",
+    "title": "Final harrow, form beds and furrows",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": -5,
+    "activity_type": "planting",
+    "title": "Harden seedlings before transplanting",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 0,
+    "activity_type": "planting",
+    "title": "Transplant seedlings to field",
+    "typical_input": "Hardened seedlings",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 0,
+    "activity_type": "fertilizing",
+    "title": "Apply basal fertilizer",
+    "typical_input": "Complete 14-14-14 + compost",
+    "typical_qty_per_ha": 4.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 6,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 10,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 12,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 14,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 16,
+    "activity_type": "fertilizing",
+    "title": "First side-dress",
+    "typical_input": "Urea 46-0-0 + calcium nitrate",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 16,
+    "activity_type": "weeding",
+    "title": "First weeding / off-barring",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 18,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 22,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 24,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 24,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 30,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 30,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 34,
+    "activity_type": "fertilizing",
+    "title": "Second side-dress",
+    "typical_input": "Urea 46-0-0 + calcium nitrate",
+    "typical_qty_per_ha": 2.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 34,
+    "activity_type": "weeding",
+    "title": "Second weeding / hilling-up",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 36,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 38,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 38,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 42,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 46,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 46,
+    "activity_type": "fertilizing",
+    "title": "Flowering-stage fertilizer",
+    "typical_input": "Urea 46-0-0 + calcium nitrate",
+    "typical_qty_per_ha": 1.0,
+    "unit": "bags"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 48,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 52,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 54,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 54,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 60,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 62,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 66,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 66,
+    "activity_type": "scouting",
+    "title": "Field scouting for pests and disease",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 70,
+    "activity_type": "pest_control",
+    "title": "Scheduled protective spray",
+    "typical_input": "Late blight / fruitworm rotation",
+    "typical_qty_per_ha": 0.5,
+    "unit": "L"
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 72,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 75,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 1",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 78,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 82,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 2",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 84,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 89,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 3",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 90,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 96,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 96,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 4",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 102,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 103,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 5",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 108,
+    "activity_type": "irrigation",
+    "title": "Irrigate",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  },
+  {
+    "crop_id": "tomato",
+    "days_after_planting": 110,
+    "activity_type": "harvesting",
+    "title": "Harvest — pick 6",
+    "typical_input": "",
+    "typical_qty_per_ha": 0.0,
+    "unit": ""
+  }
+]

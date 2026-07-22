@@ -1,0 +1,385 @@
+barangay,crop_id,terrain,dominant_soil,yield_index,observations,source_year
+Adgao,ampalaya,midland,loam,0.723,11,2025
+Adgao,eggplant,midland,loam,0.841,12,2025
+Adgao,okra,midland,loam,0.817,23,2025
+Adgao,string_beans,midland,loam,0.786,9,2025
+Adgao,tomato,midland,loam,0.733,18,2025
+Adgao,corn,midland,loam,0.734,17,2025
+Adgao,squash,midland,loam,0.769,15,2025
+Adgao,pechay,midland,loam,0.752,8,2025
+Ago,ampalaya,midland,loam,0.739,20,2025
+Ago,eggplant,midland,loam,0.882,7,2025
+Ago,okra,midland,loam,0.756,22,2025
+Ago,string_beans,midland,loam,0.801,10,2025
+Ago,tomato,midland,loam,0.774,15,2025
+Ago,corn,midland,loam,0.787,12,2025
+Ago,squash,midland,loam,0.804,10,2025
+Ago,pechay,midland,loam,0.793,9,2025
+Ambarihon,ampalaya,midland,loam,0.728,15,2025
+Ambarihon,eggplant,midland,loam,0.872,14,2025
+Ambarihon,okra,midland,loam,0.814,9,2025
+Ambarihon,string_beans,midland,loam,0.781,24,2025
+Ambarihon,tomato,midland,loam,0.721,9,2025
+Ambarihon,corn,midland,loam,0.779,6,2025
+Ambarihon,squash,midland,loam,0.75,10,2025
+Ambarihon,pechay,midland,loam,0.778,23,2025
+Ayubo,ampalaya,midland,loam,0.771,16,2025
+Ayubo,eggplant,midland,loam,0.869,9,2025
+Ayubo,okra,midland,loam,0.81,11,2025
+Ayubo,string_beans,midland,loam,0.812,15,2025
+Ayubo,tomato,midland,loam,0.742,6,2025
+Ayubo,corn,midland,loam,0.737,15,2025
+Ayubo,squash,midland,loam,0.791,18,2025
+Ayubo,pechay,midland,loam,0.745,15,2025
+Bacan,ampalaya,midland,loam,0.73,14,2025
+Bacan,eggplant,midland,loam,0.843,16,2025
+Bacan,okra,midland,loam,0.748,20,2025
+Bacan,string_beans,midland,loam,0.803,20,2025
+Bacan,tomato,midland,loam,0.758,22,2025
+Bacan,corn,midland,loam,0.72,8,2025
+Bacan,squash,midland,loam,0.811,18,2025
+Bacan,pechay,midland,loam,0.783,21,2025
+Bagunanay,ampalaya,upland,sandy_loam,0.514,16,2025
+Bagunanay,eggplant,upland,sandy_loam,0.615,19,2025
+Bagunanay,okra,upland,sandy_loam,0.634,16,2025
+Bagunanay,string_beans,upland,sandy_loam,0.675,12,2025
+Bagunanay,tomato,upland,sandy_loam,0.542,14,2025
+Bagunanay,corn,upland,sandy_loam,0.611,9,2025
+Bagunanay,squash,upland,sandy_loam,0.648,9,2025
+Bagunanay,pechay,upland,sandy_loam,0.621,15,2025
+Badiang,ampalaya,midland,loam,0.785,9,2025
+Badiang,eggplant,midland,loam,0.891,14,2025
+Badiang,okra,midland,loam,0.767,20,2025
+Badiang,string_beans,midland,loam,0.805,13,2025
+Badiang,tomato,midland,loam,0.774,24,2025
+Badiang,corn,midland,loam,0.791,11,2025
+Badiang,squash,midland,loam,0.76,13,2025
+Badiang,pechay,midland,loam,0.772,10,2025
+Balicua,ampalaya,upland,sandy_loam,0.541,18,2025
+Balicua,eggplant,upland,sandy_loam,0.629,16,2025
+Balicua,okra,upland,sandy_loam,0.64,8,2025
+Balicua,string_beans,upland,sandy_loam,0.653,13,2025
+Balicua,tomato,upland,sandy_loam,0.557,22,2025
+Balicua,corn,upland,sandy_loam,0.591,11,2025
+Balicua,squash,upland,sandy_loam,0.605,17,2025
+Balicua,pechay,upland,sandy_loam,0.593,23,2025
+Bantayanan,ampalaya,lowland,clay_loam,0.851,7,2025
+Bantayanan,eggplant,lowland,clay_loam,0.914,8,2025
+Bantayanan,okra,lowland,clay_loam,0.858,7,2025
+Bantayanan,string_beans,lowland,clay_loam,0.831,23,2025
+Bantayanan,tomato,lowland,clay_loam,0.785,23,2025
+Bantayanan,corn,lowland,clay_loam,0.772,14,2025
+Bantayanan,squash,lowland,clay_loam,0.841,16,2025
+Bantayanan,pechay,lowland,clay_loam,0.799,7,2025
+Zone I (Poblacion),ampalaya,lowland,clay_loam,0.871,9,2025
+Zone I (Poblacion),eggplant,lowland,clay_loam,0.958,7,2025
+Zone I (Poblacion),okra,lowland,clay_loam,0.848,12,2025
+Zone I (Poblacion),string_beans,lowland,clay_loam,0.882,12,2025
+Zone I (Poblacion),tomato,lowland,clay_loam,0.765,7,2025
+Zone I (Poblacion),corn,lowland,clay_loam,0.846,20,2025
+Zone I (Poblacion),squash,lowland,clay_loam,0.861,12,2025
+Zone I (Poblacion),pechay,lowland,clay_loam,0.801,20,2025
+Zone II (Poblacion),ampalaya,lowland,clay_loam,0.905,10,2025
+Zone II (Poblacion),eggplant,lowland,clay_loam,0.923,16,2025
+Zone II (Poblacion),okra,lowland,clay_loam,0.849,24,2025
+Zone II (Poblacion),string_beans,lowland,clay_loam,0.845,10,2025
+Zone II (Poblacion),tomato,lowland,clay_loam,0.714,23,2025
+Zone II (Poblacion),corn,lowland,clay_loam,0.796,14,2025
+Zone II (Poblacion),squash,lowland,clay_loam,0.829,7,2025
+Zone II (Poblacion),pechay,lowland,clay_loam,0.799,17,2025
+Zone III (Poblacion),ampalaya,lowland,clay_loam,0.904,19,2025
+Zone III (Poblacion),eggplant,lowland,clay_loam,0.928,16,2025
+Zone III (Poblacion),okra,lowland,clay_loam,0.811,23,2025
+Zone III (Poblacion),string_beans,lowland,clay_loam,0.902,12,2025
+Zone III (Poblacion),tomato,lowland,clay_loam,0.718,11,2025
+Zone III (Poblacion),corn,lowland,clay_loam,0.796,12,2025
+Zone III (Poblacion),squash,lowland,clay_loam,0.875,23,2025
+Zone III (Poblacion),pechay,lowland,clay_loam,0.818,14,2025
+Batga,ampalaya,upland,sandy_loam,0.494,12,2025
+Batga,eggplant,upland,sandy_loam,0.616,8,2025
+Batga,okra,upland,sandy_loam,0.639,15,2025
+Batga,string_beans,upland,sandy_loam,0.676,12,2025
+Batga,tomato,upland,sandy_loam,0.55,14,2025
+Batga,corn,upland,sandy_loam,0.603,20,2025
+Batga,squash,upland,sandy_loam,0.614,17,2025
+Batga,pechay,upland,sandy_loam,0.619,7,2025
+Bato,ampalaya,midland,loam,0.75,10,2025
+Bato,eggplant,midland,loam,0.851,13,2025
+Bato,okra,midland,loam,0.746,8,2025
+Bato,string_beans,midland,loam,0.804,24,2025
+Bato,tomato,midland,loam,0.749,13,2025
+Bato,corn,midland,loam,0.745,13,2025
+Bato,squash,midland,loam,0.764,15,2025
+Bato,pechay,midland,loam,0.769,18,2025
+Bikil,ampalaya,midland,loam,0.749,12,2025
+Bikil,eggplant,midland,loam,0.84,20,2025
+Bikil,okra,midland,loam,0.805,11,2025
+Bikil,string_beans,midland,loam,0.774,6,2025
+Bikil,tomato,midland,loam,0.766,13,2025
+Bikil,corn,midland,loam,0.738,9,2025
+Bikil,squash,midland,loam,0.798,19,2025
+Bikil,pechay,midland,loam,0.788,24,2025
+Boloc,ampalaya,upland,sandy_loam,0.511,17,2025
+Boloc,eggplant,upland,sandy_loam,0.608,11,2025
+Boloc,okra,upland,sandy_loam,0.657,13,2025
+Boloc,string_beans,upland,sandy_loam,0.624,9,2025
+Boloc,tomato,upland,sandy_loam,0.563,11,2025
+Boloc,corn,upland,sandy_loam,0.632,23,2025
+Boloc,squash,upland,sandy_loam,0.637,9,2025
+Boloc,pechay,upland,sandy_loam,0.616,10,2025
+Bondoc,ampalaya,midland,loam,0.759,19,2025
+Bondoc,eggplant,midland,loam,0.869,13,2025
+Bondoc,okra,midland,loam,0.795,11,2025
+Bondoc,string_beans,midland,loam,0.77,21,2025
+Bondoc,tomato,midland,loam,0.776,15,2025
+Bondoc,corn,midland,loam,0.73,12,2025
+Bondoc,squash,midland,loam,0.781,8,2025
+Bondoc,pechay,midland,loam,0.749,15,2025
+Borong,ampalaya,upland,sandy_loam,0.536,7,2025
+Borong,eggplant,upland,sandy_loam,0.596,23,2025
+Borong,okra,upland,sandy_loam,0.651,6,2025
+Borong,string_beans,upland,sandy_loam,0.644,10,2025
+Borong,tomato,upland,sandy_loam,0.576,23,2025
+Borong,corn,upland,sandy_loam,0.581,19,2025
+Borong,squash,upland,sandy_loam,0.643,11,2025
+Borong,pechay,upland,sandy_loam,0.637,12,2025
+Buenavista,ampalaya,midland,loam,0.751,21,2025
+Buenavista,eggplant,midland,loam,0.903,22,2025
+Buenavista,okra,midland,loam,0.765,11,2025
+Buenavista,string_beans,midland,loam,0.834,19,2025
+Buenavista,tomato,midland,loam,0.776,9,2025
+Buenavista,corn,midland,loam,0.786,20,2025
+Buenavista,squash,midland,loam,0.808,15,2025
+Buenavista,pechay,midland,loam,0.748,16,2025
+Cadabdab,ampalaya,lowland,clay_loam,0.873,18,2025
+Cadabdab,eggplant,lowland,clay_loam,0.897,18,2025
+Cadabdab,okra,lowland,clay_loam,0.866,11,2025
+Cadabdab,string_beans,lowland,clay_loam,0.879,14,2025
+Cadabdab,tomato,lowland,clay_loam,0.757,22,2025
+Cadabdab,corn,lowland,clay_loam,0.771,23,2025
+Cadabdab,squash,lowland,clay_loam,0.832,16,2025
+Cadabdab,pechay,lowland,clay_loam,0.827,7,2025
+Daga-ay,ampalaya,lowland,clay_loam,0.89,6,2025
+Daga-ay,eggplant,lowland,clay_loam,0.963,17,2025
+Daga-ay,okra,lowland,clay_loam,0.796,12,2025
+Daga-ay,string_beans,lowland,clay_loam,0.876,16,2025
+Daga-ay,tomato,lowland,clay_loam,0.779,12,2025
+Daga-ay,corn,lowland,clay_loam,0.8,10,2025
+Daga-ay,squash,lowland,clay_loam,0.885,12,2025
+Daga-ay,pechay,lowland,clay_loam,0.769,20,2025
+Desposorio,ampalaya,midland,loam,0.782,24,2025
+Desposorio,eggplant,midland,loam,0.898,10,2025
+Desposorio,okra,midland,loam,0.812,23,2025
+Desposorio,string_beans,midland,loam,0.795,8,2025
+Desposorio,tomato,midland,loam,0.744,16,2025
+Desposorio,corn,midland,loam,0.756,7,2025
+Desposorio,squash,midland,loam,0.758,7,2025
+Desposorio,pechay,midland,loam,0.738,16,2025
+Igdampog Norte,ampalaya,upland,sandy_loam,0.505,11,2025
+Igdampog Norte,eggplant,upland,sandy_loam,0.599,9,2025
+Igdampog Norte,okra,upland,sandy_loam,0.603,23,2025
+Igdampog Norte,string_beans,upland,sandy_loam,0.628,12,2025
+Igdampog Norte,tomato,upland,sandy_loam,0.54,8,2025
+Igdampog Norte,corn,upland,sandy_loam,0.626,16,2025
+Igdampog Norte,squash,upland,sandy_loam,0.615,21,2025
+Igdampog Norte,pechay,upland,sandy_loam,0.595,21,2025
+Igdampog Sur,ampalaya,upland,sandy_loam,0.503,16,2025
+Igdampog Sur,eggplant,upland,sandy_loam,0.604,15,2025
+Igdampog Sur,okra,upland,sandy_loam,0.613,13,2025
+Igdampog Sur,string_beans,upland,sandy_loam,0.667,13,2025
+Igdampog Sur,tomato,upland,sandy_loam,0.567,8,2025
+Igdampog Sur,corn,upland,sandy_loam,0.636,17,2025
+Igdampog Sur,squash,upland,sandy_loam,0.641,13,2025
+Igdampog Sur,pechay,upland,sandy_loam,0.584,7,2025
+Igpaho,ampalaya,lowland,clay_loam,0.864,16,2025
+Igpaho,eggplant,lowland,clay_loam,0.929,19,2025
+Igpaho,okra,lowland,clay_loam,0.861,20,2025
+Igpaho,string_beans,lowland,clay_loam,0.906,9,2025
+Igpaho,tomato,lowland,clay_loam,0.745,11,2025
+Igpaho,corn,lowland,clay_loam,0.847,9,2025
+Igpaho,squash,lowland,clay_loam,0.878,7,2025
+Igpaho,pechay,lowland,clay_loam,0.793,14,2025
+Igtuble,ampalaya,lowland,clay_loam,0.863,9,2025
+Igtuble,eggplant,lowland,clay_loam,0.96,18,2025
+Igtuble,okra,lowland,clay_loam,0.821,22,2025
+Igtuble,string_beans,lowland,clay_loam,0.848,16,2025
+Igtuble,tomato,lowland,clay_loam,0.764,24,2025
+Igtuble,corn,lowland,clay_loam,0.846,11,2025
+Igtuble,squash,lowland,clay_loam,0.868,22,2025
+Igtuble,pechay,lowland,clay_loam,0.823,7,2025
+Ingay,ampalaya,midland,loam,0.757,20,2025
+Ingay,eggplant,midland,loam,0.841,24,2025
+Ingay,okra,midland,loam,0.791,17,2025
+Ingay,string_beans,midland,loam,0.784,23,2025
+Ingay,tomato,midland,loam,0.765,13,2025
+Ingay,corn,midland,loam,0.751,22,2025
+Ingay,squash,midland,loam,0.799,12,2025
+Ingay,pechay,midland,loam,0.791,23,2025
+Isauan,ampalaya,midland,loam,0.767,18,2025
+Isauan,eggplant,midland,loam,0.862,16,2025
+Isauan,okra,midland,loam,0.774,6,2025
+Isauan,string_beans,midland,loam,0.796,16,2025
+Isauan,tomato,midland,loam,0.741,13,2025
+Isauan,corn,midland,loam,0.772,17,2025
+Isauan,squash,midland,loam,0.753,13,2025
+Isauan,pechay,midland,loam,0.773,10,2025
+Jolason,ampalaya,lowland,clay_loam,0.922,17,2025
+Jolason,eggplant,lowland,clay_loam,0.904,13,2025
+Jolason,okra,lowland,clay_loam,0.834,13,2025
+Jolason,string_beans,lowland,clay_loam,0.888,8,2025
+Jolason,tomato,lowland,clay_loam,0.717,12,2025
+Jolason,corn,lowland,clay_loam,0.82,7,2025
+Jolason,squash,lowland,clay_loam,0.844,10,2025
+Jolason,pechay,lowland,clay_loam,0.794,8,2025
+Jona,ampalaya,lowland,clay_loam,0.886,17,2025
+Jona,eggplant,lowland,clay_loam,0.946,16,2025
+Jona,okra,lowland,clay_loam,0.805,6,2025
+Jona,string_beans,lowland,clay_loam,0.901,19,2025
+Jona,tomato,lowland,clay_loam,0.753,23,2025
+Jona,corn,lowland,clay_loam,0.789,11,2025
+Jona,squash,lowland,clay_loam,0.813,12,2025
+Jona,pechay,lowland,clay_loam,0.769,9,2025
+La-ag,ampalaya,midland,loam,0.724,7,2025
+La-ag,eggplant,midland,loam,0.854,12,2025
+La-ag,okra,midland,loam,0.754,16,2025
+La-ag,string_beans,midland,loam,0.843,12,2025
+La-ag,tomato,midland,loam,0.727,10,2025
+La-ag,corn,midland,loam,0.783,7,2025
+La-ag,squash,midland,loam,0.795,16,2025
+La-ag,pechay,midland,loam,0.761,21,2025
+Lanag Norte,ampalaya,lowland,clay_loam,0.933,8,2025
+Lanag Norte,eggplant,lowland,clay_loam,0.931,22,2025
+Lanag Norte,okra,lowland,clay_loam,0.804,10,2025
+Lanag Norte,string_beans,lowland,clay_loam,0.881,16,2025
+Lanag Norte,tomato,lowland,clay_loam,0.766,17,2025
+Lanag Norte,corn,lowland,clay_loam,0.834,22,2025
+Lanag Norte,squash,lowland,clay_loam,0.87,7,2025
+Lanag Norte,pechay,lowland,clay_loam,0.815,11,2025
+Lanag Sur,ampalaya,midland,loam,0.738,17,2025
+Lanag Sur,eggplant,midland,loam,0.896,10,2025
+Lanag Sur,okra,midland,loam,0.796,17,2025
+Lanag Sur,string_beans,midland,loam,0.826,14,2025
+Lanag Sur,tomato,midland,loam,0.765,24,2025
+Lanag Sur,corn,midland,loam,0.727,11,2025
+Lanag Sur,squash,midland,loam,0.765,15,2025
+Lanag Sur,pechay,midland,loam,0.739,19,2025
+Male,ampalaya,lowland,clay_loam,0.91,22,2025
+Male,eggplant,lowland,clay_loam,0.955,17,2025
+Male,okra,lowland,clay_loam,0.841,11,2025
+Male,string_beans,lowland,clay_loam,0.848,21,2025
+Male,tomato,lowland,clay_loam,0.743,12,2025
+Male,corn,lowland,clay_loam,0.774,16,2025
+Male,squash,lowland,clay_loam,0.891,11,2025
+Male,pechay,lowland,clay_loam,0.821,6,2025
+Mayang,ampalaya,midland,loam,0.747,15,2025
+Mayang,eggplant,midland,loam,0.818,20,2025
+Mayang,okra,midland,loam,0.778,23,2025
+Mayang,string_beans,midland,loam,0.789,13,2025
+Mayang,tomato,midland,loam,0.732,15,2025
+Mayang,corn,midland,loam,0.745,20,2025
+Mayang,squash,midland,loam,0.798,24,2025
+Mayang,pechay,midland,loam,0.787,10,2025
+Molina,ampalaya,midland,loam,0.791,19,2025
+Molina,eggplant,midland,loam,0.869,10,2025
+Molina,okra,midland,loam,0.766,8,2025
+Molina,string_beans,midland,loam,0.816,20,2025
+Molina,tomato,midland,loam,0.749,14,2025
+Molina,corn,midland,loam,0.777,15,2025
+Molina,squash,midland,loam,0.775,10,2025
+Molina,pechay,midland,loam,0.758,20,2025
+Morcillas,ampalaya,midland,loam,0.795,13,2025
+Morcillas,eggplant,midland,loam,0.832,9,2025
+Morcillas,okra,midland,loam,0.814,13,2025
+Morcillas,string_beans,midland,loam,0.778,24,2025
+Morcillas,tomato,midland,loam,0.747,9,2025
+Morcillas,corn,midland,loam,0.73,11,2025
+Morcillas,squash,midland,loam,0.792,22,2025
+Morcillas,pechay,midland,loam,0.788,9,2025
+Nagba,ampalaya,lowland,clay_loam,0.909,8,2025
+Nagba,eggplant,lowland,clay_loam,0.955,17,2025
+Nagba,okra,lowland,clay_loam,0.852,20,2025
+Nagba,string_beans,lowland,clay_loam,0.852,17,2025
+Nagba,tomato,lowland,clay_loam,0.768,11,2025
+Nagba,corn,lowland,clay_loam,0.778,12,2025
+Nagba,squash,lowland,clay_loam,0.89,14,2025
+Nagba,pechay,lowland,clay_loam,0.8,14,2025
+Navillan,ampalaya,upland,sandy_loam,0.527,17,2025
+Navillan,eggplant,upland,sandy_loam,0.632,9,2025
+Navillan,okra,upland,sandy_loam,0.632,12,2025
+Navillan,string_beans,upland,sandy_loam,0.622,11,2025
+Navillan,tomato,upland,sandy_loam,0.548,14,2025
+Navillan,corn,upland,sandy_loam,0.609,16,2025
+Navillan,squash,upland,sandy_loam,0.651,14,2025
+Navillan,pechay,upland,sandy_loam,0.611,22,2025
+Pinamacalan,ampalaya,upland,sandy_loam,0.506,16,2025
+Pinamacalan,eggplant,upland,sandy_loam,0.618,9,2025
+Pinamacalan,okra,upland,sandy_loam,0.645,9,2025
+Pinamacalan,string_beans,upland,sandy_loam,0.648,17,2025
+Pinamacalan,tomato,upland,sandy_loam,0.575,14,2025
+Pinamacalan,corn,upland,sandy_loam,0.632,6,2025
+Pinamacalan,squash,upland,sandy_loam,0.604,18,2025
+Pinamacalan,pechay,upland,sandy_loam,0.582,10,2025
+San Jose,ampalaya,midland,loam,0.754,23,2025
+San Jose,eggplant,midland,loam,0.889,14,2025
+San Jose,okra,midland,loam,0.813,24,2025
+San Jose,string_beans,midland,loam,0.832,22,2025
+San Jose,tomato,midland,loam,0.773,20,2025
+San Jose,corn,midland,loam,0.792,8,2025
+San Jose,squash,midland,loam,0.802,11,2025
+San Jose,pechay,midland,loam,0.791,22,2025
+Sibucauan,ampalaya,upland,sandy_loam,0.525,7,2025
+Sibucauan,eggplant,upland,sandy_loam,0.61,14,2025
+Sibucauan,okra,upland,sandy_loam,0.632,22,2025
+Sibucauan,string_beans,upland,sandy_loam,0.672,12,2025
+Sibucauan,tomato,upland,sandy_loam,0.541,10,2025
+Sibucauan,corn,upland,sandy_loam,0.621,21,2025
+Sibucauan,squash,upland,sandy_loam,0.601,21,2025
+Sibucauan,pechay,upland,sandy_loam,0.601,20,2025
+Singon,ampalaya,lowland,clay_loam,0.927,21,2025
+Singon,eggplant,lowland,clay_loam,0.886,7,2025
+Singon,okra,lowland,clay_loam,0.85,8,2025
+Singon,string_beans,lowland,clay_loam,0.851,7,2025
+Singon,tomato,lowland,clay_loam,0.741,15,2025
+Singon,corn,lowland,clay_loam,0.773,7,2025
+Singon,squash,lowland,clay_loam,0.835,16,2025
+Singon,pechay,lowland,clay_loam,0.845,24,2025
+Tabat,ampalaya,upland,sandy_loam,0.512,6,2025
+Tabat,eggplant,upland,sandy_loam,0.622,20,2025
+Tabat,okra,upland,sandy_loam,0.622,11,2025
+Tabat,string_beans,upland,sandy_loam,0.679,17,2025
+Tabat,tomato,upland,sandy_loam,0.566,13,2025
+Tabat,corn,upland,sandy_loam,0.608,17,2025
+Tabat,squash,upland,sandy_loam,0.649,11,2025
+Tabat,pechay,upland,sandy_loam,0.636,15,2025
+Tagpu-an,ampalaya,midland,loam,0.778,13,2025
+Tagpu-an,eggplant,midland,loam,0.862,16,2025
+Tagpu-an,okra,midland,loam,0.785,17,2025
+Tagpu-an,string_beans,midland,loam,0.817,20,2025
+Tagpu-an,tomato,midland,loam,0.743,11,2025
+Tagpu-an,corn,midland,loam,0.722,20,2025
+Tagpu-an,squash,midland,loam,0.759,14,2025
+Tagpu-an,pechay,midland,loam,0.786,20,2025
+Talento,ampalaya,midland,loam,0.743,22,2025
+Talento,eggplant,midland,loam,0.893,24,2025
+Talento,okra,midland,loam,0.774,21,2025
+Talento,string_beans,midland,loam,0.825,11,2025
+Talento,tomato,midland,loam,0.753,7,2025
+Talento,corn,midland,loam,0.792,9,2025
+Talento,squash,midland,loam,0.775,18,2025
+Talento,pechay,midland,loam,0.72,9,2025
+Teniente Benito,ampalaya,midland,loam,0.729,10,2025
+Teniente Benito,eggplant,midland,loam,0.872,20,2025
+Teniente Benito,okra,midland,loam,0.753,15,2025
+Teniente Benito,string_beans,midland,loam,0.84,19,2025
+Teniente Benito,tomato,midland,loam,0.728,18,2025
+Teniente Benito,corn,midland,loam,0.77,14,2025
+Teniente Benito,squash,midland,loam,0.772,11,2025
+Teniente Benito,pechay,midland,loam,0.761,14,2025
+Victoria,ampalaya,lowland,clay_loam,0.936,6,2025
+Victoria,eggplant,lowland,clay_loam,0.879,12,2025
+Victoria,okra,lowland,clay_loam,0.864,9,2025
+Victoria,string_beans,lowland,clay_loam,0.879,15,2025
+Victoria,tomato,lowland,clay_loam,0.773,19,2025
+Victoria,corn,lowland,clay_loam,0.791,7,2025
+Victoria,squash,lowland,clay_loam,0.828,8,2025
+Victoria,pechay,lowland,clay_loam,0.809,11,2025

@@ -41,9 +41,11 @@ Agriculture Office of **Tubungan, Iloilo**. This repository contains the
    → *Farmer ▸ Records tab.*
 
 A full objective-by-objective trace lives in
-[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), and the complete end-to-end
-system flow (every portal, screen, function, and cross-portal data flow) is in
-[`docs/SYSTEM_FLOW.md`](docs/SYSTEM_FLOW.md).
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), the analytics engines and the
+math behind every metric are documented in
+[`docs/ANALYTICS_AND_MODELLING.md`](docs/ANALYTICS_AND_MODELLING.md), and the
+complete end-to-end system flow (every portal, screen, function, and
+cross-portal data flow) is in [`docs/SYSTEM_FLOW.md`](docs/SYSTEM_FLOW.md).
 
 ---
 

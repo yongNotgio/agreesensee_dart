@@ -11,27 +11,33 @@ import '../../models/logbook_entry.dart';
 import '../../providers/app_actions.dart';
 import '../../providers/data_providers.dart';
 import 'calamity_form_screen.dart';
+import 'crop_calendar_screen.dart';
 import 'logbook_form_screen.dart';
 
-/// Records hub: the agronomic logbook and the calamity/incident reports —
-/// study Objective 4 (digital logbook + incident reporting).
+/// Farm activity hub.
+///
+/// The Calendar is what the system says to do next; the Logbook is what was
+/// actually done, with the cost it incurred. They are two views of one activity
+/// stream, which is why they live side by side rather than in separate corners
+/// of the app.
 class RecordsScreen extends ConsumerWidget {
   const RecordsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Records'),
+          title: const Text('Farm Activity'),
           bottom: const TabBar(tabs: [
+            Tab(text: 'Calendar'),
             Tab(text: 'Logbook'),
             Tab(text: 'Incidents'),
           ]),
         ),
         body: const TabBarView(
-          children: [_LogbookTab(), _CalamityTab()],
+          children: [CropCalendarScreen(), _LogbookTab(), _CalamityTab()],
         ),
       ),
     );
@@ -108,8 +114,10 @@ class _LogTile extends ConsumerWidget {
           ),
           child: const Icon(Icons.delete, color: Colors.white),
         ),
+        // Deletes the paired expense too, so the ledger never keeps a cost
+        // whose activity is gone.
         onDismissed: (_) =>
-            ref.read(appActionsProvider).deleteLogEntry(entry.id),
+            ref.read(appActionsProvider).deleteActivityWithCost(entry),
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: AppColors.secondary.withValues(alpha: 0.12),

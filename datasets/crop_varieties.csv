@@ -1,0 +1,28 @@
+crop_id,variety,maturity_days,notes
+ampalaya,Galaxy,70,"Hybrid; uniform long green fruit, market standard"
+ampalaya,Mayon,67,"Early maturing hybrid, good for tight windows"
+ampalaya,Jade Star A,72,"Vigorous vine, heavier fruit set"
+ampalaya,Sta. Rita,75,Open-pollinated; seed can be saved
+eggplant,Casino,80,"Hybrid; long purple, strong local demand"
+eggplant,Fortuner,76,"Early, tolerant to bacterial wilt"
+eggplant,Long Purple,86,"Open-pollinated, lower seed cost"
+eggplant,Calibre,83,"Firm fruit, holds well in transport"
+okra,Smooth Green,55,"Spineless, standard fresh-market pick"
+okra,Green Star,53,Early and uniform
+okra,Lady Finger,59,"Slender pod, preferred by some traders"
+string_beans,Sandigan,60,"Long pod, reliable under wet conditions"
+string_beans,Uni-6,57,"Early, concentrated set"
+string_beans,Batangas White,65,"Open-pollinated, pale pod"
+tomato,Diamante Max,75,"Heat tolerant, firm fruit"
+tomato,Apollo Improved,70,"Early determinate, concentrated harvest"
+tomato,Marilag,78,"Bacterial-wilt tolerant, good for lowland"
+tomato,Rosalinda,79,"Processing type, thicker flesh"
+corn,Sweet Grande,90,"Hybrid sweet corn, high sugar"
+corn,Mestizo,95,Widely available hybrid
+corn,IPB Var 6,86,"Open-pollinated, seed can be saved"
+squash,Suprema,85,Hybrid; thick orange flesh
+squash,Rizalina,89,"Open-pollinated, long shelf life"
+squash,Sunshine,82,"Early, smaller fruit"
+pechay,Black Behi,35,Standard market pechay
+pechay,Native Pechay,38,"Open-pollinated, hardy"
+pechay,Snow White,33,"Early, white petiole"

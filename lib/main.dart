@@ -34,9 +34,11 @@ Future<void> main() async {
 
   final prefs = await SharedPreferences.getInstance();
 
-  // Load and calibrate the market datasets (Objectives 1 & 2). Falls back to
-  // bundled catalog baselines if the assets cannot be read.
-  final marketDataset = await DatasetLoader.load();
+  // Load and calibrate the bundled reference data: market calibration (price,
+  // cost, demand) and agronomy (varieties, growth stages, the activity
+  // protocol, and the barangay suitability map). Each half falls back
+  // independently if its assets cannot be read.
+  final referenceData = await DatasetLoader.load();
 
   var supabaseReady = false;
   if (!AppConfig.isDemoMode) {
@@ -65,7 +67,8 @@ Future<void> main() async {
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
-        marketDatasetProvider.overrideWithValue(marketDataset),
+        marketDatasetProvider.overrideWithValue(referenceData.market),
+        agronomyDatasetProvider.overrideWithValue(referenceData.agronomy),
       ],
       child: const AgriSenseApp(),
     ),

@@ -1,0 +1,247 @@
+[
+  {
+    "crop_id": "ampalaya",
+    "stage": "establishment",
+    "label": "Sowing & emergence",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "ampalaya",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 40
+  },
+  {
+    "crop_id": "ampalaya",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 41,
+    "day_to": 70
+  },
+  {
+    "crop_id": "ampalaya",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 70,
+    "day_to": 115
+  },
+  {
+    "crop_id": "eggplant",
+    "stage": "nursery",
+    "label": "Seedling / nursery",
+    "day_from": -28,
+    "day_to": -1
+  },
+  {
+    "crop_id": "eggplant",
+    "stage": "establishment",
+    "label": "Transplanting",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "eggplant",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 45
+  },
+  {
+    "crop_id": "eggplant",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 46,
+    "day_to": 80
+  },
+  {
+    "crop_id": "eggplant",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 80,
+    "day_to": 140
+  },
+  {
+    "crop_id": "okra",
+    "stage": "establishment",
+    "label": "Sowing & emergence",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "okra",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 35
+  },
+  {
+    "crop_id": "okra",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 36,
+    "day_to": 55
+  },
+  {
+    "crop_id": "okra",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 55,
+    "day_to": 100
+  },
+  {
+    "crop_id": "string_beans",
+    "stage": "establishment",
+    "label": "Sowing & emergence",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "string_beans",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 35
+  },
+  {
+    "crop_id": "string_beans",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 36,
+    "day_to": 60
+  },
+  {
+    "crop_id": "string_beans",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 60,
+    "day_to": 90
+  },
+  {
+    "crop_id": "tomato",
+    "stage": "nursery",
+    "label": "Seedling / nursery",
+    "day_from": -24,
+    "day_to": -1
+  },
+  {
+    "crop_id": "tomato",
+    "stage": "establishment",
+    "label": "Transplanting",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "tomato",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 45
+  },
+  {
+    "crop_id": "tomato",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 46,
+    "day_to": 75
+  },
+  {
+    "crop_id": "tomato",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 75,
+    "day_to": 110
+  },
+  {
+    "crop_id": "corn",
+    "stage": "establishment",
+    "label": "Sowing & emergence",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "corn",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 55
+  },
+  {
+    "crop_id": "corn",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 56,
+    "day_to": 90
+  },
+  {
+    "crop_id": "corn",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 90,
+    "day_to": 100
+  },
+  {
+    "crop_id": "squash",
+    "stage": "establishment",
+    "label": "Sowing & emergence",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "squash",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 50
+  },
+  {
+    "crop_id": "squash",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 51,
+    "day_to": 85
+  },
+  {
+    "crop_id": "squash",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 85,
+    "day_to": 115
+  },
+  {
+    "crop_id": "pechay",
+    "stage": "nursery",
+    "label": "Seedling / nursery",
+    "day_from": -14,
+    "day_to": -1
+  },
+  {
+    "crop_id": "pechay",
+    "stage": "establishment",
+    "label": "Transplanting",
+    "day_from": 0,
+    "day_to": 7
+  },
+  {
+    "crop_id": "pechay",
+    "stage": "vegetative",
+    "label": "Vegetative growth",
+    "day_from": 8,
+    "day_to": 25
+  },
+  {
+    "crop_id": "pechay",
+    "stage": "reproductive",
+    "label": "Flowering & fruit set",
+    "day_from": 26,
+    "day_to": 35
+  },
+  {
+    "crop_id": "pechay",
+    "stage": "harvest",
+    "label": "Harvest window",
+    "day_from": 35,
+    "day_to": 42
+  }
+]

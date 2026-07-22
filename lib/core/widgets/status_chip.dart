@@ -17,16 +17,42 @@ class StatusChip extends StatelessWidget {
   /// Build a chip for a [DeclarationStatus].
   factory StatusChip.declaration(DeclarationStatus status, {bool dense = false}) {
     final color = switch (status) {
-      DeclarationStatus.approved ||
-      DeclarationStatus.harvested =>
-        AppColors.success,
-      DeclarationStatus.pending => AppColors.pending,
-      DeclarationStatus.bawApproved ||
-      DeclarationStatus.technicianVerified =>
-        AppColors.info,
-      DeclarationStatus.correctionRequested => AppColors.warning,
-      DeclarationStatus.rejected => AppColors.danger,
-      DeclarationStatus.draft => Colors.blueGrey,
+      DeclarationStatus.active => AppColors.info,
+      DeclarationStatus.harvested => AppColors.success,
+      DeclarationStatus.cancelled => Colors.blueGrey,
+    };
+    return StatusChip(
+      label: status.label,
+      color: color,
+      icon: status.icon,
+      dense: dense,
+    );
+  }
+
+  /// Build a chip for a barangay land-[SuitabilityBand].
+  factory StatusChip.suitability(SuitabilityBand band, {bool dense = false}) {
+    final color = switch (band) {
+      SuitabilityBand.verySuitable => AppColors.success,
+      SuitabilityBand.suitable => AppColors.riskLow,
+      SuitabilityBand.moderate => AppColors.riskModerate,
+      SuitabilityBand.marginal => AppColors.riskHigh,
+    };
+    final icon = switch (band) {
+      SuitabilityBand.verySuitable => Icons.verified,
+      SuitabilityBand.suitable => Icons.check_circle_outline,
+      SuitabilityBand.moderate => Icons.remove_circle_outline,
+      SuitabilityBand.marginal => Icons.warning_amber,
+    };
+    return StatusChip(label: band.label, color: color, icon: icon, dense: dense);
+  }
+
+  /// Build a chip for an [AccountVerification] state.
+  factory StatusChip.account(AccountVerification status, {bool dense = false}) {
+    final color = switch (status) {
+      AccountVerification.verified => AppColors.success,
+      AccountVerification.pending => AppColors.pending,
+      AccountVerification.unverified => Colors.blueGrey,
+      AccountVerification.rejected => AppColors.danger,
     };
     return StatusChip(
       label: status.label,

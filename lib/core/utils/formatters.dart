@@ -13,6 +13,8 @@ class Fmt {
   static final DateFormat _date = DateFormat('MMM d, yyyy');
   static final DateFormat _dateShort = DateFormat('MMM d');
   static final DateFormat _dateTime = DateFormat('MMM d, yyyy • h:mm a');
+  static final DateFormat _monthYear = DateFormat('MMMM yyyy');
+  static final DateFormat _monthShort = DateFormat('MMM');
 
   static String peso(num value) => _peso.format(value);
 
@@ -37,6 +39,10 @@ class Fmt {
   }
 
   static String tons(num tons) => '${_decimal.format(tons)} t';
+
+  static String monthYear(DateTime value) => _monthYear.format(value);
+
+  static String monthShort(DateTime value) => _monthShort.format(value);
 
   static String date(DateTime? value) =>
       value == null ? '—' : _date.format(value.toLocal());

@@ -64,9 +64,9 @@ class _FarmerShellState extends ConsumerState<FarmerShell> {
               selectedIcon: Icon(Icons.insights),
               label: 'Advisory'),
           NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(Icons.menu_book),
-              label: 'Records'),
+              icon: Icon(Icons.event_note_outlined),
+              selectedIcon: Icon(Icons.event_note),
+              label: 'Activity'),
           NavigationDestination(
               icon: Icon(Icons.person_outline),
               selectedIcon: Icon(Icons.person),

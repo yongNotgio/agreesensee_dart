@@ -19,6 +19,8 @@ class LogbookEntry extends Equatable {
     this.quantity,
     this.unit,
     this.cost,
+    this.expenseId,
+    this.plannedActivityId,
     this.createdAt,
   });
 
@@ -34,8 +36,22 @@ class LogbookEntry extends Equatable {
   final String? inputUsed;
   final double? quantity;
   final String? unit;
+
+  /// Cost incurred performing this activity. When non-null this entry has a
+  /// paired [Expense] (see [expenseId]) so the cost reaches the P&L — a logged
+  /// activity and the money it cost are one record, entered once.
   final double? cost;
+
+  /// The [Expense] created alongside this entry, if a cost was captured.
+  final String? expenseId;
+
+  /// The scheduled crop-calendar operation this entry fulfils, if the farmer
+  /// logged it by confirming a recommended activity.
+  final String? plannedActivityId;
+
   final DateTime? createdAt;
+
+  bool get hasCost => cost != null && cost! > 0;
 
   factory LogbookEntry.fromMap(Map<String, dynamic> map) => LogbookEntry(
         id: asString(map['id']),
@@ -49,6 +65,8 @@ class LogbookEntry extends Equatable {
         quantity: asDoubleOrNull(map['quantity']),
         unit: asStringOrNull(map['unit']),
         cost: asDoubleOrNull(map['cost']),
+        expenseId: asStringOrNull(map['expense_id']),
+        plannedActivityId: asStringOrNull(map['planned_activity_id']),
         createdAt: asDate(map['created_at']),
       );
 
@@ -64,10 +82,48 @@ class LogbookEntry extends Equatable {
         'quantity': quantity,
         'unit': unit,
         'cost': cost,
+        'expense_id': expenseId,
+        'planned_activity_id': plannedActivityId,
         'created_at': dateToWire(createdAt),
       };
 
+  LogbookEntry copyWith({
+    String? declarationId,
+    String? details,
+    String? inputUsed,
+    double? quantity,
+    String? unit,
+    double? cost,
+    String? expenseId,
+    String? plannedActivityId,
+  }) =>
+      LogbookEntry(
+        id: id,
+        farmerId: farmerId,
+        activity: activity,
+        title: title,
+        performedOn: performedOn,
+        declarationId: declarationId ?? this.declarationId,
+        details: details ?? this.details,
+        inputUsed: inputUsed ?? this.inputUsed,
+        quantity: quantity ?? this.quantity,
+        unit: unit ?? this.unit,
+        cost: cost ?? this.cost,
+        expenseId: expenseId ?? this.expenseId,
+        plannedActivityId: plannedActivityId ?? this.plannedActivityId,
+        createdAt: createdAt,
+      );
+
   @override
-  List<Object?> get props =>
-      [id, farmerId, activity, title, performedOn, declarationId, inputUsed];
+  List<Object?> get props => [
+        id,
+        farmerId,
+        activity,
+        title,
+        performedOn,
+        declarationId,
+        inputUsed,
+        cost,
+        expenseId,
+      ];
 }
