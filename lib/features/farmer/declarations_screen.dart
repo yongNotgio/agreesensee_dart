@@ -22,6 +22,8 @@ class DeclarationsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('My Crops')),
       floatingActionButton: FloatingActionButton.extended(
+        // See dashboard_screen.dart's FAB for why this tag is required.
+        heroTag: 'declarations-fab',
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const DeclarationFormScreen()),
         ),

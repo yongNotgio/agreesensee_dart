@@ -31,6 +31,9 @@ class DemandEntryScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Declare Demand')),
       floatingActionButton: FloatingActionButton.extended(
+        // CoopShell's IndexedStack keeps every tab mounted at once, so this
+        // needs its own tag — see dashboard_screen.dart's FAB for why.
+        heroTag: 'demand-fab',
         onPressed: () => showDemandSheet(context, ref),
         icon: const Icon(Icons.add),
         label: const Text('Declare demand'),

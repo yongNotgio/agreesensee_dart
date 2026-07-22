@@ -300,17 +300,42 @@ re-derived.
 
 ## 12. Demand resolution — a denominator with provenance
 
-`demandFiguresProvider` (`lib/providers/data_providers.dart`)
+**The index is a ratio, so both sides must describe the same period.** Supply is
+the tonnage expected to be **harvested inside a forward window**
+(`SaturationEngine.defaultWindowDays` = 90, one cropping cycle); demand is that
+same window's demand. Summing every standing declaration against one month of
+demand is a unit error that makes every crop look catastrophically oversupplied
+— it inflated the pilot dataset to 15x demand.
 
-The Market Saturation Index divides supply by demand, and demand used to be one
-hardcoded annual constant per crop. It was unverifiable, and nobody on the
-ground could correct it — which made the entire oversupply signal rest on a
-number no one was accountable for.
+`CropCalibration.demandBetween()` sums each calendar month the window touches,
+pro-rating partial months, so the denominator keeps its seasonality.
 
-Demand now resolves in precedence order, carrying its source with it:
+Demand then resolves as follows, carrying its source with it:
 
-| Precedence | Source | `DemandSource` |
+| Source | Applies when | `DemandSource` |
 | --- | --- | --- |
+| Cooperative commitments, pro-rated by their overlap with the window | their total **exceeds** the baseline | `cooperative` |
+| The seasonal municipal baseline over the window | otherwise | `baseline` |
+| Catalog constant, pro-rated | no calibration row exists | `catalog` |
+
+**A cooperative can raise the denominator but never shrink it.** A commitment
+states that association's *own* absorption, which is a subset of the market the
+municipal baseline already covers — bagsakan throughput to Iloilo City included.
+Letting one association's 25 t replace a 125 t baseline would quintuple every
+saturation index on the strength of one partial data point. When cooperatives
+collectively commit to *more* than the baseline assumed, that is real evidence
+demand is higher, and the figure moves.
+
+`SaturationResult.demand.provenance` is rendered wherever an index appears
+("demand 62 t — declared by 3 cooperatives" vs "municipal monthly baseline"), so
+the figure can be defended rather than merely asserted.
+
+`SaturationEngine.monthlyMatrix()` extends this across a 12-month horizon:
+supply lands in the month of expected harvest and is compared against *that
+month's* demand, because the same tonnage is a glut in the harvest peak and a
+shortfall in the lean season.
+
+--- | --- | --- |
 | 1 | Sum of cooperative `demand_signals` covering today, normalised to a monthly rate | `cooperative` |
 | 2 | The crop's monthly baseline for the current month | `baseline` |
 | 3 | The bundled catalog constant | `catalog` |

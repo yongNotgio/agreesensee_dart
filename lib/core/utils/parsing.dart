@@ -50,5 +50,22 @@ List<String> asStringList(dynamic value) {
   return const [];
 }
 
-/// Serialize a [DateTime] to an ISO string (or null) for upserts.
+/// Serialize a [DateTime] instant to a UTC ISO string (or null) for
+/// `timestamptz` columns (`created_at`, `updated_at`, `verified_at`, …).
 String? dateToWire(DateTime? value) => value?.toUtc().toIso8601String();
+
+/// Serialize a **civil date** — year, month, day only — for Postgres `date`
+/// columns (`planting_date`, `scheduled_on`, `incurred_on`, …).
+///
+/// Deliberately does not call [DateTime.toUtc]. A planting date or a scheduled
+/// activity is the day the farmer means, not an instant in time; converting to
+/// UTC first shifts it backward for any timezone ahead of UTC — which includes
+/// the Philippines (UTC+8), the one timezone this app actually ships in. A
+/// farmer picking "June 1" would otherwise have it silently stored as May 31.
+String? dateOnlyToWire(DateTime? value) {
+  if (value == null) return null;
+  final y = value.year.toString().padLeft(4, '0');
+  final m = value.month.toString().padLeft(2, '0');
+  final d = value.day.toString().padLeft(2, '0');
+  return '$y-$m-$d';
+}

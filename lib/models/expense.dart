@@ -55,7 +55,7 @@ class Expense extends Equatable {
         'category': category.wire,
         'description': description,
         'amount': amount,
-        'incurred_on': dateToWire(incurredOn),
+        'incurred_on': dateOnlyToWire(incurredOn),
         'logbook_entry_id': logbookEntryId,
         'created_at': dateToWire(createdAt),
       };

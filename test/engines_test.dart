@@ -32,6 +32,8 @@ AgronomyDataset _agronomy() => AgronomyDataset.fromJson(
       suitability: _asset('barangay_suitability'),
     );
 
+/// Harvest defaults to inside the saturation window, since the index only
+/// counts supply arriving in the period it divides by.
 CropDeclaration _declaration({
   required String id,
   required String cropId,
@@ -48,7 +50,8 @@ CropDeclaration _declaration({
       variety: 'Galaxy',
       areaHa: 1,
       plantingDate: DateTime(2026, 1, 1),
-      expectedHarvestDate: harvest ?? DateTime(2026, 3, 15),
+      expectedHarvestDate:
+          harvest ?? DateTime.now().add(const Duration(days: 30)),
       expectedYieldKg: yieldKg,
       barangay: barangay,
       status: status,

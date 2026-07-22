@@ -98,6 +98,13 @@ class FarmerDashboardScreen extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        // Every tab in FarmerShell's IndexedStack stays mounted simultaneously,
+        // so an untagged FAB collides with any other untagged FAB in a sibling
+        // tab the instant a Hero flight is computed (any Navigator.push) —
+        // Flutter throws "multiple heroes share the same tag" and aborts the
+        // frame, which cascades into a wall of unrelated layout exceptions and
+        // a blank screen. Every FAB in a shell needs its own tag.
+        heroTag: 'dashboard-declare-fab',
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(builder: (_) => const DeclarationFormScreen()),
         ),

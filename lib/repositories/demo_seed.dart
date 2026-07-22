@@ -1,22 +1,27 @@
 import '../core/cache/local_cache.dart';
+import '../core/constants/app_constants.dart';
 import '../models/calamity_report.dart';
 import '../models/cooperative.dart';
 import '../models/crop_declaration.dart';
 import '../models/enums.dart';
 import '../models/expense.dart';
-import '../models/farm.dart';
 import '../models/barangay_assignment.dart';
 import '../models/demand_signal.dart';
+import '../models/farm.dart';
 import '../models/logbook_entry.dart';
 import '../models/planned_activity.dart';
+import '../models/production_report.dart';
 import '../models/profile.dart';
 
 /// Seeds the local cache with realistic sample data the first time the app runs
 /// in demo mode. The dataset is deliberately shaped so the analytical engines
 /// produce meaningful output:
 ///
-/// * Ampalaya is over-declared by many farmers in one harvest window → triggers
-///   a **High** Market Saturation Index and a **congested harvest peak**.
+/// * Ampalaya is over-planted by 18 of 48 association members, with harvests
+///   clustering into a five-week band → a **High** Market Saturation Index and
+///   a congested harvest peak. Eggplant lands near balance and the remaining
+///   crops have headroom, so the bands are all demonstrable rather than every
+///   crop reading red.
 /// * Juan Dela Cruz (the primary demo farmer) has declarations, expenses, a
 ///   logbook history, and a calamity report so every farmer screen is populated.
 ///
@@ -116,8 +121,12 @@ class DemoSeed {
     ];
 
     // ── Crop declarations ──────────────────────────────────────────────────
-    // Many synthetic farmers all declaring Ampalaya harvesting the same week to
-    // force a high-saturation, congested-harvest scenario.
+    // Sized to a real upland vegetable association: smallholder plots of
+    // 0.3–0.9 ha, ~30 ha planted across eight crops. Ampalaya is the cash crop
+    // and is over-planted — 18 growers whose harvests cluster into a five-week
+    // band — which is the coordination failure AgriSense exists to surface.
+    // Eggplant lands near balance; the rest have headroom. The result is one
+    // crop reading High, one Moderate, and six Low, rather than a wall of red.
     final declarations = <CropDeclaration>[];
 
     // Juan's own declarations.
@@ -129,11 +138,12 @@ class DemoSeed {
       variety: 'Galaxy',
       areaHa: 1.0,
       plantingDate: daysAgo(40),
-      expectedHarvestDate: daysFromNow(20),
+      expectedHarvestDate: daysFromNow(30),
       expectedYieldKg: 12000,
       barangay: 'Igpaho',
       status: DeclarationStatus.active,
       projectedPricePerKg: 45,
+      riskAtDeclaration: 'caution',
       notes: 'First declaration of the dry season.',
       createdAt: daysAgo(45),
     ));
@@ -144,66 +154,79 @@ class DemoSeed {
       cropId: 'eggplant',
       variety: 'Casino',
       areaHa: 0.5,
+      seedlingSowingDate: daysAgo(38),
       plantingDate: daysAgo(10),
       expectedHarvestDate: daysFromNow(70),
       expectedYieldKg: 9000,
       barangay: 'Igpaho',
       status: DeclarationStatus.active,
       projectedPricePerKg: 40,
+      riskAtDeclaration: 'low',
       createdAt: daysAgo(10),
     ));
 
-    // Synthetic congestion: 6 other farmers, all Ampalaya, same harvest week.
-    final congestionWeek = daysFromNow(20);
-    for (var i = 1; i <= 6; i++) {
-      declarations.add(CropDeclaration(
-        id: 'decl-syn-amp-$i',
-        farmerId: 'syn-farmer-$i',
-        farmId: 'syn-farm-$i',
-        cropId: 'ampalaya',
-        variety: 'Galaxy',
-        areaHa: 0.8 + (i * 0.1),
-        plantingDate: daysAgo(38 - i),
-        expectedHarvestDate: congestionWeek.add(Duration(days: i % 3)),
-        expectedYieldKg: 9000 + (i * 800),
-        barangay: i.isEven ? 'Badiang' : 'Igpaho',
-        status: DeclarationStatus.active,
-        projectedPricePerKg: 44,
-        createdAt: daysAgo(50 - i),
-      ));
-    }
+    // Last season's okra, already harvested and sold — without this the Harvest
+    // tab, the realised P&L, and the sold-to capture are all dead screens.
+    declarations.add(CropDeclaration(
+      id: 'decl-juan-okra',
+      farmerId: juanId,
+      farmId: juanFarmId,
+      cropId: 'okra',
+      variety: 'Smooth Green',
+      areaHa: 0.6,
+      plantingDate: daysAgo(145),
+      expectedHarvestDate: daysAgo(90),
+      expectedYieldKg: 5400,
+      barangay: 'Igpaho',
+      status: DeclarationStatus.harvested,
+      projectedPricePerKg: 35,
+      notes: 'Last season project.',
+      createdAt: daysAgo(150),
+    ));
 
-    // A few balanced declarations of other crops for contrast.
-    declarations.addAll([
-      CropDeclaration(
-        id: 'decl-syn-okra-1',
-        farmerId: 'syn-farmer-7',
-        farmId: 'syn-farm-7',
-        cropId: 'okra',
-        variety: 'Smooth Green',
-        areaHa: 0.6,
-        plantingDate: daysAgo(20),
-        expectedHarvestDate: daysFromNow(35),
-        expectedYieldKg: 5400,
-        barangay: 'Bondoc',
-        status: DeclarationStatus.active,
-        createdAt: daysAgo(22),
-      ),
-      CropDeclaration(
-        id: 'decl-syn-string-1',
-        farmerId: 'syn-farmer-8',
-        farmId: 'syn-farm-8',
-        cropId: 'string_beans',
-        variety: 'Sandigan',
-        areaHa: 0.7,
-        plantingDate: daysAgo(15),
-        expectedHarvestDate: daysFromNow(45),
-        expectedYieldKg: 5600,
-        barangay: 'Molina',
-        status: DeclarationStatus.active,
-        createdAt: daysAgo(18),
-      ),
-    ]);
+    // The municipal background: 48 association members across eight crops.
+    const barangays = <String>[
+      'Igpaho', 'Badiang', 'Bagunanay', 'Bondoc', 'Buenavista', 'Cadabdab',
+      'Igdampog Sur', 'Igtuble', 'Molina', 'Morcillas', 'Tabat', 'Talento',
+    ];
+    // (crop, growers, base area, area step, first harvest day, harvest spread)
+    const mix = <(String, int, double, double, int, int)>[
+      ('ampalaya', 18, 0.55, 0.07, 20, 35),
+      ('eggplant', 13, 0.45, 0.06, 25, 55),
+      ('okra', 5, 0.35, 0.07, 30, 70),
+      ('string_beans', 4, 0.40, 0.08, 35, 75),
+      ('tomato', 3, 0.30, 0.08, 40, 80),
+      ('squash', 3, 0.50, 0.08, 45, 85),
+      ('corn', 1, 0.80, 0.0, 60, 1),
+      ('pechay', 1, 0.30, 0.0, 22, 1),
+    ];
+
+    var member = 0;
+    for (final (cropId, growers, baseArea, step, firstHarvest, spread) in mix) {
+      final crop = CropCatalog.byIdOrFirst(cropId);
+      for (var n = 0; n < growers; n++) {
+        member++;
+        final areaHa =
+            double.parse((baseArea + (member % 6) * step).toStringAsFixed(2));
+        final harvest = daysFromNow(firstHarvest + (member % spread));
+        declarations.add(CropDeclaration(
+          id: 'decl-bg-$member',
+          farmerId: 'bg-farmer-$member',
+          farmId: 'bg-farm-$member',
+          cropId: cropId,
+          variety: crop.name,
+          areaHa: areaHa,
+          plantingDate:
+              harvest.subtract(Duration(days: crop.growthDurationDays)),
+          expectedHarvestDate: harvest,
+          expectedYieldKg: areaHa * crop.baselineYieldPerHa,
+          barangay: barangays[member % barangays.length],
+          status: DeclarationStatus.active,
+          projectedPricePerKg: crop.baselinePricePerKg,
+          createdAt: daysAgo(40),
+        ));
+      }
+    }
 
     // ── Expenses (Juan's Ampalaya project) ────────────────────────────────
     final expenses = <Expense>[
@@ -445,6 +468,25 @@ class DemoSeed {
       ),
     ];
 
+    // ── Production report (realised P&L for the okra project) ──────────────
+    final productionReports = <ProductionReport>[
+      ProductionReport(
+        id: 'prod-juan-okra',
+        declarationId: 'decl-juan-okra',
+        farmerId: juanId,
+        actualYieldKg: 5200,
+        actualPricePerKg: 36.75,
+        harvestedOn: daysAgo(90),
+        lossKg: 200,
+        // Sold to the association rather than the bagsakan — the buy-back floor
+        // price beat the trading post that week.
+        soldToChannel: SalesChannel.cooperative,
+        buyerName: 'TVGA Buy-back Program',
+        notes: 'Good season; minor rejects from fruit borer.',
+        createdAt: daysAgo(90),
+      ),
+    ];
+
     // ── Cooperative demand ─────────────────────────────────────────────────
     // Declared demand takes precedence over the municipal baseline, so the
     // saturation panels show cooperative-sourced figures out of the box.
@@ -518,7 +560,7 @@ class DemoSeed {
         'crop_declarations', declarations.map((e) => e.toMap()).toList());
     await cache.writeList('expenses', expenses.map((e) => e.toMap()).toList());
     await cache.writeList(
-        'production_reports', const <Map<String, dynamic>>[]);
+        'production_reports', productionReports.map((e) => e.toMap()).toList());
     await cache.writeList(
         'logbook_entries', logs.map((e) => e.toMap()).toList());
     await cache.writeList(

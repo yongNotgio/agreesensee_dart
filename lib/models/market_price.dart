@@ -31,7 +31,7 @@ class MarketPrice extends Equatable {
         'id': id,
         'crop_id': cropId,
         'price_per_kg': pricePerKg,
-        'recorded_on': dateToWire(recordedOn),
+        'recorded_on': dateOnlyToWire(recordedOn),
         'market': market,
       };
 

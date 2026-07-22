@@ -17,6 +17,7 @@ import '../../providers/app_actions.dart';
 import '../../providers/auth_controller.dart';
 import '../../providers/core_providers.dart';
 import '../../providers/data_providers.dart';
+import '../../repositories/synced_repository.dart';
 import 'widgets/pre_declaration_risk_panel.dart';
 
 /// Create or edit a crop declaration.
@@ -160,13 +161,37 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
         createdAt: base?.createdAt ?? DateTime.now(),
         updatedAt: DateTime.now(),
       );
-      await ref.read(appActionsProvider).saveDeclaration(declaration);
+      final result =
+          await ref.read(appActionsProvider).saveDeclaration(declaration);
       if (mounted) {
         Navigator.of(context).pop();
-        _toast(_isEdit
-            ? 'Declaration updated — crop calendar rescheduled'
-            : 'Crop declared — your activity calendar is ready');
+        final calendarError = result.calendarError;
+        if (calendarError == null) {
+          _toast(_isEdit
+              ? 'Declaration updated — crop calendar rescheduled'
+              : 'Crop declared — your activity calendar is ready');
+        } else {
+          // The declaration saved; the schedule did not. Say so specifically —
+          // an empty calendar tab with no explanation reads as broken, not as
+          // "nothing was declared."
+          final drift = calendarError is RepositoryWriteException &&
+              calendarError.looksLikeSchemaDrift;
+          _toast(drift
+              ? 'Crop declared. Its activity calendar needs a pending '
+                  'database update — apply '
+                  'supabase/migrations/002_adviser_revisions.sql, then edit '
+                  'this declaration to build it.'
+              // Include the raw cause rather than a generic "could not be
+              // built" — without it, a failure here is nearly impossible to
+              // diagnose from the field with no log access.
+              : 'Crop declared, but its activity calendar could not be '
+                  'built: $calendarError');
+        }
       }
+    } on RepositoryWriteException catch (e) {
+      // The server refused the write, so nothing was saved. Say so plainly and
+      // stay on the form rather than closing it over a crop that does not exist.
+      _toast(e.userMessage);
     } on Object catch (e) {
       _toast('Could not save: $e');
     } finally {

@@ -2,6 +2,42 @@ import '../../models/crop_declaration.dart';
 import '../../models/enums.dart';
 import '../constants/app_constants.dart';
 
+/// The forward period a Saturation Index covers.
+///
+/// Supply and demand must be measured over the *same* span or the ratio is
+/// meaningless — summing every standing declaration against one month of demand
+/// makes every crop look catastrophically oversupplied. The default is one
+/// cropping cycle, which is the horizon a planting decision actually affects.
+class SaturationWindow {
+  const SaturationWindow(this.start, this.end);
+
+  /// A window of [days] starting today (or from [from]).
+  factory SaturationWindow.next(int days, {DateTime? from}) {
+    final now = from ?? DateTime.now();
+    final start = DateTime(now.year, now.month, now.day);
+    return SaturationWindow(start, start.add(Duration(days: days)));
+  }
+
+  final DateTime start;
+  final DateTime end;
+
+  int get days => end.difference(start).inDays;
+
+  bool contains(DateTime d) {
+    final day = DateTime(d.year, d.month, d.day);
+    return !day.isBefore(start) && !day.isAfter(end);
+  }
+
+  /// Days this window shares with `[otherStart, otherEnd]` — used to pro-rate a
+  /// cooperative's commitment that only partly overlaps the window.
+  int overlapDays(DateTime otherStart, DateTime otherEnd) {
+    final from = otherStart.isAfter(start) ? otherStart : start;
+    final to = otherEnd.isBefore(end) ? otherEnd : end;
+    final overlap = to.difference(from).inDays;
+    return overlap < 0 ? 0 : overlap;
+  }
+}
+
 /// A demand figure plus where it came from, so the Saturation Index can say
 /// what it divided by rather than presenting an anonymous number.
 class DemandFigure {
@@ -41,16 +77,23 @@ class SaturationResult {
     required this.index,
     required this.level,
     required this.contributingDeclarations,
+    required this.window,
   });
 
   final String cropId;
+
+  /// Tons expected to be harvested **within [window]** — not every standing
+  /// declaration, which would be a different unit from the demand it divides.
   final double expectedSupplyTons;
   final DemandFigure demand;
 
-  /// Saturation Index = expected supply ÷ market demand.
+  /// Saturation Index = expected supply ÷ market demand, over [window].
   final double index;
   final SaturationLevel level;
   final int contributingDeclarations;
+
+  /// The forward period both sides of the ratio describe.
+  final SaturationWindow window;
 
   String get cropName => CropCatalog.nameFor(cropId);
 
@@ -121,29 +164,43 @@ class SaturationEngine {
   static const double lowCeiling = 0.85;
   static const double highFloor = 1.15;
 
+  /// One cropping cycle. Supply harvesting beyond this is not competing with
+  /// what is in the ground now.
+  static const int defaultWindowDays = 90;
+
   static SaturationLevel levelForIndex(double index) {
     if (index < lowCeiling) return SaturationLevel.low;
     if (index > highFloor) return SaturationLevel.high;
     return SaturationLevel.moderate;
   }
 
-  /// Compute saturation for a single crop from active declarations.
+  /// Compute saturation for a single crop over a forward [window].
   ///
-  /// [demandOverride] carries the resolved demand figure and its provenance —
-  /// cooperative-declared where available, else the monthly baseline.
+  /// Only declarations **harvesting inside the window** count toward supply, so
+  /// the numerator and the denominator describe the same period. [demandOverride]
+  /// must already be scaled to that window, and carries its provenance —
+  /// cooperative-declared where available, else the seasonal baseline.
   static SaturationResult forCrop({
     required String cropId,
     required List<CropDeclaration> declarations,
     DemandFigure? demandOverride,
+    SaturationWindow? window,
   }) {
+    final w = window ?? SaturationWindow.next(defaultWindowDays);
     final relevant = declarations
-        .where((d) => d.cropId == cropId && d.status.isActive)
+        .where((d) =>
+            d.cropId == cropId &&
+            d.status.isActive &&
+            w.contains(d.expectedHarvestDate))
         .toList();
     final supply =
         relevant.fold<double>(0, (sum, d) => sum + d.expectedYieldTons);
     final demand = demandOverride ??
         DemandFigure(
-          tons: CropCatalog.byIdOrFirst(cropId).projectedDemandTons,
+          // Catalog demand is annual; pro-rate it to the window.
+          tons: CropCatalog.byIdOrFirst(cropId).projectedDemandTons *
+              w.days /
+              365,
           source: DemandSource.catalog,
         );
     final index = demand.tons <= 0 ? 0.0 : supply / demand.tons;
@@ -154,6 +211,7 @@ class SaturationEngine {
       index: index,
       level: levelForIndex(index),
       contributingDeclarations: relevant.length,
+      window: w,
     );
   }
 
@@ -162,7 +220,9 @@ class SaturationEngine {
   static List<SaturationResult> forAllCrops(
     List<CropDeclaration> declarations, {
     Map<String, DemandFigure>? demandOverrides,
+    SaturationWindow? window,
   }) {
+    final w = window ?? SaturationWindow.next(defaultWindowDays);
     final cropIds = <String>{
       ...CropCatalog.crops.map((c) => c.id),
       ...declarations.map((d) => d.cropId),
@@ -172,6 +232,7 @@ class SaturationEngine {
               cropId: id,
               declarations: declarations,
               demandOverride: demandOverrides?[id],
+              window: w,
             ))
         .toList()
       ..sort((a, b) => b.index.compareTo(a.index));

@@ -78,14 +78,14 @@ class PlannedActivity extends Equatable {
         'farmer_id': farmerId,
         'activity': activity.wire,
         'title': title,
-        'scheduled_on': dateToWire(scheduledOn),
+        'scheduled_on': dateOnlyToWire(scheduledOn),
         'days_after_planting': daysAfterPlanting,
         'suggested_input': suggestedInput,
         'suggested_qty_per_ha': suggestedQtyPerHa,
         'unit': unit,
         'status': status.wire,
         'logbook_entry_id': logbookEntryId,
-        'completed_on': dateToWire(completedOn),
+        'completed_on': dateOnlyToWire(completedOn),
         'created_at': dateToWire(createdAt),
       };
 

@@ -13,9 +13,12 @@
 --   coop@agrisense.ph    — Cooperative (mobile)
 --   farmer@agrisense.ph  — Juan Dela Cruz, Farmer (mobile)
 --
--- Plus 50 background farmers so the municipal dataset is realistic:
--- ~42 declare Ampalaya harvesting the SAME week → High Market Saturation Index
--- and a congested harvest window — the oversupply scenario AgriSense detects.
+-- Plus 48 association members sized to a real upland vegetable association:
+-- smallholder plots of 0.3-0.9 ha, ~30 ha planted across 8 crops. Ampalaya is
+-- the cash crop and is over-planted (18 growers clustering into a five-week
+-- harvest band) → High Market Saturation Index and a congested window, which is
+-- the oversupply scenario AgriSense exists to detect. Eggplant sits near
+-- balance; the remaining crops have headroom.
 -- =============================================================================
 
 -- 1) Cooperative (must exist before profiles reference it) ---------------------
@@ -24,7 +27,7 @@ insert into public.cooperatives
 values
   ('c0000000-0000-4000-8000-000000000001',
    'Tubungan Vegetable Growers Association', 'Zone I (Poblacion)',
-   'Maria Santos', '0917 555 0142', 58, 120, now() - interval '400 days')
+   'Maria Santos', '0917 555 0142', 49, 120, now() - interval '400 days')
 on conflict (id) do nothing;
 
 -- 2) Named login accounts (plain text password) --------------------------------
@@ -148,6 +151,35 @@ values
   ('109b0000-0000-4000-8000-000000000004','a0000000-0000-4000-8000-000000000005','a3000000-0000-4000-8000-000000000001','pest_control','Foliar spray vs. fruit fly',current_date - 12,null,'Cypermethrin',1,'L',2100)
 on conflict (id) do nothing;
 
+-- 7b) Pair the two costs that belong to a logged activity ----------------------
+-- The ₱6,400 fertilizer and the ₱2,100 spray appear in both the ledger and the
+-- logbook because they are the *same* cost. Left unlinked they read as four
+-- separate outlays; linked, the app shows two, entered once. (The link is set
+-- here rather than inline because expenses are inserted before logbook_entries.)
+update public.expenses e
+   set logbook_entry_id = v.log_id,
+       description      = v.description,
+       incurred_on      = v.incurred_on
+  from (values
+    ('e0000000-0000-4000-8000-000000000002'::uuid,
+     '109b0000-0000-4000-8000-000000000003'::uuid,
+     'Basal fertilizer application', current_date - 38),
+    ('e0000000-0000-4000-8000-000000000005'::uuid,
+     '109b0000-0000-4000-8000-000000000004'::uuid,
+     'Foliar spray vs. fruit fly', current_date - 12)
+  ) as v(expense_id, log_id, description, incurred_on)
+ where e.id = v.expense_id;
+
+update public.logbook_entries l
+   set expense_id = v.expense_id
+  from (values
+    ('109b0000-0000-4000-8000-000000000003'::uuid,
+     'e0000000-0000-4000-8000-000000000002'::uuid),
+    ('109b0000-0000-4000-8000-000000000004'::uuid,
+     'e0000000-0000-4000-8000-000000000005'::uuid)
+  ) as v(log_id, expense_id)
+ where l.id = v.log_id;
+
 -- 8) Juan's calamity report (Objective 4) — under MAO review -------------------
 insert into public.calamity_reports
   (id, farmer_id, declaration_id, crop_id, barangay, type, occurred_on,
@@ -174,8 +206,12 @@ values
   ('c4a00000-0000-4000-8000-000000000003','c0000000-0000-4000-8000-000000000001','AgriProcess Pickling Plant','processor',80,'{ampalaya,squash}',30,'procurement@agriprocess.ph','Absorbs Grade-B produce for pickling.')
 on conflict (id) do nothing;
 
--- 11) 50 background farmers + farms + declarations (municipal realism) ----------
--- ~42 declare Ampalaya harvesting the same week → High saturation + congestion.
+-- 11) 48 association members + farms + declarations (municipal realism) ---------
+-- Sized to a real upland vegetable association: smallholder plots of
+-- 0.3-0.9 ha, ~30 ha planted in total. Ampalaya is the cash crop and is
+-- over-planted (18 growers, harvests clustered across five weeks), which is
+-- the coordination failure AgriSense exists to surface. Eggplant sits near
+-- balance; everything else has headroom.
 do $$
 declare
   coop   uuid := 'c0000000-0000-4000-8000-000000000001';
@@ -194,7 +230,7 @@ declare
   byield numeric;
   bprice numeric;
 begin
-  for i in 1..50 loop
+  for i in 1..48 loop
     uid   := ('b1000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
     fid   := ('b2000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
     brgy  := brgys[1 + (i % array_length(brgys,1))];
@@ -213,18 +249,48 @@ begin
     insert into public.farms
       (id, owner_id, barangay, total_area_ha, soil_type, created_at)
     values
-      (fid, uid, brgy, 1.5, 'Clay loam', now())
+      (fid, uid, brgy, round((0.6 + (i % 9) * 0.15)::numeric, 2),
+       (array['Clay loam','Loam','Sandy loam'])[1 + (i % 3)], now())
     on conflict (id) do nothing;
 
-    if i <= 42 then
+    -- Crop mix and plot sizes reflect what smallholders in an upland
+    -- vegetable association actually plant. Harvest dates are spread, but
+    -- the ampalaya growers cluster into a five-week band — a real glut,
+    -- not every farmer picking on the same day.
+    if i <= 18 then
       cropid := 'ampalaya';
-      ar     := 1.0 + (i % 7) * 0.1;   -- 1.0 – 1.6 ha
-      hv     := current_date + 25;      -- same harvest week → congestion
+      ar     := 0.55 + (i % 6) * 0.07;      -- 0.55 - 0.90 ha
+      hv     := current_date + 20 + (i % 35);
+    elsif i <= 31 then
+      cropid := 'eggplant';
+      ar     := 0.45 + (i % 5) * 0.06;      -- 0.45 - 0.69 ha
+      hv     := current_date + 25 + (i % 55);
+    elsif i <= 36 then
+      cropid := 'okra';
+      ar     := 0.35 + (i % 4) * 0.07;
+      hv     := current_date + 30 + (i % 70);
+    elsif i <= 40 then
+      cropid := 'string_beans';
+      ar     := 0.40 + (i % 3) * 0.08;
+      hv     := current_date + 35 + (i % 75);
+    elsif i <= 43 then
+      cropid := 'tomato';
+      ar     := 0.30 + (i % 3) * 0.08;
+      hv     := current_date + 40 + (i % 80);
+    elsif i <= 46 then
+      cropid := 'squash';
+      ar     := 0.50 + (i % 3) * 0.08;
+      hv     := current_date + 45 + (i % 85);
+    elsif i = 47 then
+      cropid := 'corn';
+      ar     := 0.80;
+      hv     := current_date + 60;
     else
-      cropid := (array['eggplant','okra','tomato','squash','string_beans','corn','pechay','eggplant'])[1 + ((i-43) % 8)];
-      ar     := 0.8 + (i % 5) * 0.1;
-      hv     := current_date + 30 + (i % 20);
+      cropid := 'pechay';
+      ar     := 0.30;
+      hv     := current_date + 22;
     end if;
+    ar := round(ar::numeric, 2);
 
     -- Declarations are records, not applications: every standing crop is
     -- simply active.
@@ -353,6 +419,134 @@ from (values
   (7, 'harvesting',  'Harvest - pick 1',              12,  70, null,  null, null, 'pending')
 ) as v(n, activity, title, offset_days, dap, input, qty, unit, status)
 on conflict (id) do nothing;
+
+
+-- 18) Completed previous season — the supply chain ------------------------------
+-- The current declarations are all still standing, so nothing had been sold and
+-- the MAO's supply-chain dashboard had a single record to draw. This backfills a
+-- finished cycle: 34 harvests across eight crops, each with the channel it
+-- actually went to.
+--
+-- The distribution is the point. Roughly 40% reaches the bagsakan (the channel
+-- the municipality can see), while traders buying at the farmgate and buyers
+-- from neighbouring towns take about 30% straight out of the monitored chain.
+-- That gap is the "diin nagkadto ang supply?" the dashboard exists to answer —
+-- and the prices show why it happens: a viajero pays ~18% below the bagsakan but
+-- collects at the farm, while hauling to the city market earns ~18% more.
+do $$
+declare
+  i         int;
+  uid       uuid;
+  fid       uuid;
+  did       uuid;
+  cropid    text;
+  ar        numeric;
+  brgy      text;
+  growth    int;
+  byield    numeric;
+  bprice    numeric;
+  hv        date;
+  yieldkg   numeric;
+  loss      numeric;
+  chan      text;
+  buyer     text;
+  price     numeric;
+  slot      int;
+  -- 20-slot cycle: 8 bagsakan, 4 trader, 3 cooperative, 2 direct market,
+  -- 2 neighbouring municipality, 1 own consumption.
+  channels  text[] := array[
+    'bagsakan','trader','bagsakan','cooperative','bagsakan','direct_market',
+    'bagsakan','trader','cooperative','bagsakan','neighbouring_municipality',
+    'bagsakan','trader','cooperative','bagsakan','direct_market','trader',
+    'bagsakan','neighbouring_municipality','own_consumption'];
+  traders   text[] := array['Viajero — Guimbal','Viajero — Tigbauan',
+                            'Farmgate consolidator (Oton)'];
+  outsiders text[] := array['Miagao consolidator','Igbaras buyer',
+                            'San Joaquin trader'];
+begin
+  for i in 1..34 loop
+    uid := ('b1000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
+    fid := ('b2000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
+    did := ('b4000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid;
+
+    select barangay into brgy from public.farms where id = fid;
+    if brgy is null then continue; end if;   -- farm not seeded; skip
+
+    -- Last season's crop mix. Rotation means it is not the same shape as what
+    -- is standing now — the ampalaya rush is a *current* phenomenon.
+    if    i <= 10 then cropid := 'ampalaya';
+    elsif i <= 18 then cropid := 'eggplant';
+    elsif i <= 23 then cropid := 'okra';
+    elsif i <= 27 then cropid := 'string_beans';
+    elsif i <= 30 then cropid := 'tomato';
+    elsif i <= 32 then cropid := 'squash';
+    elsif i =  33 then cropid := 'pechay';
+    else               cropid := 'corn';
+    end if;
+
+    ar := round((0.35 + (i % 6) * 0.10)::numeric, 2);   -- 0.35 - 0.85 ha
+    hv := current_date - (20 + i * 2)::int;             -- 22 - 88 days ago
+
+    select growth_duration_days, baseline_yield_per_ha, baseline_price_per_kg
+      into growth, byield, bprice from public.crops where id = cropid;
+
+    -- Real harvests land under the agronomic mean more often than over it.
+    yieldkg := round(ar * byield * (0.85 + (i % 5) * 0.05));
+    loss    := round(yieldkg * (0.01 + (i % 4) * 0.01));
+
+    slot  := 1 + (i % array_length(channels,1));
+    chan  := channels[slot];
+
+    -- Price follows the channel, which is what makes the routing a real choice
+    -- rather than an arbitrary label.
+    if chan = 'bagsakan' then
+      price := round(bprice, 2);
+      buyer := 'Tubungan Bagsakan';
+    elsif chan = 'cooperative' then
+      price := round(bprice * 1.05, 2);
+      buyer := 'TVGA Buy-back Program';
+    elsif chan = 'trader' then
+      price := round(bprice * 0.82, 2);
+      buyer := traders[1 + (i % array_length(traders,1))];
+    elsif chan = 'direct_market' then
+      price := round(bprice * 1.18, 2);
+      buyer := 'La Paz Terminal Market';
+    elsif chan = 'neighbouring_municipality' then
+      price := round(bprice * 1.10, 2);
+      buyer := outsiders[1 + (i % array_length(outsiders,1))];
+    else
+      price := round(bprice, 2);   -- imputed value; not actually sold
+      buyer := null;
+    end if;
+
+    insert into public.crop_declarations
+      (id, farmer_id, farm_id, crop_id, variety, area_ha, planting_date,
+       expected_harvest_date, expected_yield_kg, barangay, status,
+       projected_price_per_kg, notes, created_at, updated_at)
+    values
+      (did, uid, fid, cropid,
+       initcap(replace(cropid,'_',' ')) || ' local', ar,
+       hv - growth, hv, round(ar * byield), brgy, 'harvested',
+       bprice, 'Previous cycle.',
+       (hv - growth)::timestamptz, hv::timestamptz)
+    on conflict (id) do nothing;
+
+    insert into public.production_reports
+      (id, declaration_id, farmer_id, actual_yield_kg, actual_price_per_kg,
+       harvested_on, loss_kg, sold_to_channel, buyer_name, created_at)
+    values
+      (('b5000000-0000-4000-8000-' || lpad(i::text,12,'0'))::uuid,
+       did, uid, yieldkg, price, hv, loss,
+       chan::sales_channel, buyer, hv::timestamptz)
+    on conflict (id) do nothing;
+  end loop;
+end $$;
+
+-- Juan's own okra harvest went to the cooperative rather than the bagsakan.
+update public.production_reports
+   set sold_to_channel = 'cooperative',
+       buyer_name      = 'TVGA Buy-back Program'
+ where id = 'a4000000-0000-4000-8000-000000000003';
 
 -- =============================================================================
 -- Done. Sign in with:

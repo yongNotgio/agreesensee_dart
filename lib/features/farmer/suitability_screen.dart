@@ -41,48 +41,10 @@ class _SuitabilityScreenState extends ConsumerState<SuitabilityScreen> {
     final matrix = ref.watch(suitabilityMatrixProvider);
     final agronomy = ref.watch(agronomyDatasetProvider);
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Land Suitability'),
-          bottom: const TabBar(tabs: [
-            Tab(text: 'My Barangay'),
-            Tab(text: 'Map'),
-          ]),
-        ),
-        body: TabBarView(
-          children: [
-            _BarangayTab(
-              barangay: barangay,
-              results: results,
-              onBarangayChanged: (v) => setState(() => _barangay = v),
-            ),
-            _MapTab(
-              matrix: matrix,
-              focusBarangay: barangay,
-              hasData: !agronomy.isEmpty,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _BarangayTab extends StatelessWidget {
-  const _BarangayTab({
-    required this.barangay,
-    required this.results,
-    required this.onBarangayChanged,
-  });
-
-  final String barangay;
-  final List<SuitabilityResult> results;
-  final ValueChanged<String> onBarangayChanged;
-
-  @override
-  Widget build(BuildContext context) {
+    // No Scaffold or AppBar: this is rendered inside the Advisory tab bar, and
+    // nesting a second app bar (or a second row of tabs) inside a tab reads as
+    // a rendering fault rather than structure. The ranked list and the map are
+    // one continuous scroll instead.
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -93,26 +55,33 @@ class _BarangayTab extends StatelessWidget {
           items: AppConstants.barangays,
           itemLabel: (b) => b,
           onChanged: (v) {
-            if (v != null) onBarangayChanged(v);
+            if (v != null) setState(() => _barangay = v);
           },
         ),
         const SizedBox(height: 14),
         const SuitabilityLegend(),
         const SizedBox(height: 16),
-        Text('Ranked for Brgy. $barangay',
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(fontWeight: FontWeight.w800)),
+        Text(
+          'Ranked for Brgy. $barangay',
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+        ),
         const SizedBox(height: 10),
         for (final r in results) SuitabilityCard(result: r),
+        const SizedBox(height: 8),
+        _SuitabilityMap(
+          matrix: matrix,
+          focusBarangay: barangay,
+          hasData: !agronomy.isEmpty,
+        ),
       ],
     );
   }
 }
 
-class _MapTab extends StatelessWidget {
-  const _MapTab({
+class _SuitabilityMap extends StatelessWidget {
+  const _SuitabilityMap({
     required this.matrix,
     required this.focusBarangay,
     required this.hasData,
@@ -125,21 +94,21 @@ class _MapTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (matrix.isEmpty || !hasData) {
-      return const Center(
-        child: Padding(
-          padding: EdgeInsets.all(32),
-          child: Text(
-            'The barangay suitability map is not bundled in this build.',
-            textAlign: TextAlign.center,
-          ),
+      return const Padding(
+        padding: EdgeInsets.all(24),
+        child: Text(
+          'The barangay suitability map is not bundled in this build.',
+          textAlign: TextAlign.center,
         ),
       );
     }
 
     final rowIndex = matrix.barangays.indexOf(focusBarangay);
 
-    return ListView(
-      padding: const EdgeInsets.all(16),
+    // A Column, not a ListView: this sits inside the parent's scroll view, and
+    // a nested unbounded ListView would fail its layout constraints.
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionCard(
           title: 'Crop suitability across Tubungan',
@@ -151,12 +120,14 @@ class _MapTab extends StatelessWidget {
               HeatmapGrid(
                 rowLabels: matrix.barangays,
                 columnLabels: [
-                  for (final id in matrix.cropIds) CropCatalog.nameFor(id)
+                  for (final id in matrix.cropIds) CropCatalog.nameFor(id),
                 ],
                 highlightRow: rowIndex < 0 ? null : rowIndex,
                 cellBuilder: (r, c) {
                   final result = matrix.at(
-                      matrix.barangays[r], matrix.cropIds[c]);
+                    matrix.barangays[r],
+                    matrix.cropIds[c],
+                  );
                   if (result == null) return null;
                   return HeatmapCell(
                     value: result.yieldIndex,
@@ -183,7 +154,8 @@ class _MapTab extends StatelessWidget {
           'reached in that barangay. Your barangay is highlighted and pinned '
           'to the top.',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant),
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
       ],
     );

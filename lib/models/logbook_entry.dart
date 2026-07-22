@@ -75,7 +75,7 @@ class LogbookEntry extends Equatable {
         'farmer_id': farmerId,
         'activity': activity.wire,
         'title': title,
-        'performed_on': dateToWire(performedOn),
+        'performed_on': dateOnlyToWire(performedOn),
         'declaration_id': declarationId,
         'details': details,
         'input_used': inputUsed,
@@ -87,6 +87,9 @@ class LogbookEntry extends Equatable {
         'created_at': dateToWire(createdAt),
       };
 
+  /// [clearCostLink] drops both [cost] and [expenseId] — needed when the paired
+  /// expense is deleted, since passing null through the `??` fallbacks below
+  /// would silently keep the old values.
   LogbookEntry copyWith({
     String? declarationId,
     String? details,
@@ -96,6 +99,7 @@ class LogbookEntry extends Equatable {
     double? cost,
     String? expenseId,
     String? plannedActivityId,
+    bool clearCostLink = false,
   }) =>
       LogbookEntry(
         id: id,
@@ -108,8 +112,8 @@ class LogbookEntry extends Equatable {
         inputUsed: inputUsed ?? this.inputUsed,
         quantity: quantity ?? this.quantity,
         unit: unit ?? this.unit,
-        cost: cost ?? this.cost,
-        expenseId: expenseId ?? this.expenseId,
+        cost: clearCostLink ? null : (cost ?? this.cost),
+        expenseId: clearCostLink ? null : (expenseId ?? this.expenseId),
         plannedActivityId: plannedActivityId ?? this.plannedActivityId,
         createdAt: createdAt,
       );

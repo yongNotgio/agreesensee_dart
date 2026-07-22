@@ -64,7 +64,7 @@ class ProductionReport extends Equatable {
         'farmer_id': farmerId,
         'actual_yield_kg': actualYieldKg,
         'actual_price_per_kg': actualPricePerKg,
-        'harvested_on': dateToWire(harvestedOn),
+        'harvested_on': dateOnlyToWire(harvestedOn),
         'loss_kg': lossKg,
         'sold_to_channel': soldToChannel.wire,
         'buyer_name': buyerName,

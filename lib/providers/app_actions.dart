@@ -37,35 +37,51 @@ class AppActions {
   /// planting date, so the farmer gets a dated plan the moment they declare —
   /// rather than having to know when to fertilise, irrigate, and spray. On
   /// edit, operations the farmer has already acted on are preserved.
-  Future<CropDeclaration> saveDeclaration(
+  ///
+  /// The declaration itself always saves independently of the calendar: a
+  /// failure generating the schedule must never make the crop disappear. But a
+  /// failure here is not nothing either — it means the farmer opens the
+  /// calendar tab to find it empty with no idea why. [calendarError] carries
+  /// that failure back to the caller (non-null on failure) so the UI can say so,
+  /// instead of the crop simply not being scheduled with zero explanation.
+  Future<({CropDeclaration declaration, Object? calendarError})>
+      saveDeclaration(
     CropDeclaration declaration, {
     bool regenerateCalendar = true,
   }) async {
     final saved =
         await ref.read(declarationRepositoryProvider).save(declaration);
 
+    Object? calendarError;
     if (regenerateCalendar) {
-      final agronomy = ref.read(agronomyDatasetProvider);
-      final repo = ref.read(plannedActivityRepositoryProvider);
-      final existing = await repo.forDeclaration(saved.id);
-      final plan = existing.isEmpty
-          ? CropCalendarEngine.plan(declaration: saved, agronomy: agronomy)
-          : CropCalendarEngine.reschedule(
-              declaration: saved,
-              agronomy: agronomy,
-              existing: existing,
-            );
-      // Replace the pending half of the plan; settled operations are re-saved
-      // unchanged by `reschedule`, so a clean sweep is safe.
-      await repo.removeForDeclaration(saved.id);
-      await repo.saveAll(plan);
-      ref.invalidate(plannedActivitiesProvider);
-      ref.invalidate(plannedForDeclarationProvider(saved.id));
+      try {
+        final agronomy = ref.read(agronomyDatasetProvider);
+        final repo = ref.read(plannedActivityRepositoryProvider);
+        final existing = await repo.forDeclaration(saved.id);
+        final plan = existing.isEmpty
+            ? CropCalendarEngine.plan(declaration: saved, agronomy: agronomy)
+            : CropCalendarEngine.reschedule(
+                declaration: saved,
+                agronomy: agronomy,
+                existing: existing,
+              );
+        // Replace the pending half of the plan; settled operations are re-saved
+        // unchanged by `reschedule`, so a clean sweep is safe.
+        await repo.removeForDeclaration(saved.id);
+        await repo.saveAll(plan);
+        ref.invalidate(plannedActivitiesProvider);
+        ref.invalidate(plannedForDeclarationProvider(saved.id));
+      } on Object catch (e) {
+        // Not rethrown: the crop is recorded either way. Reported to the
+        // caller instead so it can tell the farmer, rather than the schedule
+        // just quietly never appearing.
+        calendarError = e;
+      }
     }
 
     ref.invalidate(declarationsProvider);
     ref.invalidate(allDeclarationsProvider);
-    return saved;
+    return (declaration: saved, calendarError: calendarError);
   }
 
   Future<void> deleteDeclaration(String id) async {
@@ -85,13 +101,14 @@ class AppActions {
   Future<void> deleteExpense(Expense expense) async {
     await ref.read(expenseRepositoryProvider).remove(expense.id);
     // Unlink the originating activity so the logbook stops claiming a cost that
-    // no longer exists in the ledger.
+    // no longer exists in the ledger. Scoped to the owning farmer rather than
+    // scanning every entry in the municipality.
     if (expense.logbookEntryId != null) {
       final logRepo = ref.read(logbookRepositoryProvider);
-      final entries = await logRepo.fetchAll();
+      final entries = await logRepo.forFarmer(expense.farmerId);
       for (final e in entries) {
         if (e.id == expense.logbookEntryId) {
-          await logRepo.save(e.copyWith(cost: 0, expenseId: ''));
+          await logRepo.save(e.copyWith(clearCostLink: true));
           break;
         }
       }
@@ -149,7 +166,7 @@ class AppActions {
   Future<void> deleteActivityWithCost(LogbookEntry entry) async {
     if (entry.expenseId != null) {
       final expenseRepo = ref.read(expenseRepositoryProvider);
-      final all = await expenseRepo.fetchAll();
+      final all = await expenseRepo.forFarmer(entry.farmerId);
       for (final e in all) {
         if (e.id == entry.expenseId) {
           await expenseRepo.remove(e.id);

@@ -25,6 +25,8 @@ class SurplusScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Surplus & Buy-back')),
       floatingActionButton: FloatingActionButton.extended(
+        // See demand_entry_screen.dart's FAB for why this tag is required.
+        heroTag: 'surplus-fab',
         onPressed: () => showMarketChannelSheet(context, ref),
         icon: const Icon(Icons.add_business),
         label: const Text('Add channel'),

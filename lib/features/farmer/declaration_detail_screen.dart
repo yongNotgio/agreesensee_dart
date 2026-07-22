@@ -121,7 +121,8 @@ class _MoreMenu extends ConsumerWidget {
             builder: (_) => AlertDialog(
               title: const Text('Delete declaration?'),
               content: const Text(
-                  'This removes the declaration and its forecasts. This cannot be undone.'),
+                  'This removes the declaration and its crop calendar. Logged '
+                  'activities and expenses are kept. This cannot be undone.'),
               actions: [
                 TextButton(
                     onPressed: () => Navigator.pop(context, false),

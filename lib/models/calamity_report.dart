@@ -65,7 +65,7 @@ class CalamityReport extends Equatable {
         'farmer_id': farmerId,
         'barangay': barangay,
         'type': type.wire,
-        'occurred_on': dateToWire(occurredOn),
+        'occurred_on': dateOnlyToWire(occurredOn),
         'affected_area_ha': affectedAreaHa,
         'loss_percent': lossPercent,
         'status': status.wire,

@@ -110,6 +110,27 @@ class CropCalibration {
     if (monthlyDemandTons.length != 12) return annualDemandTons / 12;
     return monthlyDemandTons[(month - 1).clamp(0, 11)];
   }
+
+  /// Demand across `[start, end)`, summing each calendar month it touches and
+  /// pro-rating partial months by day.
+  ///
+  /// The Saturation Index divides supply by demand, so both sides have to cover
+  /// the same span; a monthly figure cannot be compared against a season's
+  /// worth of harvest.
+  double demandBetween(DateTime start, DateTime end) {
+    if (!end.isAfter(start)) return 0;
+    var total = 0.0;
+    var cursor = DateTime(start.year, start.month, start.day);
+    while (cursor.isBefore(end)) {
+      final daysInMonth = DateTime(cursor.year, cursor.month + 1, 0).day;
+      final monthEnd = DateTime(cursor.year, cursor.month + 1, 1);
+      final sliceEnd = monthEnd.isBefore(end) ? monthEnd : end;
+      final days = sliceEnd.difference(cursor).inDays;
+      total += demandForMonth(cursor.month) * days / daysInMonth;
+      cursor = sliceEnd;
+    }
+    return total;
+  }
 }
 
 /// The fully-parsed and calibrated market dataset, keyed by crop id.

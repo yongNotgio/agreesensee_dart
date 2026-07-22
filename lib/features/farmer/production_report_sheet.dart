@@ -84,9 +84,12 @@ class _ProductionReportSheetState
     );
     final actions = ref.read(appActionsProvider);
     await actions.saveProductionReport(report);
-    // Mark the declaration as harvested.
-    await actions
-        .saveDeclaration(d.copyWith(status: DeclarationStatus.harvested));
+    // Mark the declaration as harvested. Nothing is left to schedule for a
+    // finished crop, so skip regenerating its calendar entirely.
+    await actions.saveDeclaration(
+      d.copyWith(status: DeclarationStatus.harvested),
+      regenerateCalendar: false,
+    );
     if (mounted) Navigator.of(context).pop();
   }
 

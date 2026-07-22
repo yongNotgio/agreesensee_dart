@@ -21,7 +21,11 @@ import 'logbook_form_screen.dart';
 /// waiting to be told after the fact. Confirming an item logs it — and captures
 /// the cost in the same step.
 class CropCalendarScreen extends ConsumerStatefulWidget {
-  const CropCalendarScreen({super.key});
+  const CropCalendarScreen({super.key, this.embedded = false});
+
+  /// True when rendered inside another screen's tab bar, where supplying a
+  /// second [Scaffold]/[AppBar] would stack a duplicate header on screen.
+  final bool embedded;
 
   @override
   ConsumerState<CropCalendarScreen> createState() => _CropCalendarScreenState();
@@ -36,107 +40,112 @@ class _CropCalendarScreenState extends ConsumerState<CropCalendarScreen> {
     final activitiesAsync = ref.watch(plannedActivitiesProvider);
     final declarations = ref.watch(declarationsProvider).valueOrNull ?? [];
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Crop Calendar')),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          ref.invalidate(plannedActivitiesProvider);
-          ref.invalidate(declarationsProvider);
-        },
-        child: AsyncValueView(
-          value: activitiesAsync,
-          onRetry: () => ref.invalidate(plannedActivitiesProvider),
-          data: (all) {
-            if (all.isEmpty) {
-              return ListView(
-                padding: const EdgeInsets.all(16),
-                children: const [
-                  SizedBox(height: 60),
-                  EmptyState(
-                    icon: Icons.event_note,
-                    title: 'No schedule yet',
-                    message:
-                        'Declare a crop and AgriSense builds the full activity '
-                        'calendar for it — when to fertilise, irrigate, spray, '
-                        'and harvest.',
-                  ),
-                ],
-              );
-            }
-
-            final pending = all.where((a) => a.isPending).toList();
-            final overdue = pending.where((a) => a.isOverdue()).toList();
-            final byDay = CropCalendarEngine.groupByDay(pending);
-            final selected = _selectedDay;
-            final agenda = selected == null
-                ? _upcoming(pending)
-                : (byDay[_dayOf(selected)] ?? const <PlannedActivity>[]);
-
+    final body = RefreshIndicator(
+      onRefresh: () async {
+        ref.invalidate(plannedActivitiesProvider);
+        ref.invalidate(declarationsProvider);
+      },
+      child: AsyncValueView(
+        value: activitiesAsync,
+        onRetry: () => ref.invalidate(plannedActivitiesProvider),
+        data: (all) {
+          if (all.isEmpty) {
             return ListView(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
-              children: [
-                if (overdue.isNotEmpty) ...[
-                  _OverdueBanner(count: overdue.length),
-                  const SizedBox(height: 12),
-                ],
-                _MonthGrid(
-                  month: _month,
-                  byDay: byDay,
-                  selectedDay: selected,
-                  onMonthChanged: (m) => setState(() {
-                    _month = m;
-                    _selectedDay = null;
-                  }),
-                  onDaySelected: (d) => setState(() {
-                    _selectedDay = _selectedDay != null &&
-                            _dayOf(_selectedDay!) == _dayOf(d)
-                        ? null
-                        : d;
-                  }),
+              padding: const EdgeInsets.all(16),
+              children: const [
+                SizedBox(height: 60),
+                EmptyState(
+                  icon: Icons.event_note,
+                  title: 'No schedule yet',
+                  message:
+                      'Declare a crop and AgriSense builds the full activity '
+                      'calendar for it — when to fertilise, irrigate, spray, '
+                      'and harvest.',
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        selected == null
-                            ? 'Next 14 days'
-                            : 'On ${Fmt.date(selected)}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(fontWeight: FontWeight.w800),
-                      ),
-                    ),
-                    if (selected != null)
-                      TextButton(
-                        onPressed: () => setState(() => _selectedDay = null),
-                        child: const Text('Clear'),
-                      ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                if (agenda.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Text(
-                      selected == null
-                          ? 'Nothing scheduled in the next two weeks.'
-                          : 'Nothing scheduled on this day.',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  )
-                else
-                  for (final a in agenda)
-                    _ActivityTile(
-                      activity: a,
-                      declaration: _declarationFor(declarations, a),
-                    ),
               ],
             );
-          },
-        ),
+          }
+
+          final pending = all.where((a) => a.isPending).toList();
+          final overdue = pending.where((a) => a.isOverdue()).toList();
+          final byDay = CropCalendarEngine.groupByDay(pending);
+          final selected = _selectedDay;
+          final agenda = selected == null
+              ? _upcoming(pending)
+              : (byDay[_dayOf(selected)] ?? const <PlannedActivity>[]);
+
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+            children: [
+              if (overdue.isNotEmpty) ...[
+                _OverdueBanner(count: overdue.length),
+                const SizedBox(height: 12),
+              ],
+              _MonthGrid(
+                month: _month,
+                byDay: byDay,
+                selectedDay: selected,
+                onMonthChanged: (m) => setState(() {
+                  _month = m;
+                  _selectedDay = null;
+                }),
+                onDaySelected: (d) => setState(() {
+                  _selectedDay =
+                      _selectedDay != null && _dayOf(_selectedDay!) == _dayOf(d)
+                      ? null
+                      : d;
+                }),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      selected == null
+                          ? 'Next 14 days'
+                          : 'On ${Fmt.date(selected)}',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  if (selected != null)
+                    TextButton(
+                      onPressed: () => setState(() => _selectedDay = null),
+                      child: const Text('Clear'),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              if (agenda.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Text(
+                    selected == null
+                        ? 'Nothing scheduled in the next two weeks.'
+                        : 'Nothing scheduled on this day.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                )
+              else
+                for (final a in agenda)
+                  _ActivityTile(
+                    activity: a,
+                    declaration: _declarationFor(declarations, a),
+                  ),
+            ],
+          );
+        },
       ),
+    );
+
+    // Embedded, the Scaffold carries no app bar — the host screen supplies it —
+    // but it still provides the Material surface and background the tab body is
+    // painted on, matching _LogbookTab and _CalamityTab.
+    if (widget.embedded) return Scaffold(body: body);
+    return Scaffold(
+      appBar: AppBar(title: const Text('Crop Calendar')),
+      body: body,
     );
   }
 
@@ -150,7 +159,9 @@ class _CropCalendarScreenState extends ConsumerState<CropCalendarScreen> {
   }
 
   CropDeclaration? _declarationFor(
-      List<CropDeclaration> declarations, PlannedActivity a) {
+    List<CropDeclaration> declarations,
+    PlannedActivity a,
+  ) {
     for (final d in declarations) {
       if (d.id == a.declarationId) return d;
     }
@@ -230,8 +241,9 @@ class _MonthGrid extends StatelessWidget {
                 child: Text(
                   Fmt.monthYear(month),
                   textAlign: TextAlign.center,
-                  style: theme.textTheme.titleMedium
-                      ?.copyWith(fontWeight: FontWeight.w800),
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
               IconButton(
@@ -247,10 +259,13 @@ class _MonthGrid extends StatelessWidget {
               for (final d in const ['M', 'T', 'W', 'T', 'F', 'S', 'S'])
                 Expanded(
                   child: Center(
-                    child: Text(d,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: theme.colorScheme.onSurfaceVariant)),
+                    child: Text(
+                      d,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                   ),
                 ),
             ],
@@ -266,12 +281,18 @@ class _MonthGrid extends StatelessWidget {
             itemCount: leadingBlanks + daysInMonth,
             itemBuilder: (context, i) {
               if (i < leadingBlanks) return const SizedBox.shrink();
-              final day = DateTime(month.year, month.month, i - leadingBlanks + 1);
+              final day = DateTime(
+                month.year,
+                month.month,
+                i - leadingBlanks + 1,
+              );
               final items = byDay[day] ?? const <PlannedActivity>[];
-              final isToday = day.year == today.year &&
+              final isToday =
+                  day.year == today.year &&
                   day.month == today.month &&
                   day.day == today.day;
-              final isSelected = selectedDay != null &&
+              final isSelected =
+                  selectedDay != null &&
                   selectedDay!.year == day.year &&
                   selectedDay!.month == day.month &&
                   selectedDay!.day == day.day;
@@ -286,8 +307,8 @@ class _MonthGrid extends StatelessWidget {
                     color: isSelected
                         ? AppColors.primary
                         : isToday
-                            ? AppColors.primary.withValues(alpha: 0.12)
-                            : null,
+                        ? AppColors.primary.withValues(alpha: 0.12)
+                        : null,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -297,8 +318,9 @@ class _MonthGrid extends StatelessWidget {
                         '${day.day}',
                         style: TextStyle(
                           fontSize: 12,
-                          fontWeight:
-                              isToday ? FontWeight.w800 : FontWeight.w500,
+                          fontWeight: isToday
+                              ? FontWeight.w800
+                              : FontWeight.w500,
                           color: isSelected ? Colors.white : null,
                         ),
                       ),
@@ -311,8 +333,8 @@ class _MonthGrid extends StatelessWidget {
                             color: isSelected
                                 ? Colors.white
                                 : hasOverdue
-                                    ? AppColors.warning
-                                    : AppColors.primary,
+                                ? AppColors.warning
+                                : AppColors.primary,
                             borderRadius: BorderRadius.circular(3),
                           ),
                         )
@@ -365,9 +387,13 @@ class _ActivityTile extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(activity.title,
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w700)),
+                      Text(
+                        activity.title,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                       Text(
                         [
                           Fmt.dateShort(activity.scheduledOn),
@@ -375,29 +401,38 @@ class _ActivityTile extends ConsumerWidget {
                             '${declaration!.cropName} • ${declaration!.variety}',
                         ].join(' • '),
                         style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant),
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 if (overdue)
-                  const Icon(Icons.priority_high,
-                      size: 18, color: AppColors.warning),
+                  const Icon(
+                    Icons.priority_high,
+                    size: 18,
+                    color: AppColors.warning,
+                  ),
               ],
             ),
             if (activity.suggestedInput != null || qty != null) ...[
               const SizedBox(height: 10),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 8,
+                ),
                 decoration: BoxDecoration(
                   color: theme.colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.science_outlined,
-                        size: 14, color: theme.colorScheme.onSurfaceVariant),
+                    Icon(
+                      Icons.science_outlined,
+                      size: 14,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
                     const SizedBox(width: 6),
                     Expanded(
                       child: Text(
@@ -405,7 +440,8 @@ class _ActivityTile extends ConsumerWidget {
                           if (activity.suggestedInput != null)
                             activity.suggestedInput!,
                           if (qty != null && qty > 0)
-                            '≈ ${Fmt.number(qty)} ${activity.unit ?? ''}'.trim(),
+                            '≈ ${Fmt.number(qty)} ${activity.unit ?? ''}'
+                                .trim(),
                         ].join(' — '),
                         style: const TextStyle(fontSize: 12),
                       ),
@@ -415,14 +451,20 @@ class _ActivityTile extends ConsumerWidget {
               ),
             ],
             const SizedBox(height: 12),
+            // Both buttons take a flex slot. The button themes set
+            // `minimumSize: Size.fromHeight(52)` — an *infinite* minimum width
+            // — which is fine wherever the incoming maxWidth is finite, but a
+            // non-flex Row child is laid out with unbounded width. That made
+            // the Skip button assert during performLayout, and a layout that
+            // throws paints nothing: the whole Calendar tab came up blank.
             Row(
               children: [
                 Expanded(
+                  flex: 2,
                   child: FilledButton.icon(
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                        builder: (_) =>
-                            LogbookFormScreen(planned: activity),
+                        builder: (_) => LogbookFormScreen(planned: activity),
                       ),
                     ),
                     icon: const Icon(Icons.check, size: 18),
@@ -430,10 +472,13 @@ class _ActivityTile extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                OutlinedButton(
-                  onPressed: () =>
-                      ref.read(appActionsProvider).skipPlannedActivity(activity),
-                  child: const Text('Skip'),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => ref
+                        .read(appActionsProvider)
+                        .skipPlannedActivity(activity),
+                    child: const Text('Skip'),
+                  ),
                 ),
               ],
             ),

@@ -37,7 +37,11 @@ class RecordsScreen extends ConsumerWidget {
           ]),
         ),
         body: const TabBarView(
-          children: [CropCalendarScreen(), _LogbookTab(), _CalamityTab()],
+          children: [
+            CropCalendarScreen(embedded: true),
+            _LogbookTab(),
+            _CalamityTab(),
+          ],
         ),
       ),
     );

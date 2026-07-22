@@ -15,6 +15,36 @@ import '../core/cache/local_cache.dart';
 /// The cache holds the *current accessible working set* (e.g. the signed-in
 /// farmer's own rows), which is the correct granularity for an offline-first
 /// single-session mobile client.
+/// A write the server understood and refused — a missing column, an unknown
+/// enum value, a constraint violation.
+///
+/// Distinct from being offline: there is no point retrying locally, because the
+/// row will never be accepted in its current shape. Callers surface this to the
+/// user rather than reporting a success that will silently disappear.
+class RepositoryWriteException implements Exception {
+  const RepositoryWriteException({required this.table, required this.cause});
+
+  final String table;
+  final PostgrestException cause;
+
+  /// True when the row references a column or type the database does not have —
+  /// almost always a pending migration.
+  bool get looksLikeSchemaDrift {
+    final code = cause.code ?? '';
+    // 42703 undefined_column · 42P01 undefined_table · 22P02 invalid_text_representation
+    return code == '42703' || code == '42P01' || code == '22P02';
+  }
+
+  String get userMessage => looksLikeSchemaDrift
+      ? 'The database is missing an update this version of the app needs '
+          '($table). Apply supabase/migrations/002_adviser_revisions.sql, then '
+          'try again.'
+      : 'The server rejected this change: ${cause.message}';
+
+  @override
+  String toString() => 'RepositoryWriteException($table): ${cause.message}';
+}
+
 abstract class SyncedRepository<T> {
   SyncedRepository({
     required this.client,
@@ -71,6 +101,14 @@ abstract class SyncedRepository<T> {
   }
 
   /// Insert or update a row, keeping the local mirror in sync.
+  ///
+  /// A **network** failure falls back to an optimistic local write, so a farmer
+  /// in the field is never blocked. A **server rejection** does not: if Postgres
+  /// understood the request and refused it — a missing column, a bad enum value,
+  /// a constraint — writing locally and reporting success is a lie. The row
+  /// would then be wiped by the next [fetchAll], which mirrors the server over
+  /// the cache, and the farmer would watch their work vanish with no
+  /// explanation. Those surface as [RepositoryWriteException].
   Future<T> save(T item) async {
     if (isDemo) {
       await _store.upsert(item);
@@ -82,8 +120,10 @@ abstract class SyncedRepository<T> {
       final saved = fromMap(Map<String, dynamic>.from(data));
       await _store.upsert(saved);
       return saved;
+    } on PostgrestException catch (e) {
+      throw RepositoryWriteException(table: table, cause: e);
     } on Object {
-      // Optimistic local write so the user is never blocked offline.
+      // Offline / transient → optimistic local write.
       await _store.upsert(item);
       return item;
     }
@@ -96,9 +136,14 @@ abstract class SyncedRepository<T> {
     }
     try {
       await client!.from(table).delete().eq('id', id);
-    } finally {
-      await _store.delete(id);
+    } on PostgrestException catch (e) {
+      // The server refused. Leave the local mirror alone — hiding a row that
+      // still exists upstream would make it reappear on the next sync.
+      throw RepositoryWriteException(table: table, cause: e);
+    } on Object {
+      // Offline: fall through to an optimistic local delete.
     }
+    await _store.delete(id);
   }
 
   /// Realtime stream of the table (live mode) or a one-shot snapshot of the

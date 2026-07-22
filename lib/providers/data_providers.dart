@@ -207,6 +207,15 @@ final myTechnicianProvider =
 
 // ── Demand resolution ────────────────────────────────────────────────────────
 
+/// The forward period the Saturation Index covers.
+///
+/// Supply and demand are both measured across this span. Exposed as a provider
+/// so every screen divides like for like — a headline index computed over a
+/// different horizon from the table beneath it would silently disagree.
+final saturationWindowProvider = Provider<SaturationWindow>(
+  (ref) => SaturationWindow.next(SaturationEngine.defaultWindowDays),
+);
+
 /// Crop id → the demand figure the Saturation Index divides by, resolved in
 /// precedence order:
 ///   1. demand cooperatives have actually declared for the current period
@@ -219,13 +228,18 @@ final demandFiguresProvider =
     FutureProvider.autoDispose<Map<String, DemandFigure>>((ref) async {
   final calibration = ref.watch(calibrationProvider);
   final signals = await ref.watch(allDemandSignalsProvider.future);
-  final now = DateTime.now();
+  final window = ref.watch(saturationWindowProvider);
 
-  final active = signals.where((s) => s.coversDate(now)).toList();
+  // A cooperative's commitment counts only for the days it actually overlaps
+  // the window, pro-rated — a 12-month contract is not 12 months of demand
+  // inside a 90-day horizon.
   final declared = <String, double>{};
   final contributors = <String, Set<String>>{};
-  for (final s in active) {
-    declared[s.cropId] = (declared[s.cropId] ?? 0) + s.monthlyEquivalentTons;
+  for (final s in signals) {
+    final overlap = window.overlapDays(s.periodStart, s.periodEnd);
+    if (overlap <= 0) continue;
+    final share = s.demandTons * overlap / s.durationDays;
+    declared[s.cropId] = (declared[s.cropId] ?? 0) + share;
     contributors.putIfAbsent(s.cropId, () => {}).add(s.cooperativeId);
   }
 
@@ -237,26 +251,33 @@ final demandFiguresProvider =
   };
 
   for (final cropId in cropIds) {
-    if (declared.containsKey(cropId) && declared[cropId]! > 0) {
+    final cal = calibration[cropId];
+    final baseline = cal != null
+        ? cal.demandBetween(window.start, window.end)
+        : CropCatalog.byIdOrFirst(cropId).projectedDemandTons *
+            window.days /
+            365;
+    final baselineSource =
+        cal != null ? DemandSource.baseline : DemandSource.catalog;
+    final coop = declared[cropId] ?? 0;
+
+    // A cooperative states *its own* absorption, which is a subset of the
+    // market — the municipal baseline already covers bagsakan throughput to
+    // the wider region. So a commitment can only raise the denominator, never
+    // shrink it: one association declaring 25 t does not mean the municipality
+    // only wants 25 t.
+    if (coop > baseline) {
       figures[cropId] = DemandFigure(
-        tons: declared[cropId]!,
+        tons: coop,
         source: DemandSource.cooperative,
         contributorCount: contributors[cropId]?.length ?? 0,
       );
-      continue;
-    }
-    final cal = calibration[cropId];
-    if (cal != null) {
+    } else {
       figures[cropId] = DemandFigure(
-        tons: cal.demandForMonth(now.month),
-        source: DemandSource.baseline,
+        tons: baseline,
+        source: baselineSource,
       );
-      continue;
     }
-    figures[cropId] = DemandFigure(
-      tons: CropCatalog.byIdOrFirst(cropId).projectedDemandTons / 12,
-      source: DemandSource.catalog,
-    );
   }
   return figures;
 });
@@ -268,7 +289,11 @@ final saturationProvider =
     FutureProvider.autoDispose<List<SaturationResult>>((ref) async {
   final declarations = await ref.watch(allDeclarationsProvider.future);
   final demand = await ref.watch(demandFiguresProvider.future);
-  return SaturationEngine.forAllCrops(declarations, demandOverrides: demand);
+  return SaturationEngine.forAllCrops(
+    declarations,
+    demandOverrides: demand,
+    window: ref.watch(saturationWindowProvider),
+  );
 });
 
 /// Crop × month saturation grid over the next 12 months — the heat map.
