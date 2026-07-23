@@ -445,12 +445,15 @@ insert into public.crops
    baseline_yield_per_ha, unit, baseline_price_per_kg,
    projected_demand_tons, companions, land_suitability)
 values
-  ('ampalaya','Ampalaya','Vegetable','{dry,wet}',70,12000,'kg',45,500,'{corn,string_beans}',0.82),
-  ('eggplant','Eggplant','Vegetable','{dry,wet}',80,18000,'kg',40,620,'{string_beans,okra}',0.88),
-  ('okra','Okra','Vegetable','{dry,wet}',55,9000,'kg',35,410,'{eggplant,ampalaya}',0.84),
-  ('string_beans','String Beans','Legume','{dry,wet}',60,8000,'kg',50,360,'{ampalaya,eggplant,corn}',0.86),
-  ('tomato','Tomato','Vegetable','{dry}',75,20000,'kg',38,540,'{okra,string_beans}',0.79),
-  ('corn','Sweet Corn','Cereal','{wet}',90,6000,'kg',22,700,'{string_beans,ampalaya}',0.81),
-  ('squash','Squash','Vegetable','{dry,wet}',85,15000,'kg',25,480,'{corn,okra}',0.83),
-  ('pechay','Pechay','Leafy Vegetable','{dry,wet}',35,11000,'kg',30,300,'{okra,eggplant}',0.80)
+  -- Yields grounded in DA Region VI (Western Visayas) / PSA figures for
+  -- smallholder plots: eggplant 8.2 t/ha and tomato 14.4 t/ha are the regional
+  -- averages, not the attainable-yield ceilings the app first shipped with.
+  ('ampalaya','Ampalaya','Vegetable','{dry,wet}',70,8500,'kg',45,500,'{corn,string_beans}',0.82),
+  ('eggplant','Eggplant','Vegetable','{dry,wet}',80,8000,'kg',40,620,'{string_beans,okra}',0.88),
+  ('okra','Okra','Vegetable','{dry,wet}',55,8000,'kg',35,410,'{eggplant,ampalaya}',0.84),
+  ('string_beans','String Beans','Legume','{dry,wet}',60,7000,'kg',50,360,'{ampalaya,eggplant,corn}',0.86),
+  ('tomato','Tomato','Vegetable','{dry}',75,14000,'kg',38,540,'{okra,string_beans}',0.79),
+  ('corn','Sweet Corn','Cereal','{wet}',90,4500,'kg',22,700,'{string_beans,ampalaya}',0.81),
+  ('squash','Squash','Vegetable','{dry,wet}',85,11000,'kg',25,480,'{corn,okra}',0.83),
+  ('pechay','Pechay','Leafy Vegetable','{dry,wet}',35,10000,'kg',30,300,'{okra,eggplant}',0.80)
 on conflict (id) do nothing;

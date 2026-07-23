@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/logic/crop_calendar_engine.dart';
 import '../../core/logic/recommendation_engine.dart';
+import '../../core/logic/saturation_engine.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/formatters.dart';
 import '../../core/utils/id_gen.dart';
@@ -266,6 +267,13 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
     final companionOptions = CropCatalog.crops.where((c) => c.id != _cropId);
     final farmAsync = ref.watch(primaryFarmProvider);
 
+    // Current municipal saturation per crop, so the picker can flag which crops
+    // are already oversupplied before the farmer commits to one.
+    final saturationByCrop = <String, SaturationResult>{
+      for (final r in ref.watch(saturationProvider).valueOrNull ?? const [])
+        r.cropId: r,
+    };
+
     // Live risk assessment for whatever is currently selected in the form.
     final barangay = _barangay;
     final risk = barangay == null || _areaValue <= 0
@@ -298,6 +306,8 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
               prefixIcon: Icons.eco,
               items: CropCatalog.crops.map((c) => c.id).toList(),
               itemLabel: CropCatalog.nameFor,
+              itemTrailing: (id) =>
+                  _SaturationBadge(result: saturationByCrop[id]),
               onChanged: (v) {
                 if (v == null) return;
                 setState(() {
@@ -307,6 +317,8 @@ class _DeclarationFormScreenState extends ConsumerState<DeclarationFormScreen> {
                 });
               },
             ),
+            const SizedBox(height: 6),
+            _SaturationLegend(hasData: saturationByCrop.isNotEmpty),
             const SizedBox(height: 14),
 
             // Variety is a bounded choice, not free text — twelve spellings of
@@ -667,6 +679,99 @@ class _IntercropPicker extends StatelessWidget {
               ),
           ],
         ),
+      ],
+    );
+  }
+}
+
+/// A compact market-saturation badge shown against a crop in the picker, so the
+/// farmer sees which crops are already oversupplied before choosing one. Low-risk
+/// crops carry only a dot (the common, unremarkable case); crops near or over
+/// demand are called out by name.
+class _SaturationBadge extends StatelessWidget {
+  const _SaturationBadge({required this.result});
+
+  final SaturationResult? result;
+
+  @override
+  Widget build(BuildContext context) {
+    final r = result;
+    if (r == null) return const SizedBox.shrink();
+
+    final color = switch (r.level) {
+      SaturationLevel.high => AppColors.riskHigh,
+      SaturationLevel.moderate => AppColors.riskModerate,
+      SaturationLevel.low => AppColors.riskLow,
+    };
+    final label = switch (r.level) {
+      SaturationLevel.high => 'Oversupplied',
+      SaturationLevel.moderate => 'Near limit',
+      SaturationLevel.low => null,
+    };
+
+    final dot = Container(
+      width: 8,
+      height: 8,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    );
+    if (label == null) return dot;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        dot,
+        const SizedBox(width: 5),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w700,
+            color: color,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// One-line colour key decoding the saturation dots in the crop picker.
+class _SaturationLegend extends StatelessWidget {
+  const _SaturationLegend({required this.hasData});
+
+  final bool hasData;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!hasData) return const SizedBox.shrink();
+    final theme = Theme.of(context);
+
+    Widget item(Color c, String t) => Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 7,
+              height: 7,
+              decoration: BoxDecoration(color: c, shape: BoxShape.circle),
+            ),
+            const SizedBox(width: 4),
+            Text(t,
+                style: theme.textTheme.labelSmall
+                    ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+          ],
+        );
+
+    return Wrap(
+      spacing: 12,
+      runSpacing: 4,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text('Local market:',
+            style: theme.textTheme.labelSmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontWeight: FontWeight.w700)),
+        item(AppColors.riskLow, 'Open'),
+        item(AppColors.riskModerate, 'Near limit'),
+        item(AppColors.riskHigh, 'Oversupplied'),
       ],
     );
   }

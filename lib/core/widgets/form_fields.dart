@@ -84,6 +84,7 @@ class AppDropdown<T> extends StatelessWidget {
     required this.onChanged,
     this.prefixIcon,
     this.validator,
+    this.itemTrailing,
   });
 
   final String label;
@@ -93,6 +94,10 @@ class AppDropdown<T> extends StatelessWidget {
   final ValueChanged<T?> onChanged;
   final IconData? prefixIcon;
   final String? Function(T?)? validator;
+
+  /// Optional trailing widget shown after each item's label — e.g. a status
+  /// badge. Rendered both in the open menu and on the closed (selected) field.
+  final Widget Function(T value)? itemTrailing;
 
   @override
   Widget build(BuildContext context) {
@@ -112,12 +117,24 @@ class AppDropdown<T> extends StatelessWidget {
           decoration: InputDecoration(
             prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
           ),
-          items: items
-              .map((e) => DropdownMenuItem<T>(
-                    value: e,
-                    child: Text(itemLabel(e), overflow: TextOverflow.ellipsis),
-                  ))
-              .toList(),
+          items: items.map((e) {
+            final trailing = itemTrailing?.call(e);
+            return DropdownMenuItem<T>(
+              value: e,
+              child: trailing == null
+                  ? Text(itemLabel(e), overflow: TextOverflow.ellipsis)
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: Text(itemLabel(e),
+                              overflow: TextOverflow.ellipsis),
+                        ),
+                        const SizedBox(width: 8),
+                        trailing,
+                      ],
+                    ),
+            );
+          }).toList(),
           onChanged: onChanged,
         ),
       ],

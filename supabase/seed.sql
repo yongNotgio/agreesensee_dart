@@ -98,19 +98,19 @@ insert into public.crop_declarations
 values
   ('a3000000-0000-4000-8000-000000000001',
    'a0000000-0000-4000-8000-000000000005', 'a2000000-0000-4000-8000-000000000005',
-   'ampalaya', 'Galaxy', 1.0, current_date - 45, current_date + 25, 12000, 'Igpaho',
+   'ampalaya', 'Galaxy', 1.0, current_date - 45, current_date + 25, 8500, 'Igpaho',
    'active', '{}', 45, 'First declaration of the dry season.',
    now() - interval '45 days', now()),
 
   ('a3000000-0000-4000-8000-000000000002',
    'a0000000-0000-4000-8000-000000000005', 'a2000000-0000-4000-8000-000000000005',
-   'eggplant', 'Casino', 0.5, current_date - 10, current_date + 70, 9000, 'Igpaho',
+   'eggplant', 'Casino', 0.5, current_date - 10, current_date + 70, 4000, 'Igpaho',
    'active', '{string_beans}', 40, null,
    now() - interval '10 days', now()),
 
   ('a3000000-0000-4000-8000-000000000003',
    'a0000000-0000-4000-8000-000000000005', 'a2000000-0000-4000-8000-000000000005',
-   'okra', 'Smooth Green', 0.6, current_date - 90, current_date - 10, 5400, 'Igpaho',
+   'okra', 'Smooth Green', 0.6, current_date - 90, current_date - 10, 4800, 'Igpaho',
    'harvested', '{}', 35, 'Last season project.',
    now() - interval '95 days', now())
 on conflict (id) do nothing;
@@ -259,7 +259,7 @@ begin
     -- not every farmer picking on the same day.
     if i <= 18 then
       cropid := 'ampalaya';
-      ar     := 0.55 + (i % 6) * 0.07;      -- 0.55 - 0.90 ha
+      ar     := 0.85 + (i % 6) * 0.07;      -- 0.85 - 1.20 ha (over-planted)
       hv     := current_date + 20 + (i % 35);
     elsif i <= 31 then
       cropid := 'eggplant';

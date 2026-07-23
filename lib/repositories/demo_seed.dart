@@ -31,7 +31,7 @@ import '../models/profile.dart';
 class DemoSeed {
   const DemoSeed._();
 
-  static const String seededFlag = 'demo_seeded_v3';
+  static const String seededFlag = 'demo_seeded_v4';
   static const String coopId = 'coop-tubungan-vegetable';
   static const String juanId = 'demo-farmer-juan';
   static const String mariaId = 'demo-coop-maria';
@@ -191,7 +191,7 @@ class DemoSeed {
     ];
     // (crop, growers, base area, area step, first harvest day, harvest spread)
     const mix = <(String, int, double, double, int, int)>[
-      ('ampalaya', 18, 0.55, 0.07, 20, 35),
+      ('ampalaya', 18, 0.85, 0.07, 20, 35),
       ('eggplant', 13, 0.45, 0.06, 25, 55),
       ('okra', 5, 0.35, 0.07, 30, 70),
       ('string_beans', 4, 0.40, 0.08, 35, 75),
