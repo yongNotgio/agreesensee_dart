@@ -7,8 +7,10 @@ import '../../core/router/app_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/validators.dart';
 import '../../core/widgets/form_fields.dart';
+import '../../models/enums.dart';
 import '../../providers/auth_controller.dart';
 import '../../providers/core_providers.dart';
+import '../../providers/data_providers.dart';
 import '../../repositories/auth_repository.dart';
 
 /// Email/password sign-in. In demo mode it lists the seeded accounts and
@@ -100,7 +102,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         textAlign: TextAlign.center,
                         style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant)),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 16),
+                    const _LoginSaturatedCropsTicker(),
+                    const SizedBox(height: 16),
                     AppTextField(
                       label: 'Email',
                       controller: _email,
@@ -238,4 +242,325 @@ class _DemoTile extends StatelessWidget {
 
 extension on Widget {
   Widget withCenter() => Center(child: this);
+}
+
+/// Comprehensive Crop Saturation Widget for the Login Screen.
+/// Displays an interactive horizontal bar chart and breakdown across all monitored crops
+/// so farmers can evaluate market oversupply before logging in.
+class _LoginSaturatedCropsTicker extends ConsumerStatefulWidget {
+  const _LoginSaturatedCropsTicker();
+
+  @override
+  ConsumerState<_LoginSaturatedCropsTicker> createState() =>
+      _LoginSaturatedCropsTickerState();
+}
+
+class _LoginSaturatedCropsTickerState
+    extends ConsumerState<_LoginSaturatedCropsTicker> {
+  bool _expanded = false;
+
+  Color _colorFor(SaturationLevel level) => switch (level) {
+        SaturationLevel.high => AppColors.riskHigh,
+        SaturationLevel.moderate => AppColors.riskModerate,
+        SaturationLevel.low => AppColors.riskLow,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    final saturationAsync = ref.watch(saturationProvider);
+    final theme = Theme.of(context);
+
+    return saturationAsync.when(
+      loading: () => const SizedBox(
+        height: 60,
+        child: Center(
+          child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      ),
+      error: (_, _) => const SizedBox.shrink(),
+      data: (results) {
+        if (results.isEmpty) return const SizedBox.shrink();
+
+        final highCount =
+            results.where((r) => r.level == SaturationLevel.high).length;
+        final moderateCount =
+            results.where((r) => r.level == SaturationLevel.moderate).length;
+
+        // Display all crops in descending order of saturation
+        final displayResults = results;
+
+        return Container(
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: highCount > 0
+                  ? AppColors.riskHigh.withValues(alpha: 0.35)
+                  : theme.colorScheme.outlineVariant,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Header (Tappable to expand / collapse)
+              InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () => setState(() => _expanded = !_expanded),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: highCount > 0
+                              ? AppColors.riskHigh.withValues(alpha: 0.12)
+                              : AppColors.primary.withValues(alpha: 0.12),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          highCount > 0
+                              ? Icons.warning_amber_rounded
+                              : Icons.bar_chart_rounded,
+                          size: 18,
+                          color: highCount > 0
+                              ? AppColors.riskHigh
+                              : AppColors.primary,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Municipal Crop Saturation Index',
+                              style: theme.textTheme.labelLarge?.copyWith(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              highCount > 0
+                                  ? '$highCount crop(s) oversupplied, $moderateCount near balance'
+                                  : 'All crops within normal market demand',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: highCount > 0
+                                    ? AppColors.riskHigh
+                                    : theme.colorScheme.onSurfaceVariant,
+                                fontWeight: highCount > 0
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
+                                fontSize: 11,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            _expanded ? 'Hide' : 'View chart',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                          Icon(
+                            _expanded
+                                ? Icons.keyboard_arrow_up
+                                : Icons.keyboard_arrow_down,
+                            size: 18,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              if (_expanded) ...[
+                const Divider(height: 1),
+                // Chart View
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 8,
+                        runSpacing: 6,
+                        children: [
+                          Text(
+                            'Supply vs Demand',
+                            style: theme.textTheme.labelMedium?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 4,
+                            children: [
+                              _LegendDot(color: AppColors.riskHigh, label: '>115% High'),
+                              _LegendDot(color: AppColors.riskModerate, label: '85-115%'),
+                              _LegendDot(color: AppColors.riskLow, label: '<85%'),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+
+                      // Constrained scrollable area for all crops
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxHeight: 220),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              for (final r in displayResults)
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Flexible(
+                                                  child: Text(
+                                                    r.cropName,
+                                                    maxLines: 1,
+                                                    overflow: TextOverflow.ellipsis,
+                                                    style: const TextStyle(
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                ),
+                                                if (r.level == SaturationLevel.high) ...[
+                                                  const SizedBox(width: 4),
+                                                  const Icon(
+                                                    Icons.warning_amber_rounded,
+                                                    size: 13,
+                                                    color: AppColors.riskHigh,
+                                                  ),
+                                                ],
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Text(
+                                            '${(r.index * 100).round()}%',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800,
+                                              color: _colorFor(r.level),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            '(${r.expectedSupplyTons.toStringAsFixed(1)}t / ${r.demandTons.toStringAsFixed(1)}t)',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: theme.colorScheme.onSurfaceVariant,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      // Progress bar
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            height: 7,
+                                            decoration: BoxDecoration(
+                                              color: theme.colorScheme.surfaceContainerHighest,
+                                              borderRadius: BorderRadius.circular(4),
+                                            ),
+                                          ),
+                                          FractionallySizedBox(
+                                            widthFactor: (r.index / 2.0).clamp(0.02, 1.0),
+                                            child: Container(
+                                              height: 7,
+                                              decoration: BoxDecoration(
+                                                color: _colorFor(r.level),
+                                                borderRadius: BorderRadius.circular(4),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.surfaceContainerHighest
+                              .withValues(alpha: 0.4),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          'Saturation compares municipal standing crop declarations against local market absorption (90-day horizon). Over 115% indicates imminent oversupply risk.',
+                          style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _LegendDot extends StatelessWidget {
+  const _LegendDot({required this.color, required this.label});
+  final Color color;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
+        const SizedBox(width: 3),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w500),
+        ),
+      ],
+    );
+  }
 }
